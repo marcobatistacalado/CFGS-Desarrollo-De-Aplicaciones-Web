@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.box{
+    padding: 20px;
+    background-color: #999;
+}
+
+.box a{
+    background-color: red;
+    color: #fff;
+    display: block; /*convertimos el elemento in-line --> en block y ocupa todo el ancho que pueda*/
+    border: 1px solid #000;
+    /*block si que admite margin, padding...*/
+    margin: 20px;
+    padding: 20px;
+}
+
+.box p{
+    /*puedo hacer lo contrario de block a in-line*/
+    background-color: red;
+    color: #fff;
+    display: inline; /*convertimos el elemento in-line --> en block y ocupa todo el ancho que pueda*/
+    border: 1px solid #000;
+   /* y esto le da igual: */
+    margin: 20px;
+    padding: 20px;
+}
+
+.nav__list{
+    margin: 0;
+    background-color: #48e;
+    text-align: center;
+}
+
+.nav__item{
+    display: inline-block; /*si ocupan el ancho disponible pero se agrupan*/
+}
+
+.nav__link{
+    color: #fff;
+    text-decoration: none;
+    /*lo hacemos para que realmente sea cuando luego el hover*/
+    display: inline-block;
+    padding: 10px;
+    background-color: #48e;
+
+}
+.nav__link:hover{
+    background-color: #6af;
+}
+
+.link--button{
+    background-color: #fff;
+    padding: 6px 12px;
+    color: #48e;
+    border-radius: 3px;
+    margin-left: 60px;
+    /*display: none;*/ /*está pero no se ve*/ 
+}
+
+.link--button:hover{
+    background: transparent;
+    color: #fff;
+}

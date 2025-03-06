@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cine</title>
+    <script>
+      function cine() {
+        let fil = parseInt(prompt("Introduce número de salas: "));
+        let col = 5; // DIAS DE LA SEMANA
+
+        //CREAR TABLA
+        let tabla = new Array(fil);
+        for (let i = 0; i < fil; i++) {
+          tabla[i] = new Array(col);
+        }
+
+        //RELLENAR
+        
+        for (let i = 0; i < fil; i++) {
+          for (let j = 0; j < col; j++) {
+            let numeroAleatorio = Math.floor(Math.random() * 49) + 1;
+            tabla[i][j] = numeroAleatorio;
+            
+          }
+        }
+
+        // Crear la tabla
+        const table = document.createElement("table");
+        table.setAttribute("border", "1");
+        table.style.textAlign = "center"; // Alineación del texto en la tabla
+
+        // Crear la primera fila (encabezados)
+        const encabezado = document.createElement("tr");
+        const dias = ["Sala", "L", "M", "X", "J", "V"];
+        for (let i = 0; i < dias.length; i++) {
+            const th = document.createElement("th");
+            th.innerText = dias[i];
+            encabezado.appendChild(th);
+        }
+        table.appendChild(encabezado); // Añadir la fila de encabezados
+
+        // Crear las filas de datos
+        for (let i = 0; i < fil; i++) {
+            const tr = document.createElement("tr");
+            
+            // Añadir la columna "Sala"
+            const tdSala = document.createElement("td");
+            tdSala.innerText = "Sala " + (i + 1);
+            tr.appendChild(tdSala);
+
+            // Añadir las celdas de los días (L, M, X, J, V)
+            for (let j = 0; j < col; j++) {
+                const td = document.createElement("td");
+                td.innerText = tabla[i][j]; // Asignar valor desde el array 'tabla'
+                tr.appendChild(td);
+            }
+
+            table.appendChild(tr); // Añadir la fila de datos a la tabla
+        }
+
+        // Insertar la tabla en el contenedor
+        const div = document.getElementById("div1");
+        div.innerHTML = ""; // Limpiar contenido previo
+        div.appendChild(table); // Añadir la nueva tabla
+        
+        // Obtener el contenedor de la tabla
+        const padre = document.getElementById("div1");
+         // Agregar la nueva tabla al contenedor
+         padre.appendChild(table);
+      }
+    </script>
+  </head>
+
+  <body onload="cine()">
+    <div id="div1"></div>
+  </body>
+</html>

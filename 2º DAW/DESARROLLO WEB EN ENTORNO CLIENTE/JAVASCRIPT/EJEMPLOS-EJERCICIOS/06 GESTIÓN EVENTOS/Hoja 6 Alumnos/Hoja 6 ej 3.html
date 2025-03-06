@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CAMBIAR TEXTO</title>
+    <link rel="stylesheet" href="main.css">
+    <script>
+        // Función que actualiza el estilo del texto según las opciones seleccionadas
+        function actualizarEstilos() {
+            const texto = document.getElementById("texto");
+
+            // Obtener valores de tamaño, tipo de letra y color
+            const tamanyo = document.getElementById("tamanyo").value;
+            const tipo = document.getElementById("tipo").value;
+            const color = document.getElementById("color").value;
+
+            // Aplicar los estilos al texto
+            texto.style.fontSize = tamanyo + "px";
+            texto.style.fontFamily = tipo;
+            texto.style.color = color;
+
+            // Aplicar negrita, cursiva y subrayado
+            texto.style.fontWeight = document.getElementById("negrita").checked ? "bold" : "normal";
+            texto.style.fontStyle = document.getElementById("cursiva").checked ? "italic" : "normal";
+            texto.style.textDecoration = document.getElementById("subrayado").checked ? "underline" : "none";
+
+            // Aplicar alineación del texto
+            const alineacion = document.querySelector('input[name="a"]:checked');
+            texto.style.textAlign = alineacion ? alineacion.value : "left";
+        }
+
+        // Añadir event listeners para que actualicen el estilo al cambiar las opciones
+        window.onload = function () {
+            document.getElementById("tamanyo").addEventListener("change", actualizarEstilos);
+            document.getElementById("tipo").addEventListener("change", actualizarEstilos);
+            document.getElementById("color").addEventListener("change", actualizarEstilos);
+            document.getElementById("negrita").addEventListener("change", actualizarEstilos);
+            document.getElementById("cursiva").addEventListener("change", actualizarEstilos);
+            document.getElementById("subrayado").addEventListener("change", actualizarEstilos);
+            document.querySelectorAll('input[name="a"]').forEach(radio => {
+                radio.addEventListener("change", actualizarEstilos);
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <div id="controles">
+        Tamaño del texto
+        <select id="tamanyo">
+            <option value="8">8</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="20">20</option>
+        </select>
+
+        Tipo de texto
+        <select id="tipo">
+            <option value="arial">Arial</option>
+            <option value="verdana">Verdana</option>
+            <option value="geneva">Geneva</option>
+            <option value="georgia">Georgia</option>
+        </select>
+
+        Color del texto
+        <select id="color">
+            <option value="#000000">Negro</option>
+            <option value="#CCCCCC">Gris</option>
+            <option value="#6699FF">Azul</option>
+        </select>
+    </div>
+    <br>
+    <div id="controles2">
+        Negrita&nbsp;
+        <input type="checkbox" id="negrita" />&nbsp;&nbsp;&nbsp;&nbsp;
+        Cursiva&nbsp;
+        <input type="checkbox" id="cursiva" />&nbsp;&nbsp;&nbsp;&nbsp;
+        Subrayado&nbsp;
+        <input type="checkbox" id="subrayado" />
+        &nbsp;&nbsp;&nbsp;&nbsp;Alineación&nbsp;
+        <input name="a" type="radio" value="left" />&nbsp;Izq&nbsp;
+        <input name="a" type="radio" value="right" />&nbsp;Der&nbsp;
+        <input name="a" type="radio" value="center" />&nbsp;Cen&nbsp;
+        <input name="a" type="radio" value="justify" />&nbsp;Jus&nbsp;
+    </div>
+    <div id="texto" style="font-size: 12px; font-family: Arial; color: #000000;">
+        <br>JavaScript es un lenguaje de programación interpretado que se utiliza
+        <br>fundamentalmente para dotar de comportamiento dinámico a las páginas web.
+        <br>Fue diseñado para que su código se incrustase en documentos HTML y fuera
+        <br>interpretado por el navegador web.
+        <br><br>Mediante JavaScript nos encargaremos de realizar acciones en el cliente,
+        <br>como pueden ser pedir datos, confirmaciones, validación de datos en
+        <br>formularios, incorporar efectos como texto que aparece y desaparece,
+        <br>animaciones, acciones que se activan al pulsar botones, manejar ventanas
+        <br>con mensajes de aviso al usuario…
+    </div>
+</body>
+
+</html>

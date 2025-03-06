@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo Insertar y Borrar Nodos</title>
+<style>
+div {
+	width:500px;
+	}
+#exterior{
+	border: 3px solid red;
+	padding: 5px;
+}
+#interior{
+	border: 3px solid blue;
+}
+.nuevo{
+	border: 3px solid yellow;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"> </script>
+<script src="..\jquery-3.7.1.min.js"> </script>
+<script>
+var contador;
+$(document).ready(function(){
+	contador=0;
+	$("li").click(function(){
+		$(this).animate({fontSize: "+=1px"});
+	});			
+	$("#b1").click (function(){
+		contador++;
+		nuevo=$("<li> Nuevo "+contador+"</li>");
+		$("ul").append(nuevo);
+		contador++;
+		otro=$("<li>");
+		otro.html('Otro '+contador); 
+		otro.appendTo($("ul"));
+	});
+	$("#b2").click (function(){
+		contador++;
+		nuevo=$("<li> Nuevo "+contador+"</li>");
+	    $("ul").prepend(nuevo);
+		contador++;
+		otro=$("<li> Otro "+contador+"</li>"); 
+		otro.prependTo($("ul"));
+	});
+	$("#b3").click (function(){
+		contador++;
+		nuevo=$("<li> Hermano "+contador+"</li>");
+	    $("li:first").after(nuevo);
+		nuevo.click(function(){
+		$(this).animate({fontSize: "+=1px"});
+				});
+	});
+	$("#b4").click (function(){
+		contador++;
+		nuevo=$("<li> Hermano "+contador+"</li>");
+	    $("li:first").before(nuevo);
+	});
+	$("#b5").click (function(){
+		contador++;
+		$("li:first").clone(true).appendTo($("ul"));
+		// al pasar true a clone como argumento clona el elemento también con los eventos relacionados 
+		// solo el botón 3 hace esto mismo porque le añado el evento al li nuevo 
+	});
+	$("#b6").click (function(){
+	    $("ul").wrap("<div class='nuevo';></div>");
+	});
+	$("#b7").click (function(){
+		$(":button").wrapAll("<div class='nuevo';></div>");
+	});	
+	$("#b8").click (function(){
+	    $("ul").unwrap();
+	});	
+	$("#b9").click (function(){
+		 $("li:odd").remove();
+	});	
+	$("#b10").click (function(){
+		borrado=$("ul li:last").detach();
+		$("ol").append(borrado);
+	});	
+	$("#b11").click (function(){
+		$("ol").empty();
+	});
+	$("#b12").click (function(){
+		$("<h2>ESTO SE ACABA...</h2>").replaceAll("ul");
+	});		
+	$("#b13").click (function(){
+		$("ul").replaceWith("<h2>ESTO SE ACABA...</h2>");
+	});		
+	$("#b14").click (function(){
+		alert($("body").text());
+		
+		$("li").text("<p>adios </p>");
+	});		
+
+	
+});
+</script>
+</head>
+<body>
+<button id="b1"> append </button> Como último hijo de la lista <br>
+<button id="b2"> prepend </button> Como primer hijo de la lista <br>
+<button id="b3"> after </button> Como hermano next del primer elemento de la lista <br>
+<button id="b4"> before </button> Como hermano prev del primer elemento de la lista <br>
+<button id="b5"> clone </button> Clona el primer elemento de la lista y lo añade al final <br>
+<button id="b6"> wrap </button> Meto la lista dentro de un div, le pongo un padre div  <br>
+<button id="b7"> wrapAll </button> Pongo un div padre que envuelve todos los botones  <br>
+<button id="b8"> unwrap </button> Le quito el padre a la ul  <br>
+<button id="b9"> remove </button> Elimino los elementos pares de la lista  <br>
+<button id="b10"> detach </button> Borro el último elemento de la lista pero lo guardo y añado en la ol del final  <br>
+<button id="b11"> empty </button> Vacía un elemento (todos sus descendientes) en este caso la ol final <br>
+<button id="b12"> replaceAll </button> Reemplaza todos los ul por un h2 <br>
+<button id="b13"> replaceWith </button> Reemplaza todos los ul por un h2 con otro método<br>
+<button id="b14"> text </button> Obtiene todos los text de todo el body<br>
+<ul>
+<li>Uno</li> <li>Dos</li><li>Tres</li>
+</ul>
+
+ 
+<ol id="basura"></ol>
+</body>
+</html>

@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* CENTRAR */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: auto;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.container {
+    width: 960px;
+    display: grid;
+    grid-template-columns: 380px 176px 176px 176px; /* Anchos de columnas específicos */
+    grid-template-rows: 240px 200px 80px;     /* Alturas de filas específicas */
+    gap: 10px;
+    border: solid 1px orange;
+    background-color: #dddddf;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.container h1 {
+    color: #ff9966;
+    font-weight: bold;
+    text-align: center;
+}
+
+#enlacePosicionado {
+    position: absolute;
+    top: 70%;
+    left: 27%;
+}
+
+.numeric-list {
+    list-style-type: decimal;
+    margin-left: 30px;
+}
+
+.alphabetic-list {
+    list-style-type: upper-alpha;
+    margin-left: 30px;
+}
+
+.boy {
+    background-image: url(./imagenes/hombrepeque¤o.jpg);
+    grid-row: 1 / 4;
+    grid-column: 1 / 2;
+    border: solid 1px white;
+}
+
+.texto {
+    grid-column: 2 / 5;
+}
+
+.texto ul {
+    margin: auto;
+    width: 60%;
+}
+
+.texto span {
+    color: #ff9966;
+    font-weight: bold;
+}
+
+.i1 img, .i2 img, .i3 img {
+    width: 125px;
+}
+
+.i1 {
+    grid-column: 2 / 3;
+    background-color: white;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.i2 {
+    grid-column: 3 / 4;
+    background-color: white;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.i3 {
+    grid-column: 4 / 5;
+    background-color: white;
+    text-align: center;
+    padding-top: 30px;
+    position: relative;
+}
+
+/*CAMBIOS LENOVO OPACITY*/
+.lenovo-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.lenovo-image {
+    width: 125px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.i3:hover .lenovo-image {
+    opacity: 0;
+}
+/*hasta aqui*/
+
+.rrss {
+    grid-column: 2 / 5;
+    text-align: right;
+    padding-top: 20px;
+}
+
+.rrss img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+/* Estilos responsive */
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr; /* Una columna */
+        grid-template-rows: auto;  /* Las filas se ajustan según el contenido */
+    }
+
+    .i1, .i2, .i3 {
+        grid-column: 1 / 2;  /* Hacer que cada item ocupe toda la fila */
+        text-align: center;
+    }
+
+    .texto {
+        grid-column: 1 / 2; /* Hacer que el texto también ocupe toda la fila */
+    }
+
+    .rrss {
+        grid-column: 1 / 2;
+        text-align: center;
+    }
+}

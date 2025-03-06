@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DOM</title>
+        
+        <style type="text/css">
+            body {
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+            }
+            div {
+                width: 600px;
+                margin-right: auto;
+                margin-left: auto;
+                padding: 20px;
+            }
+            #miniaturas img {
+                margin: 5px;
+                cursor: pointer;
+            }
+            .highlight {
+                border: 2px solid orange;
+            }
+        </style>
+
+        <script type="text/javascript">
+            var cont = 0; 
+            var items = []; 
+
+            function cargar() {
+                var lista = document.getElementById("miniaturas");
+                items = lista.getElementsByTagName("img");
+
+                if (items.length > 0) {
+                    items[cont].className = "highlight"; // Usamos className para añadir la clase
+                    mostrarImagen(items[cont].src); // Mostrar la primera imagen en el contenedor #foto
+                }
+            }
+
+            function adelante() {
+                if (cont < items.length - 1) {
+                    items[cont].className = ""; // Eliminar la clase "highlight"
+                    cont++;
+                    items[cont].className = "highlight"; // Añadir la clase "highlight" al siguiente elemento
+                    mostrarImagen(items[cont].src); // Actualizar la imagen principal
+                } else {
+                    alert("No puedes avanzar más");
+                }
+            }
+
+            function atras() {
+                if (cont > 0) {
+                    items[cont].className = ""; // Eliminar la clase "highlight"
+                    cont--;
+                    items[cont].className = "highlight"; // Añadir la clase "highlight" al elemento anterior
+                    mostrarImagen(items[cont].src); // Actualizar la imagen principal
+                } else {
+                    alert("No puedes retroceder más");
+                }
+            }
+
+            // Función para mostrar la imagen principal en el contenedor #foto
+            function mostrarImagen(src) {
+                var cajaFoto = document.getElementById("foto");
+                cajaFoto.innerHTML = ""; // Limpiar la imagen actual
+                var img = document.createElement("img");
+                img.src = src; // Asignar la fuente de la imagen
+                cajaFoto.appendChild(img); // Añadir la imagen al contenedor
+            }
+        </script>
+    </head>
+
+    <body onload="cargar()">
+        <div id="miniaturas">
+            <img src="pokemon/Bulbasaur.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <img src="pokemon/Ivysaur.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <img src="pokemon/Venusaur.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <img src="pokemon/Charmander.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <img src="pokemon/Charmeleon.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <img src="pokemon/Charizard.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <img src="pokemon/Squirtle.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <img src="pokemon/Wartortle.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <img src="pokemon/Blastoise.png" height="60" width="60" onclick="mostrarImagen(this.src)">
+            <br><br>
+
+            <input type="button" value="Atrás" onclick="atras()">
+            <input type="button" value="Adelante" onclick="adelante()">
+        </div>
+        
+        <div id="foto"></div>
+    </body>
+
+</html>

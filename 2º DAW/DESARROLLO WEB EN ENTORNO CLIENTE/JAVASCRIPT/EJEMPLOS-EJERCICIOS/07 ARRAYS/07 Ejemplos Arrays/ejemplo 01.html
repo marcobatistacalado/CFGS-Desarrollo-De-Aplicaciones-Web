@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <script type="text/javascript">
+    // Se crea un array llamado vocales con los elementos "a", "e", "i", "o", "u"
+    const vocales = ["a", "e", "i", "o", "u"];
+    document.write("<br> VOCALES");
+
+    // Se utiliza un bucle para intentar recorrer el array vocales desde 0 hasta 6 (aunque el array tiene solo 5 elementos)
+    for (i = 0; i < 7; i++) {
+      // El índice i puede superar la longitud del array, lo que hará que vocales[i] sea undefined
+      document.write("<br>" + i + " " + vocales[i]);
+    }
+
+    // Se crea un array vacío llamado letras
+    const letras = [];
+    // Se asignan valores específicos en posiciones no consecutivas
+    letras[2] = "c"; // Se asigna "c" en la posición 2
+    letras[4] = "e"; // Se asigna "e" en la posición 4
+
+    document.write("<br><br> LETRAS");
+
+    // Se utiliza un bucle para recorrer el array letras desde 0 hasta 5
+    for (i = 0; i <= 5; i++) {
+      // Si no se asignó ningún valor a una posición del array, se mostrará undefined
+      document.write("<br>" + i + " " + letras[i]);
+    }
+
+    // Se muestra la longitud actual del array letras
+    document.write("<br>Longitud del array " + letras.length + "<br>");
+    // La longitud es 5 porque el índice más alto asignado es 4, pero los arrays comienzan en 0
+
+    // Se modifica la longitud del array letras a 0, borrando todos los elementos
+    letras.length = 0;
+
+    // Se intenta recorrer el array letras nuevamente desde 0 hasta 4
+    for (i = 0; i < 5; i++) {
+      // Como la longitud se estableció en 0, todas las posiciones estarán undefined
+      document.write("<br>" + i + " " + letras[i]);
+    }
+  </script>
+  <body></body>
+</html>

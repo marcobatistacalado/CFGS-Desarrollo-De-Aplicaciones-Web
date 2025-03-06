@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validación de Formulario</title>
+    <style>
+      span {
+        display: none;
+      }
+      legend {
+        color: #cc0033;
+        font-weight: 600;
+      }
+      #precio {
+        color: #222;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+    </style>
+    <script>
+      function validar() {
+            let camposllenos = true;
+            let validacionesCorrectas = true; // Variable para comprobar si todas las validaciones son correctas
+            const array = document.getElementsByTagName("input");
+
+            for (let i = 0; i < array.length; i++) {
+                if (array[i].type === "text" && array[i].value === "" && !array[i].readOnly) {
+                    array[i].style.backgroundColor = "orange";
+                    camposllenos = false; // Al menos un campo está vacío
+                } else {
+                    array[i].style.backgroundColor = "white"; // Cambiar a blanco si está lleno
+                }
+            }
+
+            if (!camposllenos) {
+                alert("Por favor, complete todos los campos.");
+                return false; // No continuar si hay campos vacíos
+            }
+
+            // Validar cada campo individualmente
+            const nombreValido = validarNombreApellido(document.getElementById("nom"));
+            const apellidosValidos = validarNombreApellido(document.getElementById("ape"));
+            const fechaValida = validarFecha(document.getElementById("fecnac"));
+            const carnetValido = validarCarnet(document.getElementById("carnet"));
+            const fechaDesdeValida = validarFecha(document.getElementById("desde"));
+
+            // Comprobar si todas las validaciones son correctas
+            if (!nombreValido || !apellidosValidos || !fechaValida || !carnetValido || !fechaDesdeValida) {
+                validacionesCorrectas = false;
+            }
+
+            // Mostrar mensaje si todo está correcto
+            if (validacionesCorrectas) {
+                document.getElementById("todoOK").innerText = "TODO CORRECTO";
+                document.getElementById("todoOK").style.color = "green"; // Cambiar color del mensaje
+            } else {
+                alert("Algunos campos tienen errores. Por favor, revisa.");
+            }
+
+            return false; // Evitar el envío del formulario
+        }
+
+      function validarNombreApellido(e) {
+        //const soloLetras = /^[A-Za-záéíóúÁÉÍÓÚñÑ]{2,}([a-zA-ZáéíóúÁÉÍÓÚñÑ\s]*)$/; --> muy top
+        const soloLetras = /^[a-zA-Z]{2}[a-zA-Z\s]+$/;
+        const cad = e.value.trim();
+
+        if (cad === "") {
+          alert("Por favor, complete el campo.");
+          return false;
+        }
+
+        if (!soloLetras.test(cad)) {
+          alert("El nombre o apellido debe comenzar con al menos dos letras.");
+          return false;
+        }
+
+        e.style.backgroundColor = "white"; // Cambiar color a blanco si es válido
+        return true;
+      }
+
+      function validarFecha(e) {
+        const fecha = e.value.trim();
+        const fechaRegex = /^\d{4}-\d{2}-\d{2}$/; // Formato aaaa-mm-dd
+
+        if (!fechaRegex.test(fecha)) {
+          //alert("Formato de fecha inválido. Usa el formato aaaa-mm-dd.");
+          return false;
+        }
+
+        const anio = parseInt(fecha.substring(0, 4), 10);
+        const mes = parseInt(fecha.substring(5, 7), 10) - 1; // Mes comienza en 0
+        const dia = parseInt(fecha.substring(8, 10), 10);
+
+        const f1 = new Date(anio, mes, dia);
+        const hoy = new Date();
+
+        if (f1 > hoy) {
+          //alert("La fecha no puede ser en el futuro.");
+          return false;
+        }
+
+        if (
+          f1.getFullYear() !== anio ||
+          f1.getMonth() !== mes ||
+          f1.getDate() !== dia
+        ) {
+          //alert("Fecha inválida.");
+          return false;
+        }
+
+        e.style.backgroundColor = "white"; // Cambia el color a blanco si es válido
+        return true;
+      }
+
+      function calcularEdad(fechaNac) {
+        const hoy = new Date();
+        const fechaParts = fechaNac.split("-"); // Separar la fecha en partes
+
+        const anio = parseInt(fechaParts[0], 10); // Año
+        const mes = parseInt(fechaParts[1], 10); // Mes (ajustado para ser 0-11)
+        const dia = parseInt(fechaParts[2], 10); // Día
+
+        let edad = hoy.getFullYear() - anio;
+
+        // Ajustar la edad si no ha cumplido años este año
+        if (
+          hoy.getMonth() < mes - 1 ||
+          (hoy.getMonth() === mes - 1 && hoy.getDate() < dia)
+        ) {
+          edad--;
+        }
+
+        document.getElementById("edad").value = edad; // Mostrar edad
+      }
+
+      function validarCarnet(e) {
+        const soloLetras = /^\d{6,8}[A-Z]$/;
+        const cad = e.value.trim();
+
+        if (cad === "") {
+          //alert("Por favor, complete el campo.");
+          return false;
+        }
+
+        if (!soloLetras.test(cad)) {
+          //alert("El carnet debe ser de 6 a 8 dígitos y una letra mayúscula.");
+          return false;
+        }
+
+        e.style.backgroundColor = "white"; // Cambiar color a blanco si es válido
+        return true;
+      }
+
+      function calcularCaducidad(fechaCarnet) {
+        const hoy = new Date();
+
+        let fCarnet = new Date(fechaCarnet);
+
+        while (true) {
+          if (fCarnet.getFullYear() < hoy.getFullYear()) {
+            fCarnet.setFullYear(fCarnet.getFullYear() + 10);
+          } else {
+            break;
+          }
+        }
+
+        const fechaParts = fechaCarnet.split("-"); // Separar la fecha en partes
+
+        const anio = parseInt(fechaParts[0]); // Año
+        const mes = parseInt(fechaParts[1]); // Mes (ajustado para ser 0-11)
+        const dia = parseInt(fechaParts[2]); // Día
+
+        document.getElementById("renovar").value = anio + "-" + mes + "-" + dia;
+      }
+      function cambiarColor(e) {
+        e.style.backgroundColor = "beige"; // Cambiar color de fondo
+      }
+    </script>
+  </head>
+  <body>
+    <h1>CLUB DEL AUTOMOVIL</h1>
+    <h3>ALTA NUEVO SOCIO</h3>
+    <form>
+      <fieldset>
+        <legend>DATOS SOCIO</legend>
+        Nombre &nbsp;&nbsp;<input
+          type="text"
+          id="nom"
+          size="30"
+          onfocus="cambiarColor(this)"
+          onchange="validarNombreApellido(this)"
+        />
+        <br /><br />
+        Apellidos &nbsp;<input
+          type="text"
+          id="ape"
+          size="30"
+          onfocus="cambiarColor(this)"
+          onchange="validarNombreApellido(this)"
+        />
+        <br /><br />
+        Fecha Nacimiento &nbsp;<input
+          type="text"
+          id="fecnac"
+          size="13"
+          placeholder="aaaa-mm-dd"
+          onfocus="cambiarColor(this)"
+          onchange="if(validarFecha(this)){ calcularEdad(this.value); }"
+        />
+        &nbsp;&nbsp; Edad <input type="text" size="4" id="edad" readonly />
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>DATOS CARNET CONDUCIR</legend>
+        Num Carnet
+        <input
+          type="text"
+          id="carnet"
+          size="15"
+          onfocus="cambiarColor(this)"
+          onchange="validarCarnet(this)"
+        />
+        &nbsp;&nbsp; Desde
+        <input
+          type="text"
+          size="13"
+          id="desde"
+          placeholder="aaaa-mm-dd"
+          onfocus="cambiarColor(this)"
+          onchange="if(validarFecha(this)){ calcularCaducidad(this.value); }"
+        />
+        &nbsp;&nbsp; Renovar
+        <input type="text" size="13" id="renovar" readonly />
+        <input type="button" value="CONTRATAR" onclick="validar();" />
+        <br /><br />
+      </fieldset>
+    </form>
+    <br />
+    <div id="todoOK"></div>
+  </body>
+</html>

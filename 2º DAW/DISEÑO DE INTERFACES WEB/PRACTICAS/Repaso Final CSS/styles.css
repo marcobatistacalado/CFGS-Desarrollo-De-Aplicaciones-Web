@@ -1,0 +1,361 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+#header{
+    text-align: center;
+    height: 15vh;
+    background-color: #0056b3;;
+    padding: 4vh;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+#menu{
+    margin-top: 1vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center; /*CENTRAR VERTICALMENTE*/
+
+}
+#menu a{
+    margin-left: 3em;
+    text-decoration: none;
+    color: white;
+}
+#contenedor{
+    margin-top: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15fr 84fr;
+    gap: 1%;
+    padding-bottom: 10px;
+}
+
+#sidebar{
+    border-radius: 10px 10px 10px 10px;
+    color: white;
+    padding-left: 7.5%;
+    padding-top: 10px;
+    background-color: #ff9800;
+    display: grid;                /* Activa CSS Grid en el contenedor */
+    grid-template-columns: 1fr; 
+    grid-template-rows: 5vh 6vh 4vh 6vh 4vh;
+    transition:  transform 1s ease; /*PONEMOS VELOCIDAD A LA TRANSICION*/
+}
+
+#sidebar h2{
+    text-align: center;
+}
+
+#sidebar:hover{
+    transform:scale(1.1); /*TRANSICION*/
+}
+
+.lista{
+    margin-top: 10px;
+    background-color: #ffcc80;;
+    width: 90%;
+    padding: 6px;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+
+.lista:hover{
+    transform: translateX(5px); /*TRANSICION*/
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#main{
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 2px 2px gray;
+    animation: fadeIn;
+}
+
+#main > h2{
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+#cabecera{
+    height: 80vh;
+    width: 100%;
+    font-weight: bold;
+    background-image: url(teatro.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+@keyframes Abajo {
+    0%{
+        transform: translateY(-500px);
+        opacity: 0;
+        filter: blur(1.5em);
+    }
+
+    10%{
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    99%{
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes Arriba {
+    0%{
+        transform: translateY(500px);
+        opacity: 0;
+        filter: blur(1.5em);
+    }
+
+    10%{
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    99%{
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+.titulo{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    text-align: center;
+}
+
+.titulo-content{
+    color: #f0f8ff;
+    padding: 0px 30px;
+}
+
+.titulo h1{
+    font-size: 7vw;
+    opacity: 0;
+    animation: Abajo 6s 2s 3 forwards;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.titulo h2{
+    font-size: 7vw;
+    opacity: 0;
+    animation: Arriba 6s 2s 3 forwards;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+#beneficios{
+    margin-top: 10px;
+    padding: 10px;
+    margin-left: 30px;
+}
+#beneficios ul{
+    list-style-position: inside;
+}
+
+#precios{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.precios--items{
+    width: 30%;
+    height: 100px;
+    margin: 20px;
+    box-shadow: 2px 2px 2px 2px gray;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #f0f8ff;
+    text-align: center;
+    padding-top: 30px;
+    color: #0056b3;
+    font-weight: bold;
+}
+
+.precios--items h2{
+    color: #ff6f00;
+}
+
+.precios--items:hover{
+    transform: translateY(-5px); /*TRANSICION*/
+    box-shadow: 4px 4px 4px 4px gray;
+}
+
+#compra{
+    padding-top: 10px;
+    width: 50%;
+    margin: auto;
+    font-weight: bold;
+}
+#compraGrid{
+    display: grid;                /* Activa CSS Grid en el contenedor */
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    padding: 5px;
+}
+#compraGrid label{
+    grid-column: 1;
+}
+#compraGrid input, select{
+    grid-column: 2;
+    border-radius: 5px 5px 5px 5px;
+    height: 30px;
+    padding-left: 5px;
+}
+
+#compraGrid button{
+    grid-column: 1 / 3;
+    background-color: #ff9800;
+    height: 40px;
+    border-radius: 10px 10px 10px 10px;
+    color: wheat;
+    border-color: transparent;
+}
+#compra button:hover{
+    background-color: #ff6f00;
+}
+
+#footer{
+    text-align: center;
+    height:5vh;
+    padding-top: 15px;
+    background-color: #0056b3;;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+}
+
+@media (max-width: 700px) {
+    /* Ajustar el menú de navegación */
+    #header{
+        height: auto;
+    }
+    #menu {
+        flex-direction: column; /* Cambiar disposición a columna */
+        gap: 10px; /* Espaciado entre los enlaces */
+        padding: 10px 0; /* Espaciado vertical */
+        height: auto;
+    }
+
+    #menu a {
+        margin: 0; /* Eliminar margen horizontal */
+        padding: 10px; /* Espaciado interno */
+        text-align: center; /* Centrar el texto */
+        border-radius: 5px; /* Bordes redondeados */
+    }
+
+    /* Cambiar el diseño del contenedor principal */
+    #contenedor {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 20px; /* Espaciado entre las secciones */
+        padding: 10px; /* Espaciado interno */
+    }
+
+    /* Ajustar el sidebar */
+    #sidebar {
+        grid-template-rows: auto; /* Ajuste dinámico de filas */
+        padding: 20px; /* Espaciado interno */
+        text-align: center; /* Centrar contenido */
+    }
+
+    .lista {
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 10px auto; /* Centrar y espaciar elementos */
+    }
+
+    /* Ajustar el bloque principal */
+    #main > h2 {
+        margin-left: 0; /* Eliminar margen izquierdo */
+        text-align: center; /* Centrar texto */
+    }
+
+    /* Imagen de cabecera */
+    #cabecera {
+        height: 50vh; /* Reducir altura */
+        background-position: center; /* Centrar imagen */
+    }
+
+    /* Beneficios */
+    #beneficios {
+        margin: 0; /* Eliminar márgenes externos */
+        padding: 10px; /* Ajustar espaciado interno */
+    }
+
+    #beneficios ul {
+        padding-left: 20px; /* Espaciado interno */
+    }
+
+    /* Precios */
+    #precios {
+        flex-direction: column; /* Cambiar a disposición vertical */
+        gap: 20px; /* Espaciado entre elementos */
+    }
+
+    .precios--items {
+        width: 90%; /* Ocupa el 90% del contenedor */
+        height: auto; /* Ajustar altura dinámica */
+        margin: 0 auto; /* Centrar elementos */
+        padding: 20px; /* Espaciado interno */
+    }
+
+    /* Formulario de compra */
+    #compra {
+        width: 90%; /* Reducir ancho en dispositivos pequeños */
+    }
+
+    #compraGrid {
+        grid-template-columns: 1fr; /* Disposición de una columna */
+        gap: 15px; /* Espaciado entre filas */
+    }
+
+    #compraGrid label,
+    #compraGrid input,
+    #compraGrid select {
+        grid-column: 1; /* Elementos ocupan una columna */
+        width: 100%; /* Ancho completo */
+    }
+
+    #compraGrid button {
+        width: 100%; /* Botón ocupa todo el ancho */
+    }
+
+    /* Footer */
+    #footer {
+        padding: 7px; /* Más espaciado interno */
+        font-size: 12px; /* Reducir tamaño del texto */
+    }
+}

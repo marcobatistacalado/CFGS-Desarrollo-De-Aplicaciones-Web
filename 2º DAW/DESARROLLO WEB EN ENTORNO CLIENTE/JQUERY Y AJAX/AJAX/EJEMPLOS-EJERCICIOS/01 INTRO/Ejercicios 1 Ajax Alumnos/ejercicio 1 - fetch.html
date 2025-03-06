@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        function descargaXML() {
+            fetch('discos.xml')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al obtener el archivo XML');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data, 'text/xml');
+                    let txt = "<table><tr><th>Titulo</th><th>Artista</th><th>Discografica</th></tr>";
+                    let discos = xmlDoc.getElementsByTagName("CD");
+                    for (let i = 0; i < discos.length; i++) {
+                        let titulo = discos[i].getElementsByTagName("TITLE")[0];
+                        let artista = discos[i].getElementsByTagName("ARTIST")[0];
+                        let discografia = discos[i].getElementsByTagName("COMPANY")[0];
+                        txt += `<tr><td>${titulo.textContent}</td><td>${artista.textContent}</td><td>${discografia.textContent}</td></tr>`;
+                    }
+                    txt += "</table>";
+                    document.getElementById("demo").innerHTML = txt;
+                })
+                .catch(error => {
+                    document.getElementById("demo").innerHTML = "ERROR: " + error.message;
+                });
+        }
+    </script>
+</head>
+<body>
+
+    <button type="button" onclick="descargaXML()">MIS DISCOS</button>
+
+    <br><br>
+    <div id="demo"></div>
+
+</body>
+</html>

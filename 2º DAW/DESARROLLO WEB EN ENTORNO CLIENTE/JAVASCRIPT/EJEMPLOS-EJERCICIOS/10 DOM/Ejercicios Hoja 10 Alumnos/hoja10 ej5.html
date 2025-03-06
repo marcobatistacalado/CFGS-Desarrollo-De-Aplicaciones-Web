@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DOM</title>
+        <link rel="stylesheet" href="main.css">
+        <script type="text/JavaScript"> 
+            function conectar() {
+                var usu = document.getElementById("usu");
+                if (usu.value == "") {
+                    alert("Rellene el campo de usuario");
+                    usu.focus();
+                } else {
+                    var existe = false; 
+                    var lista = document.getElementById("ol1");
+                    var items = lista.getElementsByTagName("li");
+
+                    for (let i = 0; i < items.length; i++) {
+                        if (usu.value == items[i].innerHTML) { 
+                            existe = true;
+                            break;
+                        }
+                    }
+
+                    if (existe) {
+                        alert("Ya existe este usuario");
+                    } else {
+                        var usuarioLi = document.createElement("li");
+                        usuarioLi.innerHTML = usu.value; // Se asigna el valor correctamente
+                        lista.appendChild(usuarioLi);
+                    }
+                }
+            }
+
+            function desconectar() {
+                var usu = document.getElementById("usu");
+                if (usu.value == "") {
+                    alert("Rellene el campo de usuario");
+                    usu.value = ""; 
+                } else {
+                    item = ""
+                    var lista = document.getElementById("ol1");
+                    var items = lista.getElementsByTagName("li");
+
+                    for (let i = 0; i < items.length; i++) {
+                        if (usu.value == items[i].innerHTML) { 
+                            item = items[i]
+                            break;
+                        }
+                    }
+
+                    if (item != "") {
+                        lista.removeChild(item)
+                    } else {
+                        alert("No existe ese usuario para desconectarlo")
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <font face="tahoma" size="6">
+            <div>
+                <p>REALIZANDO CONEXIONES</p>  
+                <font face="tahoma" size="4">
+                    <form name="miformulario">
+                        Usuario <input type="text" id="usu" size="15">
+                        Contraseña <input type="text" id="con" size="15">
+                        <br><br><br>
+                        <input type="button" value="CONECTAR" onclick="conectar()">
+                        <input type="button" value="DESCONECTAR" onclick="desconectar()">
+                        <br>
+                    </form>
+                    <ol id="ol1">
+                        <li>Pepe</li>
+                        <li>Ana</li>
+                    </ol>
+                </font>
+            </div>
+        </font>
+    </body>
+    
+</html>

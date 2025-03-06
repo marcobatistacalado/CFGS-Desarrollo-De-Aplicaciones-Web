@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery</title>
+    <script src="../../../jquery-3.7.1.min.js"> </script>
+    <style>
+      .extraido {
+        float: right;
+        width: 250px;
+        background-color: yellow;
+        font-style: italic;
+        padding: 10px;
+        margin: 5px;
+      }
+    </style>
+	<script>
+		$(document).ready(function () {
+		  // Ocultar los elementos con clase "omitir"
+		  $(".omitir").hide();
+		  
+		  // Mostrar las citas con clase "extraer" en un contenedor destacado
+		  $(".extraer").addClass("extraido");
+		});
+	  </script>
+  </head>
+  <body>
+    <p>
+      <span class='extraer'>
+        jQuery es una biblioteca o framework JavaScript
+        <span class='omitir'>, es decir, una colección de funciones</span>
+        que nos ayudan a programar de una forma más rápida y eficiente.
+      </span>
+      De hecho, el lema de jQuery es "hacer más escribiendo menos".
+      Con las funciones incluidas en jQuery podremos implementar muchas de las técnicas que hemos aprendido en los temas anteriores
+      (como gestión del DOM, gestión de eventos y peticiones Ajax), y también otras en las que no hemos profundizado
+      porque las incompatibilidades entre navegadores las harían muy tediosas de aplicar sin el apoyo de una biblioteca
+      (como animaciones y efectos visuales).
+    </p>
+    <p>
+      jQuery fue creado en 2006 por John Resig y, desde entonces, ha alcanzado una gran popularidad, estimándose que un 55%
+      de las páginas más visitadas de la web utilizan jQuery. La versión más actual en el momento de
+      escribir este texto es jQuery 3.2.1.
+    </p>
+    <p>
+      ¿Cuál es el secreto del éxito de esta biblioteca?
+      No es uno solo, sino un cúmulo de ellos entre los que destacan que
+      <span class='extraer'>es gratuita, es una biblioteca relativamente poco pesada
+        <span class='omitir'> (ocupa poca memoria), crea una capa de abstracción entre las funcionalidades
+          y los navegadores, de modo que el programador puede despreocuparse de las incompatibilidades entre navegadores,
+          aprovecha los conocimientos que pudiera tener el usuario sobre CSS para ofrecerle un método de selección
+          de nodos del DOM muy refinado, puede ampliarse a través de plugins
+        </span>
+        , y su código es compacto, eficiente y muy depurado.
+      </span>
+    </p>
+  </body>
+</html>

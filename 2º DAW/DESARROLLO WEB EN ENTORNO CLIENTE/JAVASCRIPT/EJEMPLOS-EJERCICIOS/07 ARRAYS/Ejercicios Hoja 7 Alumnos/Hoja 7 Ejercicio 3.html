@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cine</title>
+    <script>
+      function cine() {
+        let fil = parseInt(prompt("Introduce número de salas: "));
+        let col = 5; // DIAS DE LA SEMANA
+
+        //CREAR TABLA
+        let tabla = new Array(fil);
+        for (let i = 0; i < fil; i++) {
+          tabla[i] = new Array(col);
+        }
+
+        //RELLENAR
+        
+        for (let i = 0; i < fil; i++) {
+          for (let j = 0; j < col; j++) {
+            let numeroAleatorio = Math.floor(Math.random() * 49) + 1;
+            tabla[i][j] = numeroAleatorio;
+            
+          }
+        }
+
+        let codigo = "<table border='1'; text-align: center;>";
+        codigo += "<tr><th>Sala</th> <th>L</th> <th>M</th> <th>X</th> <th>J</th> <th>V</th></tr>";
+        for (let i = 0; i < fil; i++) {
+          codigo += "<tr><td>" + ("Sala "+(i + 1)) + "</td>";
+          for (let j = 0; j < col; j++) {
+            codigo += "<td>" + tabla[i][j] + "</td>";
+          }
+          codigo += "</tr>";
+        }
+        codigo += "</table>";
+        document.getElementById("div1").innerHTML = codigo;
+      }
+    </script>
+  </head>
+
+  <body onload="cine()">
+    <div id="div1"></div>
+  </body>
+</html>

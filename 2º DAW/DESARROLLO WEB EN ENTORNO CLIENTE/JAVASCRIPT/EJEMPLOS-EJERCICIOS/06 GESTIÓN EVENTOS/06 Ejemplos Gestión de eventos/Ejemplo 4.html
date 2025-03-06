@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Metaetiqueta para definir la codificación de caracteres en UTF-8 -->
+
+    <style>
+      div {
+        margin-left: 40px;
+        margin-top: 40px;
+      }
+    </style>
+    <!-- Estilos para dar márgenes a los elementos dentro del <div> -->
+
+    <script>
+      // Función que solicita al usuario que introduzca una palabra mágica
+      function validar() {
+        // Se pide una entrada al usuario mediante prompt
+        pal = prompt("La palabra mágica es...");
+
+        // Si el usuario introduce "Google", la función devuelve true y permite seguir el enlace
+        if (pal == "Google") return true;
+
+        // Si no es la palabra correcta, se devuelve false y se evita seguir el enlace
+        else return false;
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <!-- Enlace a Google, pero el evento onclick siempre devuelve false, lo que impide ir al enlace -->
+      <a href="http://www.google.com" onclick="return false"> No ir a Google</a>
+      <br /><br />
+
+      <!-- Enlace a Google con confirmación: se mostrará un cuadro de confirmación para decidir si seguir el enlace o no -->
+      <a href="http://www.google.com" onclick="return window.confirm('Seguro??')">
+        Confirmar si quieres ir a Google</a>
+      <br /><br />
+
+      <!-- Enlace a Google con validación: solicita la palabra mágica y solo permite seguir el enlace si se introduce la palabra correcta -->
+      <a href="http://www.google.com" onclick="return validar()">
+        Tienes que decir la palabra mágica</a>
+    </div>
+  </body>
+</html>

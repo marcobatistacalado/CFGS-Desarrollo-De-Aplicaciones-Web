@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>EXAMEN EJERCICIO 1</title>
+        <link rel="stylesheet" href="main.css">
+        <style>
+            .clasePremio {
+                color: red;
+            }
+        </style>
+        <script> 
+            saldo = 10
+            imagenes = new Array("Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise");
+            function aleatorioBuena (min,max){
+                return Math.floor(Math.random()*(max - min +1)+min);
+            }
+
+            function jugar() {
+                arrayPrueba = new Array();
+                if (saldo<2){
+                    alert("No puedes continuar jugando");
+                }else{
+                    saldo -=2;
+                    var tablita = document.getElementById("tabla");
+
+                    const fil = 1;
+                    const col = 4;
+                    const tabla = new Array(fil);
+                    for (let i = 0; i < fil; i++) tabla[i] = new Array(col);
+                    
+                    for (let i = 0; i < fil; i++)
+                    for (j = 0; j < col; j++) {
+                        if (j != 3){
+                            let n = aleatorioBuena(0, imagenes.length - 1); 
+                            tabla[i][j] = imagenes[n];
+                        }
+                        
+                    }
+
+                    // Crear la tabla HTML
+                    const table = document.createElement("table");
+                    for (let i = 0; i < fil; i++) {
+                        let tr = document.createElement("tr");
+                        for (let j = 0; j < col; j++) {
+                            let td = document.createElement("td");
+                            //td.innerHTML = tabla[i][j];
+                            
+                            if (j != 3){
+                                let img = document.createElement("img");
+                                img.src = "pokemon/"+tabla[i][j]+".png"
+                                arrayPrueba.push(tabla[i][j])
+                                td.appendChild(img)
+                            }else{
+                                let p = document.createElement("p")
+                                if (arrayPrueba[0] == arrayPrueba[1] && arrayPrueba[1] == arrayPrueba[2]){
+                                    p.innerHTML = "PREMIO 10€";
+                                    p.setAttribute("class", "clasePremio");
+                                    saldo += 10;
+                                }else if (arrayPrueba[0] == arrayPrueba[1] || arrayPrueba[1] == arrayPrueba[2] || arrayPrueba[0] == arrayPrueba[2]){
+                                    p.innerHTML = "PREMIO 5€";
+                                    p.setAttribute("class", "clasePremio");
+                                    saldo+=5;
+                                }else{
+                                    p.innerHTML = "No hay premio juega de nuevo";
+                                }
+                                td.appendChild(p)
+                            }
+                            tr.appendChild(td);
+                        }
+                        table.appendChild(tr);
+                    }
+
+                    tablita.appendChild(table);
+                }
+            }
+
+            function borrar() {
+                let tablita = document.getElementById("tabla");
+
+                // Obtener todas las filas dentro del div#tabla
+                let filas = tablita.getElementsByTagName("tr");
+
+                let filasBorradas = false; // Para controlar si se han borrado filas
+
+                // Iterar a través de todas las filas
+                for (let i = 0; i < filas.length; i++) {
+                    let fila = filas[i];
+                    let celdas = fila.getElementsByTagName("td");
+                    
+                    if (celdas.length > 0) { // Verificar si la fila tiene celdas
+                        let ultimaCelda = celdas[celdas.length - 1];  // Obtener la última celda de la fila
+
+                        // Si la última celda no tiene la clase 'clasePremio', eliminar la fila
+                        if (!ultimaCelda.className || ultimaCelda.className !== "clasePremio") {
+                            fila.remove();  // Eliminar la fila
+                            filasBorradas = true;  // Marcar que se ha borrado al menos una fila
+                        }
+                    }
+                }
+
+                // Si no se borró ninguna fila, mostrar un mensaje
+                if (!filasBorradas) {
+                    alert("No hay filas sin premio para borrar.");
+                }
+            }
+        </script>
+    </head>
+
+    <body onload="cargar()">
+        <div>
+            <p> JUGANDO A POKEMON &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id='idspan'></span></p>
+            <input type="button" value="JUGAR" onclick="jugar()">
+            <input type="button" value="BORRAR SIN PREMIO" onclick="borrar()">
+            <input type="button" value="http://www.pokemongo.com/es-es/">
+            <input type="button" value="GANANCIAS">
+            <br>
+            <div id="tabla"></div>
+            <img src="pokemon/"
+        </div>
+    </body>
+
+</html>

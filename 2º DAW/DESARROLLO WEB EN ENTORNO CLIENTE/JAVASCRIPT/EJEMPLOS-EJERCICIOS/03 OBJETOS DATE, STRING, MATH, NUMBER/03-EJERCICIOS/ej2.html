@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <h3>Días desde el 23/08/2022 hasta hoy</h3>
+    <button onclick="mostrarDiasPasados()">Mostrar Días</button>
+
+    <p id="diasPasados"></p>
+
+    <script>
+        function mostrarDiasPasados() {
+            let fechaInicial = new Date("2022-08-23");
+            let fechaActual = new Date();
+            let diferenciaEnMilisegundos = fechaActual.getTime() - fechaInicial.getTime();
+            let diasPasados = Math.floor(diferenciaEnMilisegundos / (1000 * 60 * 60 * 24));
+            document.getElementById("diasPasados").innerText = `Han pasado ${diasPasados} días desde el 23/08/2022 hasta hoy.`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type='text/css'>
+        .main-box{
+            width: 20%;
+            margin: auto;
+        }
+    </style>
+    <script>
+        
+        let nota;
+        do{
+            nota = parseInt(prompt("Introduce una nota:"));
+            if (nota<0 || nota>10){
+                alert("Nota invalida. Introduce otra");
+            }
+        }while(nota<0 || nota> 10);
+        let mensaje;
+        switch (nota){
+            case 0: 
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                mensaje="Suspenso";
+                break;
+            case 5: 
+            case 6:
+                mensaje="Aprobado";
+                break;
+            case 7: 
+            case 8:
+                ensaje="Notable";
+                break;
+            case 9: 
+            case 10:
+                mensaje="Sobresaliente";
+                break;
+        }
+        alert(mensaje);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

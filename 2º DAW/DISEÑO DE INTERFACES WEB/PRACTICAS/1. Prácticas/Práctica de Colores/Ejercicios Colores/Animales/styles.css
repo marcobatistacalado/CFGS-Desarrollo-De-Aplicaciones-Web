@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .fondo {
+    width: 100%;
+    padding-top: 20px;
+    background: linear-gradient(to bottom, transparent, #020);
+    text-align: center;
+    font-family: "Zen Tokyo Zoo", sans-serif; /*dejar una segunda fuente por si no carga*/
+    color: rgb(236, 145, 8);
+  }
+  
+  .fondo h1 {
+    font-size: 400px;
+    color: rgb(236, 145, 8); /* Naranja */
+  }
+  
+  .cabecera {
+    width: 90%;
+    margin: auto;
+    margin-top: 0;
+    padding: 0;
+  }
+  
+  .container-img1,
+  .container-img2,
+  .container-img3,
+  .container-img4 {
+    height: 400px;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  .container-img1 {
+    background-image: url("./1.jpg");
+  }
+  
+  .container-img2 {
+    background-image: url("./2.jpg");
+  }
+  
+  .container-img3 {
+    background-image: url("./3.jpg");
+  }
+  
+  .container-img4 {
+    background-image: url("./4.jpg");
+  }
+  
+  /* Estilos para los iconos */
+  .icon-links {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 40px 0 #0007;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 30%;
+    margin: auto;
+    margin-top: 20px;
+  }
+  
+  .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .icon-item:hover {
+    color: #ff9900;
+    transform: translateY(-10px);
+  }
+  
+  .icon-item i {
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .icon-item span {
+    font-size: 18px;
+    margin-top: 5px;
+    font-weight: 500;
+  }
+  

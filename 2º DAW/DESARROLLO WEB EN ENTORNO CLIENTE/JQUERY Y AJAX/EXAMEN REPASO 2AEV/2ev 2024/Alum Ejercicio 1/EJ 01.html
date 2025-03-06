@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CONTROL FORMULARIOS</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font: "Trebuchet MS", sans-serif;
+            margin: 50px;
+        }
+
+        .demoHeaders {
+            margin-top: 2em;
+        }
+
+        .but {
+            width: 15px;
+            height: 15px;
+            border: 0px;
+        }
+    </style>
+    <script>
+        var arr = [];
+        var iPOk = 0;
+        var totalPokemons = 0;
+
+        // Función para cargar un archivo JSON según la generación seleccionada
+        function descargaArchivo(generacion) {
+            $.ajax({
+                url: 'pokemon.' + generacion + '.json',
+                dataType: 'json',
+                success: function (data) {
+                    arr = data;
+                    totalPokemons = arr.length;
+                    iPOk = 0; // Resetear el índice al primer Pokémon de la nueva generación
+                    mostrarPokemon(iPOk); // Mostrar el primer Pokémon
+                },
+                error: function (xhr, status, error) {
+                    $("#principal").empty();
+                    $("#principal").append("<p>ERROR: No se pudo cargar el archivo.</p>");
+                    $("#uno").prop("disabled", true); // Desactivar el botón AVANZAR en caso de error
+                }
+            });
+        }
+
+        // Muestra la información del Pokémon actual
+        function mostrarPokemon(index) {
+            if (arr.length === 0) return;
+
+            var pokemon = arr[index];
+            $("#principal").empty();
+            $("#principal").append('<p>Pokedex: ' + pokemon.pokedex + ' - ' + pokemon.nombre + '</p>');
+            $("#principal").append('<img src="./pokemon2/' + pokemon.nombre + '.png" alt="' + pokemon.nombre + '"><br>');
+            $("#principal").append('<p>' + pokemon.comentarios + '</p>');
+            var tipos = pokemon.tipo.join(", ");
+            $("#principal").append('<p>Tipo: ' + tipos + '</p>');
+        }
+
+        $(document).ready(function () {
+            // Cargar la primera generación por defecto
+            descargaArchivo("1GEN");
+
+            // Cambio de generación
+            $("#selGen").change(function () {
+                var selectedGen = $(this).val();
+                descargaArchivo(selectedGen); // Cargar la nueva generación
+                $("#uno").prop("disabled", false); // Reactivar el botón AVANZAR
+            });
+
+            // Botón para avanzar al siguiente Pokémon
+            $("#uno").on('click', function () {
+                if (iPOk + 1 >= totalPokemons) {
+                    iPOk = 0; // Si llegamos al final, volvemos al primer Pokémon
+                } else {
+                    iPOk++; // Avanzar al siguiente Pokémon
+                }
+                mostrarPokemon(iPOk); // Mostrar el Pokémon correspondiente
+            });
+
+            // Botón para cargar el archivo pokemon.txt
+            $("#dos").click(function () {
+                // Desactivar el botón "AVANZAR" mientras se ejecuta la petición
+                $("#uno").prop("disabled", true);
+
+                // Realizar la petición Ajax para cargar pokemon.txt
+                $.ajax({
+                    url: "pokemon.txt", // Ruta del archivo pokemon.txt
+                    type: "GET",
+                    success: function (data) {
+                        // Si la carga es exitosa, mostrar el contenido de pokemon.txt en el div principal
+                        $("#principal").html(data);
+                    },
+                    error: function (xhr, status, error) {
+                        // En caso de error, mostrar el mensaje de error en el div principal
+                        $("#principal").html("Error al cargar pokemon.txt: " + error);
+                    },
+                    complete: function () {
+                        // Cuando termine la petición, habilitar nuevamente el botón "AVANZAR"
+                        $("#uno").prop("disabled", false);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h3>Pokemon</h3>
+
+    <select id="selGen">
+        <option value="1GEN">1ª Generación</option>
+        <option value="2GEN">2ª Generación</option>
+        <option value="3GEN">3ª Generación</option>
+    </select>
+
+    <br><br>
+
+    <input type="button" id="uno" value="AVANZAR">
+    <input type="button" id="dos" value="TRAER TXT">
+    <div id="principal"></div>
+</body>
+
+</html>

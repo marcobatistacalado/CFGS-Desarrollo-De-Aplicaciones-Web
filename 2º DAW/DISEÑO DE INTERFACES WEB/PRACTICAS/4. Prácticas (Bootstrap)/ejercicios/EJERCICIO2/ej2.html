@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metaetiquetas básicas para una página web -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres para admitir caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Vista adaptada para dispositivos móviles -->
+    <title>Ejercicio 2 Bootstrap</title>
+    
+    <!-- Meta adicional (duplicada, se puede eliminar una) -->
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no"> <!-- Vista móvil mejorada (innecesario ya que se repite) -->
+
+    <!-- Archivo JavaScript de Bootstrap -->
+    <script src="../bootstrap-5.2.3/js/bootstrap.min.js"></script>
+    <!-- Archivo CSS de Bootstrap -->
+    <link href="../bootstrap-5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .centarImg{
+            display: block;
+            margin: auto;
+        }
+        #ppal{
+            background-color: red;
+        }
+    </style>
+</head>
+<body class="d-flex align-items-center justify-content-center"> <!--CENTAR VERTICALMENTE-->
+    <div class="container" id="ppal">
+        <div class="row">
+            <div class="col-md-6 col-xl-3 bg-dark p-4">
+                <img src="./miniaturas/blonde.jpg" class="img-fluid centarImg">
+                <div class="caption"> <!--IMPORTANTE PARA PONER MAS COSAS EN MINIATURAS-->
+                    <p class="text-center h5 text-white">Blonde on Blonde</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 bg-info p-4">
+                <img src="./miniaturas/freewheelin.jpg" class="img-fluid centarImg">
+                <div class="caption">
+                    <p class="text-center h5">Freewheein</p>
+                </div>
+            </div>
+      
+            <div class="col-md-6 col-xl-3 bg-primary p-4">
+                <img src="./miniaturas/greatest.jpg" class="img-img-fluid centarImg">
+                <div class="caption">
+                    <p class="text-center h5">Greatest Hits</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 bg-danger p-4">
+                <img src="./miniaturas/highway61.jpg" class="img-fluid centarImg">
+                <div class="caption">
+                    <p class="text-center h5">Highway 61</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xl-3 bg-success p-4">
+                <img src="./miniaturas/nashville.jpg" class="img-fluid centarImg">
+                <div class="caption">
+                    <p class="text-center h5">Nashville</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 bg-white p-4">
+                <img src="./miniaturas/thetimes.jpg" class="img-fluid centarImg">
+                <div class="caption">
+                    <p class="text-center h5">The times they are changin</p>
+                </div>
+            </div>
+       
+            <div class="col-md-6 col-xl-3 bg-warning p-4">
+                <img src="./miniaturas/streetlegal.jpg" class="img-fluid centarImg">
+                <div class="caption">
+                    <p class="text-center h5">Street Legal</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3 bg-secondary p-4">
+                <img src="./miniaturas/freewheelin.jpg" class="img-fluid centarImg">
+                <div class="caption">
+                    <p class="text-center h5 text-white">Times out mine</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ejemplo de un mostrador de diapositivas</title> 
+    <style type="text/css">
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+        }
+        div {
+            width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 20px;
+            color: black;
+        }
+        .highlight {
+            color: orange;
+        }
+    </style>
+    <script type="text/javascript">
+        var cont = 0; // Contador para la posición actual
+        var items = []; // Lista de elementos LI
+
+        function cargar() {
+            var lista = document.getElementsByTagName("ul")[0]; // Obtener el primer <ul>
+            items = lista.getElementsByTagName("li"); // Obtener todos los <li> dentro del <ul>
+
+            // Inicializa el primer elemento como resaltado
+            if (items.length > 0) {
+                items[cont].className = "highlight"; // Usamos className para añadir la clase
+            }
+        }
+
+		function mostrarImagen(nombre){
+			cajaImagen = document.getElementById("fotos");
+			var imagen = document.createElement("img");
+			imagen.src = "pokemon/"+nombre+".png"
+			cajaImagen.innerHTML = ""; // Eliminar imágenes anteriores
+			cajaImagen.appendChild(imagen);
+		}
+
+        function adelante() {
+            if (cont < items.length - 1) {
+                items[cont].className = ""; // Eliminar la clase "highlight"
+				mostrarImagen(items[cont].innerHTML);
+                cont++;
+                items[cont].className = "highlight"; // Añadir la clase "highlight" al siguiente elemento
+            } else {
+                alert("No puedes avanzar más");
+            }
+        }
+
+        function atras() {
+            if (cont > 0) {
+                items[cont].className = ""; // Eliminar la clase "highlight"
+				mostrarImagen(items[cont].innerHTML);
+                cont--;
+                items[cont].className = "highlight"; // Añadir la clase "highlight" al elemento anterior
+            } else {
+                alert("No puedes retroceder más");
+            }
+        }
+    </script>
+</head>
+<body onload="cargar()">
+<div>
+    <ul>
+        <li>Bulbasaur</li>
+        <li>Ivysaur</li>
+        <li>Venusaur</li>
+        <li>Charmander</li>
+        <li>Charmeleon</li>
+        <li>Charizard</li>
+        <li>Squirtle</li>
+        <li>Wartortle</li>
+        <li>Blastoise</li>
+    </ul>
+    <input type="button" value="Atrás" onclick="atras()">
+    <input type="button" value="Adelante" onclick="adelante()">
+</div>
+<div id="fotos"></div>
+</body>
+</html>

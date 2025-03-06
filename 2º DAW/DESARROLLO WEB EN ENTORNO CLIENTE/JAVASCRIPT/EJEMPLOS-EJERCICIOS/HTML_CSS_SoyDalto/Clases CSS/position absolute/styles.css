@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+}
+.contenedor{
+    width: 500px;
+    height: 500px;
+    border: 2px solid #000;
+    margin: 30px 50px;
+    position: relative; /*ahora las cajas de adentro que tengan absolute se van a mover a partir de este punto de referencia*/
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    color: #fff;
+}
+
+.box--blue{
+    background-color: blue;
+    position: absolute; /*no ocupa lugar*/
+    /*su punto de referencia es el html es decir la esquina izquierda superior*/
+    /*CENTRAR ELEMENTO*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.box--red{
+    background-color: red;
+}

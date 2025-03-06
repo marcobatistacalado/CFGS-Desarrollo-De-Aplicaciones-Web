@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            header {
+                font-size: 3em;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+
+            main {
+                height: auto;
+                padding: 20px;
+            }
+
+            .login {
+                width: 80%;
+            }
+
+            .login input, .login button {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header {
+                font-size: 2.5em;
+            }
+
+            nav a {
+                font-size: 14px;
+                margin: 5px 0;
+            }
+
+            .login {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .login input, .login button {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        MY GYM
+    </header>
+    <nav>
+        <a href="index.html">Nuestro método</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="https://go-fit.es/" target="_blank">Conoce más</a>
+    </nav>
+    <main>
+       <div class="login">
+            <input type="text" placeholder="Identificador" required><br>
+            <button>Login</button>
+       </div>
+    </main>
+    <footer>
+        <a href="../enunciado.pdf" download="../enunciado.pdf">Descarga nuestra propia política de privacidad</a>
+    </footer>
+</html>

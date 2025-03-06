@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Archivo JavaScript de Bootstrap -->
+    <script src="../bootstrap-5.2.3/js/bootstrap.min.js"></script>
+    <!-- Archivo CSS de Bootstrap -->
+    <link href="../bootstrap-5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       body{
+            color: #C03;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+       }
+       /* Estilos para el formulario */
+        
+       .container {
+            background: linear-gradient(to top left, #fff, #f66);
+            padding: 5px;
+            box-shadow: 2px 2px 2px #CCCCCC;
+            border-radius: 10px;
+        }
+
+        /* Estilos para los inputs */
+        .form-control {
+            border: 1px solid #C03;
+        }
+
+        /* Estilos para el botón */
+        .btn-rojo {
+            font-weight: bold;
+            width: 40%;
+            box-shadow: 0px 1px 2px #CCCCCC;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 20px;
+            background-color: #C03;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn-rojo:hover {
+            background-color: #900;
+        }
+    </style>
+</head>
+<body>
+    <div class="container justify-content-center row">
+        <div class="col-md-8">
+        <h2>Datos Personales</h2>
+
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <label for="nombreCompleto" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombreCompleto" placeholder="Escribe tu nombre">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <label for="apellidos" class="form-label">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidos" placeholder="Escribe tus apellidos">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <label for="dni" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="dni" placeholder="Ej: 0123456789">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <label for="fnac" class="form-label">Fecha Nacimiento</label>
+                    <input type="date" class="form-control" id="fnac">
+                </div>
+            </div>
+            <br>
+
+            <h2>Datos de Usuario</h2>
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <label for="usuario" class="form-label">Nombre Usuario</label>
+                    <input type="text" class="form-control" id="usuario" placeholder="correo@dominio.com">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <label for="contrasenna" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasenna">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <label for="rcontrasenna" class="form-label">Repite Contraseña</label>
+                    <input type="password" class="form-control" id="rcontrasenna">
+                </div>
+            </div>
+
+            <h2>Datos de la Web</h2>
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12">
+                    <label for="nombrewb" class="form-label">Nombre de la Web</label>
+                    <input type="text" class="form-control" id="nombrewb" placeholder="nombre de la web">
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-10 offset-md-1 col-sm-12 text-center">
+                    <button type="submit" class="btn btn-rojo">Enviar datos</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

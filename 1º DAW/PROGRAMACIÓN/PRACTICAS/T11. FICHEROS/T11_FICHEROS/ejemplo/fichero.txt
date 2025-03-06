@@ -1,0 +1,4 @@
+Estimado senor
+
+
+/home/inf1/eclipse-workspace/Java_Begona/T11_FICHEROS/ejemplo/fichero.txt

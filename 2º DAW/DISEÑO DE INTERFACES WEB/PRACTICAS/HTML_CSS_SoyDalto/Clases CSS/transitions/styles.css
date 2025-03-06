@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: #f00;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+    /*TRANSICIONES: se recomienda poner solo las que queremos*/
+   /* transition-property: background-color, color;*/
+   transition-property: left;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(cubic-bezier(0.165, 0.84, 0.44, 1)); 
+    /*
+        cubic-bezier: web donde se ve de forma gráfica cada tipo, y formas lo que quieres
+        puedes poner estos: ease, ease-in, ease-in-out, ease-out;
+    */
+    /*en una unica instrucion: 
+    transition: left 1s cubic-bezier(cubic-bezier(0.165, 0.84, 0.44, 1))*/
+    color: red;
+}
+body:hover .box{
+    background-color: blue;
+    font-size: 80px;
+    color: #fff;
+}

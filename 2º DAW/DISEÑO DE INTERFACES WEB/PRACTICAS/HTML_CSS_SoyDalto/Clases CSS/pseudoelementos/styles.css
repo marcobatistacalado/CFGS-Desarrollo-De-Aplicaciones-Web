@@ -1,0 +1,28 @@
+div{
+    padding: 20px;
+}
+
+h1::first-letter{
+    color: red;
+}
+
+div::first-line{
+    color: red;
+}
+
+/*esto es como cuando seleccionamos un elemento que se pone azul*/
+h1::selection{
+    background-color: red;
+    color: white;
+}
+
+input::placeholder{color: green;}
+
+li::marker{color: aqua;}
+
+li:before{
+    content: 'texto antes';
+}
+li:after{
+    content: 'texto despues';
+}

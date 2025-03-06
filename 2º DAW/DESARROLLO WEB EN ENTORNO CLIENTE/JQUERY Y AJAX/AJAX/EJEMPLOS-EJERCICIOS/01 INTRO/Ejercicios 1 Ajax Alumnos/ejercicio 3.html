@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 3</title>
+    <link rel="stylesheet" href="main.css">
+    
+    <script type="text/javascript">
+        var arr; // Almacenamos los datos de los empleados
+
+        function descargaArchivo() {
+            // Obtener la instancia del objeto XMLHttpRequest
+            var peticion_http = new XMLHttpRequest();
+            
+            // Preparar la funcion de respuesta
+            peticion_http.onreadystatechange = guardarDatos;
+            
+            // Realizar peticion HTTP
+            peticion_http.open('GET', 'empleados.json', true);
+            peticion_http.send(null);
+
+            function guardarDatos() {
+                if (peticion_http.readyState == 4) {
+                    if (peticion_http.status == 200) {
+                        // Parseamos el JSON recibido
+                        arr = JSON.parse(peticion_http.responseText);
+                    }
+                }
+            }
+        }
+
+        function cargarDatos() {
+            var select = document.getElementById("sel1");
+            var seleccion = select.value;
+
+            // Llamar a la función para filtrar los empleados según la opción seleccionada
+            mostrarEmpleados(arr, seleccion);
+        }
+
+        function mostrarEmpleados(arr, seleccion) {
+            var out = "";
+
+            for (var i = 0; i < arr.length; i++) {
+                var empleado = arr[i];
+
+                // Si seleccionan "Datos sin salario"
+                if (seleccion == 1) {
+                    out += "<li>" + empleado.departamento + ": " + empleado.nombre + " " + empleado.apellido + "</li>";
+                }
+                // Si seleccionan "Datos con salario"
+                else if (seleccion == 2) {
+                    out += "<li>" + empleado.departamento + ": " + empleado.nombre + " " + empleado.apellido + " - Salario: " + empleado.salario + "</li>";
+                }
+            }
+
+            // Mostrar los resultados en el HTML
+            document.getElementById("ul1").innerHTML = out;
+        }
+    </script>
+</head>
+<body onload="descargaArchivo()">
+    <div id="titulo">
+        <h1>EMPLEADOS</h1>
+    </div>
+
+    <select id="sel1" onchange="cargarDatos()">
+        <option value="0">Selecciona</option>
+        <option value="1">Datos sin salario</option>
+        <option value="2">Datos con salario</option>
+    </select>
+
+    <br><br>
+
+    <ul id="ul1"></ul>
+</body>
+</html>

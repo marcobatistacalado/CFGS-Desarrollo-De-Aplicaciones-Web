@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Kite+One|Cherry+Swash' rel='stylesheet' type='text/css'>
+    <style type='text/css'>
+        body{
+            font-family: 'Kite One', sans-serif;
+        }
+
+        #div1 {
+            width:250px;
+            margin:auto;
+        }
+
+        h1{
+            text-align:center;
+            font-size:20pt;
+        }
+
+        table{
+            background-color: #EFF2FB;
+            text-align:center;
+            width:250px;
+            border: 1px solid #D0A9F5;
+            font-family: 'Cherry Swash', cursive;
+        }
+
+        td{
+            border: 1px solid #D0A9F5;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // Función para rellenar la tabla de uno en uno
+        function rellenarTablaUnoenUno(tabla, fil, col) {
+            let n = 1;
+            for (let i = 0; i < fil; i++) {
+                for (let j = 0; j < col; j++) {
+                    tabla[i][j] = n;
+                    n++;
+                }
+            }
+            return tabla;
+        }
+
+        // Función para rellenar la tabla con números pares
+        function rellenarTablaPares(tabla, fil, col) {
+            let n = 2;
+            for (let i = 0; i < fil; i++) {
+                for (let j = 0; j < col; j++) {
+                    tabla[i][j] = n;
+                    n += 2; // Incrementa en 2 para asegurar que sean pares
+                }
+            }
+            return tabla;
+        }
+
+        // Función para rellenar la tabla con números impares
+        function rellenarTablaImpares(tabla, fil, col) {
+            let n = 1;
+            for (let i = 0; i < fil; i++) {
+                for (let j = 0; j < col; j++) {
+                    tabla[i][j] = n;
+                    n += 2; // Incrementa en 2 para asegurar que sean impares
+                }
+            }
+            return tabla;
+        }
+
+        // Función para rellenar la tabla con múltiplos de un número
+        function rellenarTablaMultiplos(tabla, fil, col, multiplo) {
+            let n = multiplo;
+            for (let i = 0; i < fil; i++) {
+                for (let j = 0; j < col; j++) {
+                    tabla[i][j] = n;
+                    n += multiplo; // Incrementa en el valor del múltiplo
+                }
+            }
+            return tabla;
+        }
+
+        function cargar(){
+            // Obtener valores de filas y columnas
+            const fil = document.getElementById("id1").value;
+            const col = document.getElementById("id2").value;
+
+            // Obtener el valor seleccionado de los radio buttons
+            let elementos = document.getElementsByName("eleccion");
+            let relleno;
+            for (let i = 0; i < elementos.length; i++) {
+                if (elementos[i].checked) {
+                    relleno = Number(elementos[i].value);
+                    break;
+                }
+            }
+
+            // Crear el array bidimensional
+            const tabla = new Array(fil);
+            for (let i = 0; i < fil; i++) tabla[i] = new Array(col);
+
+            // Llenar el array según el tipo seleccionado
+            if (relleno == 1) {
+                rellenarTablaUnoenUno(tabla, fil, col);
+            } else if (relleno == 2) {
+                rellenarTablaPares(tabla, fil, col);
+            } else if (relleno == 3) {
+                rellenarTablaImpares(tabla, fil, col);
+            } else if (relleno == 4) {
+                let multiplo = parseInt(document.getElementById("id3").value);
+                rellenarTablaMultiplos(tabla, fil, col, multiplo);
+            }
+
+            // Crear la tabla HTML
+            const table = document.createElement("table");
+            for (let i = 0; i < fil; i++) {
+                let tr = document.createElement("tr");
+                for (let j = 0; j < col; j++) {
+                    let td = document.createElement("td");
+                    td.innerHTML = tabla[i][j];
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+
+            // Obtener el contenedor de la tabla
+            const padre = document.getElementById("div1");
+
+            // Eliminar cualquier tabla existente
+            const tablasExistentes = padre.getElementsByTagName("table");
+            if (tablasExistentes.length > 0) {
+                padre.removeChild(tablasExistentes[0]); // Eliminar la primera tabla
+            }
+
+            // Agregar la nueva tabla al contenedor
+            padre.appendChild(table);
+            
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h3>PROBANDO ARRAYS BIDIMENSIONALES</h3>
+        <br>
+        <form name="formulario">
+            SELECCIONA: Filas 
+            <select id="id1" onchange="cargar()">
+                <option value="2" selected> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+            </select>
+            Columnas 
+            <select id="id2" onchange="cargar()">
+                <option value="2" selected> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+            </select>
+            <br><br>
+            RELLENAR CON:
+            <input type="radio" name="eleccion" value="1" checked onchange="cargar()"> De uno en uno
+            <input type="radio" name="eleccion" value="2" onchange="cargar()"> Pares
+            <input type="radio" name="eleccion" value="3" onchange="cargar()"> Impares
+            <input type="radio" name="eleccion" value="4" onchange="cargar()"> Multiplos de 
+            <select id="id3" onchange="cargar()">
+                <option value="3" selected> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+                <option value="7"> 7 </option>
+                <option value="8"> 8 </option>
+                <option value="9"> 9 </option>
+                <option value="10"> 10 </option>
+            </select>
+            <br><br>
+        </form>
+    </div>
+    <div id="div1"></div>
+</body>
+</html>

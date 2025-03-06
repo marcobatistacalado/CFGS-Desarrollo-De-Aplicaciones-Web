@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+    <style>
+        .encontrada {
+            background-color: yellow;
+            font-style: italic;
+        }
+    </style>
+    <script src="../../../jquery-3.7.1.min.js"> </script>
+    <script>
+        $(document).ready(function() {
+            // Función que se ejecuta al escribir en el input
+            $('#palabra').on('input', function() {
+                // Obtener la palabra ingresada
+                var palabra = $(this).val().toLowerCase();
+                
+                // Resetear los párrafos, eliminando la clase 'encontrada' y el texto "ENCONTRADA"
+                $('p').removeClass('encontrada').find('.encontrada-text').remove();
+
+                // Verificar si la palabra está presente en algún párrafo
+                $('p').each(function() {
+                    // Si la palabra está en el párrafo, aplicar el formato
+                    if ($(this).text().toLowerCase().includes(palabra) && palabra !== '') {
+                        // Agregar la clase 'encontrada' y el texto 'ENCONTRADA'
+                        $(this).addClass('encontrada').append('<span class="encontrada-text"> ENCONTRADA</span>');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>El éxito de Jquery se debe a:</p> 
+    <p>Es gratuito. </p> 
+    <p>Es una biblioteca relativamente poco pesada (ocupa poca memoria). </p> 
+    <p>Crea una capa de abstracción entre las funcionalidades y los navegadores, el programador no tiene que controlar la compatibilidad. </p> 
+    <p>Aprovecha los conocimientos que pudiera tener el usuario sobre CSS para ofrecerle un método de selección de nodos del DOM muy refinado. </p> 
+    <p>Puede ampliarse a través de plugins. </p> 
+    <p>Su código es compacto, eficiente y muy depurado. </p> 
+
+    <div>
+        <input id="palabra" type="text" placeholder="Teclea una palabra">
+    </div>
+</body>
+</html>

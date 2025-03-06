@@ -1,0 +1,216 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Verdana;
+}
+@font-face{
+    font-family: "myFont";
+    src: url("leaves_and_ground.ttf");
+}
+
+@keyframes mianimacion{
+
+    /* fotograma inicial , también 0% */
+    from{
+        color:white;
+        letter-spacing: 2px;
+    }
+    /* fotograma final, también 100% */
+    to{
+        color:black;
+        letter-spacing: 20px;
+    }
+    
+}
+
+.header{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: "myFont";
+    font-size: 60px;
+    text-shadow: 0 0 5px #666666;
+    letter-spacing: 20px;
+    animation-name: mianimacion;
+    animation-duration: 4s;
+
+}
+
+.foto{
+    background-image: url("extendido.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: cover;
+    height: calc(100vh - 75px);
+    position: relative; /*PARA PODER COLOCAR LA IMAGEN*/
+    padding-top: 90px;
+
+}
+.foto img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 10;
+}
+nav{
+    width: 50%;
+    height: 60px;
+    background-color: rgba(66,65,60);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center; /*CENTRAR VERTICALMENTE*/
+}
+nav a{
+    color: white;
+    letter-spacing: 12px;
+    font-family: "myFont";
+    font-size: 40px;
+    width: 33.3%;
+    text-decoration: none;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+.contenedor{
+    margin: auto;
+    max-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.contenedor--1{
+    width: 70%; /*no pasarase de medidas en el oto contenedor el otro porcentaje*/
+    border-right: solid black;
+    padding: 80px;
+}
+
+.contenedor--1 p{
+    text-indent: 40px;
+}
+
+.contenedor--1 a{
+    font-style: italic;
+    color: black;
+    display: block;
+    text-align: center;
+}
+
+.contenedor--1 a:hover{
+    font-weight: bold;
+}
+
+
+
+.imagenes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 5px; /*ESTO HACE QUE LUEGO AL PONER EL TAMAÑO DE LOS DIVS FLEXEADOS SEA 45% 45%*/
+}
+.imagen1 {
+    width: 45%;
+}
+.imagen1 img{
+    width: 100%;
+}
+.imagen2{
+    width: 45%;
+}
+.imagen2 img{
+    width: 100%;
+}
+.imagen1:hover img {
+    transform:scale(1.3);
+}
+.imagen2:hover img {
+    transform:scale(1.3);
+}
+
+
+.contenedor--2{
+    width: 30%; /*no pasarase de medidas en el oto contenedor el otro porcentaje*/
+    padding: 80px;
+}
+
+.contenedor--2 fieldset{
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+
+}
+.contenedor--2 legend{
+    font-family: "myFont";
+    font-size: 30px;
+}
+
+.pie{
+    background-color: rgba(66,65,60);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-items: center; /*CENTRAR VERTICALMENTE*/
+}
+
+.pie img{
+    margin-right: 10px;
+}
+
+
+/* Media query para pantallas de 700px o menos */
+@media (max-width: 700px) {
+    /* Ocultar el logo y la animación */
+    .foto img {
+        display: none;
+    }
+    .foto{
+        height: calc(100vh - 200px);
+    }
+
+
+    
+    /* Ajustar contenedor de navegación */
+    nav {
+        width: 100%;
+        height: 120px; /*duplicamos*/
+        background-color: rgba(66,65,60, 0.5); /*OPACIDAD DEL COLOR 0.5*/
+        
+    }
+
+    nav a {
+        font-size: 20px;
+        letter-spacing: 6px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Ajustes de la estructura del contenedor */
+    .contenedor {
+        flex-direction: column;
+    }
+
+    .contenedor--1, .contenedor--2 {
+        width: 100%;
+        padding: 20px;
+        border-right: none;
+    }
+
+    .contenedor--1 img {
+        width: 100%;
+    }
+}

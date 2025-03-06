@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Archivo JavaScript de Bootstrap -->
+    <script src="../bootstrap-5.2.3/js/bootstrap.min.js"></script>
+    <!-- Archivo CSS de Bootstrap -->
+    <link href="../bootstrap-5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+        .foto1 [class^="col-"] {
+            background-color: #3B668C; /* Fondo azul oscuro para las columnas dentro de la clase .foto1 */
+        }
+        .foto2 [class^="col-"] {
+            background-color: #8AA3A6; /* Fondo gris azulado para las columnas dentro de la clase .foto2 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container-md">
+        <div class="row">
+            
+            <div class="col-md-8 offset-md-2 mt-md-2 mb-md-2 p-md-2 bg-dark">
+                <p class="h2  text-light text-center">A VECES LO ESENCIAL ES INVISIBLE A LOS OJOS</p>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-md-8 offset-md-2 mt-md-2 mb-md-2 p-md-2 bg-dark d-flex justify-content-center"> <!--CENTRADO CON FLEX-->
+                <img src="fotoesencial.jpg" class="img-fluid" alt=""/>
+                
+            </div>
+        </div>
+
+        <div class="row mt-md-2 bg-dark">
+            <div class="col-md-6 pt-md-3 bg-color foto1 mt-md-2">
+                <div class="row">
+                    <div class="col-md-12 p-md-3 d-flex justify-content-center">
+                        <img
+                            src="fotomes.jpg"
+                            class="img-fluid"
+                            alt=""
+                        />
+                        
+                    </div>
+                    <div class="col-md-12 p-3 "> <!-- Columna completa -->
+                        <h3 class="text-light text-center">FOTO DEL MES</h3> <!-- Texto de cabecera -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 pt-md-3 bg-color foto2 mt-md-2">
+                <div class="row">
+                    <div class="col-md-12 p-md-3 d-flex justify-content-center">
+                        <img
+                            src="fotosemana.jpg"
+                            class="img-fluid"
+                            alt=""
+                        />
+                        
+                    </div>
+                    <div class="col-md-12 p-3"> <!-- Columna completa -->
+                        <h3 class="text-light text-center">FOTO DE LA SEMANA</h3> <!-- Texto de cabecera -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

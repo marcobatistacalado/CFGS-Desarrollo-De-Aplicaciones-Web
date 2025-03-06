@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+        #div {
+            width: 600px;
+            height: 500px;
+            margin-left: 20px;
+            border: 2px black solid;
+            padding: 20px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            background-color: #99ccff;
+        }
+        h1 {
+            text-align: center;
+            font-size: 20pt;
+        }
+        table {
+            background-color: #EFF2FB;
+            text-align: center;
+            border: 1px solid #D0A9F5;
+            font-family: 'Cherry Swash', cursive;
+        }
+        td {
+            border: 1px solid #D0A9F5;
+            width: 30px;
+            text-align: center;
+        }
+        input {
+            text-align: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // Variables globales
+        let palabra;         // La palabra a adivinar
+        let palabraArray;    // Array con las letras de la palabra
+        let letrasTecleadas; // Letras que ha ingresado el usuario
+        let fallos;          // Contador de fallos
+
+        // Función para iniciar o reiniciar el juego
+        function iniciarJuego() {
+            palabra = "javascript"; // Se puede cambiar a cualquier palabra
+            palabraArray = palabra.split(""); // Convertimos la palabra en un array de letras
+            letrasTecleadas = []; // Limpiamos las letras ingresadas
+            fallos = 0; // Reiniciamos el contador de fallos
+
+            // Limpiamos la tabla antes de agregar nuevas celdas
+            $("table tr").empty();
+
+            // Crear espacios en la tabla para cada letra de la palabra
+            for (let i = 0; i < palabra.length; i++) {
+                $("table tr").append('<td> </td>'); // Creamos una celda vacía
+            }
+
+            // Reiniciar interfaz
+            $("#fallos").val(fallos); // Mostrar los fallos en 0
+            $("#oculta").val("").attr("disabled", false).focus(); // Habilitar input y darle foco
+            $("#texto").val(""); // Vaciar input de letras
+            $("#oculto").hide(); // Ocultar la sección de letras
+        }
+
+        // Cuando el documento esté listo, iniciamos el juego
+        $(document).ready(function() {
+            iniciarJuego(); // Llamamos a la función para iniciar el juego
+
+            // Evento cuando el usuario ingresa una palabra y presiona "Enter"
+            $("#oculta").keypress(function(evento) {
+                if (evento.keyCode === 13) { // 13 = tecla Enter
+                    $("#oculta").attr("disabled", true); // Bloquear input
+                    $("#oculto").show(); // Mostrar la sección de letras
+                    $("#texto").focus(); // Dar foco al input de letras
+                }
+            });
+
+            // Evento cuando el usuario ingresa una letra
+            $("#texto").keypress(function(evento) {
+                let letra = String.fromCharCode(evento.charCode); // Convertir código ASCII a letra
+
+                if (evento.keyCode === 8) { // Si es la tecla "Backspace"
+                    if (letrasTecleadas.length > 0) {
+                        letrasTecleadas.pop(); // Eliminar la última letra ingresada
+                        $("td:last").text(" "); // Borrar la última letra de la tabla
+                    }
+                    return;
+                }
+
+                if (letrasTecleadas.includes(letra)) { // Si la letra ya fue ingresada, no hacer nada
+                    return;
+                }
+
+                letrasTecleadas.push(letra); // Agregar la letra al array
+
+                let letraEncontrada = false; // Variable para saber si la letra está en la palabra
+
+                // Recorrer la palabra y colocar la letra en las celdas correctas
+                for (let i = 0; i < palabraArray.length; i++) {
+                    if (palabraArray[i] === letra) {
+                        $("table tr td").eq(i).text(letra); // Reemplazar espacio con la letra
+                        letraEncontrada = true;
+                    }
+                }
+
+                if (!letraEncontrada) { // Si la letra no estaba en la palabra
+                    fallos++; // Sumar un fallo
+                    $("#fallos").val(fallos); // Actualizar contador de fallos
+                }
+
+                // Comprobar si el usuario ha ganado
+                if (palabraArray.join("") === $("table tr td").map(function() { return $(this).text(); }).get().join("")) {
+                    alert("¡Felicidades! Has ganado.");
+                    setTimeout(iniciarJuego, 1500); // Reiniciar juego después de 1.5 segundos
+                }
+
+                // Comprobar si el usuario ha perdido
+                if (fallos >= 6) { // Si hay 6 fallos, se pierde
+                    alert("¡Has perdido! El juego se reiniciará.");
+                    setTimeout(iniciarJuego, 1500); // Reiniciar juego después de 1.5 segundos
+                }
+
+                $("#texto").val(''); // Vaciar el campo de entrada después de cada intento
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="div">
+        <br><br>
+        ESCRIBE LO QUE QUIERAS <input type="password" id="oculta" size="30">
+        <br><br>
+        <table>
+            <tr></tr>
+        </table>
+        <div id="oculto" style="display:none">
+            <br><br>
+            TECLEA LETRAS <input type="text" id="texto" size="3">
+            <br><br>
+            FALLOS <input type="text" id="fallos" size="3" value="0" disabled>
+        </div>
+    </div>
+</body>
+</html>

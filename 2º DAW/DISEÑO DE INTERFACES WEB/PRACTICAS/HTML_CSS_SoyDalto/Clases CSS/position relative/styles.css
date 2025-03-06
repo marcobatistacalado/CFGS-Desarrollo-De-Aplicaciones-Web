@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    color: #fff;
+    position: relative; /*se reserva el lugar de la caja y tu mueves la caja desde ese sitio*/
+    z-index: 2;
+}
+.box--blue{ 
+    background-color: blue;
+    top: 50px; /*tiene mas prioridad que bottom*/
+    bottom: 50px; /*cuanto se mueve hacia arriba*/
+    /*top y bottom tienen mas prioridad que left y right*/
+    z-index: 10; /*posicionar delante de otras cajas que tengan menos*/
+}

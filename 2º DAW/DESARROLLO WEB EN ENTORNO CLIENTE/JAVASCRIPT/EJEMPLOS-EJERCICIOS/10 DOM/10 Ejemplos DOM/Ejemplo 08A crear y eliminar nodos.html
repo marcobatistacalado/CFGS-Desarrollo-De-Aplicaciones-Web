@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="main.css" />
+    <script>
+      // Variable global que actúa como contador para los párrafos creados
+      var n = 1;
+
+      // Función para añadir un nuevo párrafo al final del body
+      function añadir() {
+        // Crear un nuevo elemento <p>
+        let p = document.createElement("p");
+        // Crear el texto para el nuevo párrafo
+        let texto = document.createTextNode(
+          "Este párrafo no existía en el HTML original " + n
+        );
+        // Añadir el texto al párrafo
+        p.appendChild(texto);
+        // Insertar el párrafo como hijo del body
+        document.body.appendChild(p);
+        // Incrementar el contador para futuros párrafos
+        n++;
+      }
+
+      // Función para eliminar el primer párrafo que se encuentra en el DOM
+      function eliminar() {
+        // Obtener el primer elemento <p> del documento
+        let p = document.getElementsByTagName("p")[0];
+        // Eliminar ese párrafo del body
+        document.body.removeChild(p);
+      }
+
+      // Función para reemplazar el primer párrafo con uno nuevo
+      function cambiar() {
+        // Obtener el primer elemento <p> del documento
+        let p1 = document.getElementsByTagName("p")[0];
+        // Crear un nuevo elemento <p>
+        let p = document.createElement("p");
+        // Crear el texto para el nuevo párrafo
+        let texto = document.createTextNode(
+          "Este párrafo sustituye al anterior"
+        );
+        // Añadir el texto al nuevo párrafo
+        p.appendChild(texto);
+        // Reemplazar el primer párrafo por el nuevo
+        document.body.replaceChild(p, p1);
+      }
+
+      // Función para intercalar un párrafo antes del segundo párrafo existente
+      function intercalar() {
+        // Obtener el segundo elemento <p> del documento
+        let p1 = document.getElementsByTagName("p")[1];
+        // Crear un nuevo elemento <p>
+        let p = document.createElement("p");
+        // Crear el texto para el nuevo párrafo
+        let texto = document.createTextNode("Este se intercala");
+        // Añadir el texto al nuevo párrafo
+        p.appendChild(texto);
+        // Insertar el nuevo párrafo antes del segundo párrafo
+        document.body.insertBefore(p, p1);
+      }
+    </script>
+    
+  </head>
+  <body>
+    <input type="button" value="Añadir nodo" onclick="añadir()" />
+    <input type="button" value="Elimina nodo" onclick="eliminar()" />
+    <input type="button" value="Cambiar nodo" onclick="cambiar()" />
+    <input
+      type="button"
+      value="Poner nodo entre 1º y 2º"
+      onclick="intercalar()"
+    />
+    <p>Primer párrafo</p>
+    <p>Segundo párrafo</p>
+    <p>Tercer párrafo</p>
+  </body>
+</html>

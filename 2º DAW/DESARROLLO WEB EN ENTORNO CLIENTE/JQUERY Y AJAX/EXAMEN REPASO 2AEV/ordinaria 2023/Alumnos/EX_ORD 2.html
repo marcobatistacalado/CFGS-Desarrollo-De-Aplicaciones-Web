@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>EJERCICIO ORDINARIA 2</title>
+		
+		<style>
+			.clasediv {
+				position:relative;
+				float: left;
+				width: 120px;
+				height: 160px;
+				margin-left: 50px;
+				margin-top: 50px;
+				color: #515A5A;
+				text-align:center;
+			}
+
+			.clasemas {
+				position:relative;
+				float: left;
+				width: 340px;
+				margin-left: 50px;
+				margin-top: 100px;
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				line-height: 1.5;
+				border: 1px solid #000000;
+				border-radius: 7px; /* Propiedad estándar */
+				padding: 10px;
+				background-color:#EAEDED;
+			}
+
+			p, span {
+				font-weight: bold;
+				color: #515A5A;
+			}
+		</style>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			// Inicializar el array
+        	var arr = [];
+
+			$(document).ready(function () {
+				realizarProceso(); // Cargar por defecto
+
+				$('#uno').on('click', function () {
+					mostrar();
+				});
+
+				function realizarProceso() {
+					$.ajax({
+						url: 'heroes.json',
+						type: 'GET',
+						dataType: 'json',
+						success: function (request) {
+							arr = request;
+							mostrar(); 
+						},
+						error: function () {
+							alert("Error al cargar el archivo JSON");
+						}
+					});
+				}
+
+				function mostrar() {
+					let principalDiv = $('#info');
+					// Limpiar el contenido anterior
+					principalDiv.empty();
+
+					for (let i = 0; i < arr.length; i++) {
+						let personajeDiv = $("<div>").addClass("clasediv");
+
+						// Mostrar los datos
+						let title = $("<h4>").text(arr[i].nombre);
+						personajeDiv.append(title);
+						
+						let img = $("<img>").attr("src", arr[i].img).attr("width", "100").attr("height", "100");
+						personajeDiv.append(img);
+						
+						let descr = $("<div>").html(arr[i].bio).hide();
+						personajeDiv.append(descr);
+
+						let casa = $("<p>").html(arr[i].casa).addClass('casa'); // Añadido clase 'casa' para identificación
+						personajeDiv.append(casa);
+
+						// Agregar personajeDiv al contenedor principal
+						principalDiv.append(personajeDiv);
+					}
+
+					// Aquí se gestiona el hover en las imágenes
+					$("img").hover( 
+						function(){
+							let cajaHide = $(this).siblings("div").html(); // Obtener el contenido del div de la bio
+							$("#masinfo").html(cajaHide); // Mostrarlo en el div con id 'masinfo'
+						},
+						function() {
+							$("#masinfo").html(''); // Limpiar la información de 'masinfo' al salir del hover
+						}
+					);
+
+					// Agregar evento de clic en la casa
+					$(".casa").on("click", function() {
+						var casaNombre = $(this).html(); // Obtener el nombre de la casa (ej. "DC")
+
+						// Mostrar mensaje de carga con puntos
+						var cargaMessage = 'Cargando información de la casa';
+						var contador = 0;
+
+						// Crear un intervalo para actualizar el mensaje con puntos
+						var interval = setInterval(function() {
+							contador++;
+							$("#masinfo").html(cargaMessage + '.'.repeat(contador % 4)); // Añadir puntos incrementales
+						}, 500);
+
+						// Realizar la llamada AJAX para cargar el archivo JS correspondiente
+						$.ajax({
+							url: casaNombre + '.js', // Nombre del archivo JS basado en la casa
+							type: 'GET',
+							dataType: 'script', // Especificamos que esperamos un archivo JS
+							success: function() {
+								clearInterval(interval); // Detener el contador
+							},
+							error: function() {
+								clearInterval(interval); // Detener el contador en caso de error
+								$("#masinfo").html('Error al cargar el archivo ' + casaNombre + '.js');
+							}
+						});
+					});
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="info">
+		</div>
+		<div class="clasemas">
+			Saber mas...
+			<div id="masinfo">
+			</div>
+		</div>
+	</body>
+</html>

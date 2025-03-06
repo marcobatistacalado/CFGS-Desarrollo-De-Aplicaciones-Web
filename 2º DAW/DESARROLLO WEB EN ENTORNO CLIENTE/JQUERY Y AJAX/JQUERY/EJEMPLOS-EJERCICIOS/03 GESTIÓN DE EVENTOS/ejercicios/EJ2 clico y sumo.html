@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style type='text/css'>
+        body {
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+        #div {
+            width: 400px;
+            height: 400px;
+            margin-left: 20px;
+            border: 2px black solid;
+            padding: 20px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            background-color: #99ccff;
+        }
+        h1 {
+            text-align: center;
+            font-size: 20pt;
+        }
+        table {
+            background-color: #EFF2FB;
+            text-align: center;
+            width: 250px;
+            border: 1px solid #D0A9F5;
+            font-family: 'Cherry Swash', cursive;
+        }
+        input {
+            text-align: center;
+        }
+        td {
+            border: 1px solid #D0A9F5;
+            cursor: pointer;
+        }
+        .seleccionado {
+            background-color: #FFCC66;
+        }
+        .desactivado {
+            background-color: #CCCCCC;
+        }
+    </style>
+
+<script src="../../../jquery-3.7.1.min.js"> </script>
+
+    <script type="text/javascript">
+        // Genera un número aleatorio entre min y max
+        function aleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        $(document).ready(function() {
+            let sumaObjetivo = aleatorio(1, 100); // Número que el jugador debe alcanzar
+            let sumaActual = 0; // Suma acumulada de los números seleccionados
+
+            // Mostrar el número objetivo en el input
+            $('#num').val(sumaObjetivo);
+
+            // Rellenar la tabla con números aleatorios
+            $('td').each(function() {
+                let numAleatorio = aleatorio(1, 9);
+                $(this).text(numAleatorio);
+                $(this).data('valor', numAleatorio); // Guardar el valor en los datos del elemento
+            });
+
+            // Función al hacer clic en una celda
+            $('td').click(function() {
+                let valorCelda = $(this).data('valor'); // Obtener el valor de la celda
+                let index = $(this).index(); // Obtener el índice de la celda
+
+                if ($(this).hasClass('seleccionado')) {
+                    return; // Si la celda ya está seleccionada, no hacer nada
+                }
+
+                // Añadir el valor a la suma actual
+                sumaActual += valorCelda;
+                $('#suma').val(sumaActual);
+
+                // Marcar la celda como seleccionada
+                $(this).addClass('seleccionado');
+                $(this).text('*'); // Cambiar el número por un '*'
+
+                // Comprobar si se ha alcanzado el objetivo
+                if (sumaActual === sumaObjetivo) {
+                    alert('¡Felicidades, has alcanzado la suma correcta!');
+                    $('td').each(function() {
+                        if (!$(this).hasClass('seleccionado')) {
+                            $(this).text('*'); // Cambiar los valores restantes a '*'
+                        }
+                    });
+                } else if (sumaActual > sumaObjetivo) {
+                    alert('¡Te has pasado! La suma es mayor que el objetivo.');
+                    $('td').each(function() {
+                        if (!$(this).hasClass('seleccionado')) {
+                            $(this).text('*'); // Cambiar los valores restantes a '*'
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div id="div">
+        <br><br>
+        TIENES QUE SUMAR <input type="text" id="num" size=6 value="0" disabled>
+        <br><br>
+        Y LLEVAS SUMADO <input type="text" id="suma" size=6 value="0" disabled>
+        <br><br>
+        <table>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+                <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

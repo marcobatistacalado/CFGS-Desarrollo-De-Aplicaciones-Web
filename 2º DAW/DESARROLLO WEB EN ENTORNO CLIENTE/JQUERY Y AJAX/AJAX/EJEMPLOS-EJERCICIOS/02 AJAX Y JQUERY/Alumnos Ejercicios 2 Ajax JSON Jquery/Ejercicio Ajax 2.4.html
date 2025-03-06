@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+
+	<style>
+		body {
+			font-family: "Trebuchet MS", sans-serif;
+			margin: 50px;
+		}
+
+		.demoHeaders {
+			margin-top: 2em;
+		}
+
+		img {
+			width: 170px;
+			height: 120px;
+			border: solid 2px;
+		}
+
+		#dialog-link {
+			padding: .4em 1em .4em 20px;
+			text-decoration: none;
+			position: relative;
+		}
+
+		#dialog-link span.ui-icon {
+			margin: 0 5px 0 0;
+			position: absolute;
+			left: .2em;
+			top: 50%;
+			margin-top: -8px;
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<script>
+		$(document).ready(function() {
+			// Función para cargar datos del archivo contenido.json
+			function cargarDatos() {
+				$.ajax({
+					url: 'contenido.json',
+					type: 'get',
+					dataType: 'json',
+					success: function(request) {
+						var arr = request;
+						let divInfo = $("#informacion");
+						divInfo.empty(); // Limpiar contenido previo
+
+						// Recorrer los datos y agregarlos a la estructura
+						for (let i = 0; i < arr.length; i++) {
+							let h3 = $("<h3>").html(arr[i].clase);
+							let divP = $("<div>").html(arr[i].descripcion);
+							h3.appendTo(divInfo);
+							divP.appendTo(divInfo);
+						}
+					}
+				});
+			}
+
+			// Petición AJAX al hacer clic en el botón "Pedir información"
+			$('#dialog-link').click(function(event) {
+				event.preventDefault(); // Prevenir la acción por defecto del enlace
+				$("#dialog").dialog({
+					modal: true,
+					width: 400,
+					height: 300
+				});
+				cargarDatos(); // Cargar los datos
+			});
+
+			// Petición AJAX al hacer clic en una imagen
+			$('img').click(function() {
+				$.ajax({
+					url: 'masinformacion.js', // Asumimos que este archivo existe en el servidor
+					type: 'get',
+					dataType: 'script',
+					success: function() {
+						console.log("Script ejecutado correctamente.");
+					},
+					error: function() {
+						console.log("Error al ejecutar el script.");
+					}
+				});
+			});
+		});
+	</script>
+
+</head>
+
+<body>
+
+<h2 class="demoHeaders">Mis animalitos</h2>
+<p>
+	<button id="dialog-link" class="ui-button ui-corner-all ui-widget">
+		<span class="ui-icon ui-icon-newwin"></span>Pedir información
+	</button>
+</p>
+
+<!-- ui-dialog -->
+<div id="dialog" title="Información">
+	<p>Si pulsa traeremos la información utilizando AJAX y JSON</p>
+</div>
+
+<div id="imagenes">
+	<br>
+	<img id="mamiferos" src="img/mamiferos.jpeg">
+	<img id="aves" src="img/aves.jpeg">
+	<img id="reptiles" src="img/reptiles.jpeg">
+</div>
+
+<!-- Contenedor donde se mostrará la información -->
+<div id="informacion"></div>
+
+</body>
+</html>

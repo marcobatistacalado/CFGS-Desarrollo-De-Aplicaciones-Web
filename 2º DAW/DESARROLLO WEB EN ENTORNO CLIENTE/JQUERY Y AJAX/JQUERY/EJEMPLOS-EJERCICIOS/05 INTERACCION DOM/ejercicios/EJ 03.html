@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="StyleSheet" href="estilos3.css" type="text/css">
+    <script src="../../../jquery-3.7.1.min.js"> </script>
+    <script>
+        $(document).ready(function() {
+
+            // Evento para cuando el ratón pasa por encima de una caja (mouseenter)
+            $(".campo").on("mouseenter", function() {
+                $(this).addClass("input_text_encima"); // Añadir clase para el borde más grueso
+            });
+
+            // Evento para cuando el ratón sale de una caja (mouseleave)
+            $(".campo").on("mouseleave", function() {
+                $(this).removeClass("input_text_encima"); // Eliminar la clase para volver al borde original
+            });
+
+            // Evento para cuando una caja recibe el foco (focus)
+            $(".campo").on("focus", function() {
+                $(this).addClass("input_text_dentro"); // Añadir clase para cambiar borde y fondo
+            });
+
+            // Evento para cuando una caja pierde el foco (blur)
+            $(".campo").on("blur", function() {
+                $(this).removeClass("input_text_dentro"); // Eliminar la clase para recuperar el aspecto original
+            });
+
+            // Evento para el submit del formulario
+            $("#formulario").on("submit", function(event) {
+                // Verificar la longitud de la contraseña
+                var password = $("#password").val();
+                if (password.length < 6) {
+                    $("#password").addClass("input_text_error"); // Si es menor a 6, añadir clase de error
+                    event.preventDefault(); // Prevenir el envío del formulario
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="caja" class="myform">
+        <form id="formulario">
+            <h1>Formulario De Registro</h1>
+            <p>Prueba de addclass y removeclass</p>
+
+            <label>Nombre<span class="peque">Teclea nombre</span></label>
+            <input type="text" name="nombre" id="nombre" class="campo"/>
+
+            <label>Email<span class="peque">Teclea email</span></label>
+            <input type="text" name="email" id="email" class="campo" />
+
+            <label>Password<span class="peque">Min. size 6 chars</span></label>
+            <input type="password" name="password" id="password" class="campo" />
+
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <link rel="stylesheet" href="stilos deportes.css" type="text/css" />  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"> </script>
+    <script>
+        $(document).ready(function(){
+            // Función para cargar los deportes
+            function cargaDeportes(){            
+                $.ajax({
+                    url: 'deportes.json', 
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (request) {
+                        let arr = request;
+                        for (let i = 0; i < arr.length; i++) {
+                            let li = $("<li>");
+                            li.html(arr[i].deporte);
+                            
+                            // Crear el div para la descripción del deporte y ocultarlo
+                            let div = $("<div>").html(arr[i].desc).hide();
+                            
+                            // Añadir el div al li
+                            li.append(div);
+                            
+                            // Añadir el li al ul con id 'demo'
+                            $('#demo ul').append(li);
+                            
+                            // Mostrar u ocultar la descripción al hacer clic en el li
+                            li.click(function() {
+                                div.toggle();  // Mostrar u ocultar la descripción
+                            });
+                        }            
+                    }
+                });
+            }
+
+            // Llamar a la función cuando el botón se haga clic --> ESTO SE HACE PORQUE EL DOCUMENTO AUN NO ESTA CARGADO
+            $('#cargar').click(function(){
+                cargaDeportes();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="titulo"> 
+        <h1> DEPORTES</h1> 
+    </div>
+    <input type="button" value="Cargar Deportes" id="cargar">
+    <div id="demo">
+        <ul>
+            <!-- Los elementos de la lista se llenarán dinámicamente -->
+        </ul>
+    </div>
+</body>
+</html>

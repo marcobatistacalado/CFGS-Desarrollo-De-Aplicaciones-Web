@@ -1,0 +1,17 @@
+body{
+    color: brown;
+    font-family: sans-serif;
+}
+
+h1{
+    /*color: inherit;*/ 
+    /*por defecto tiene esto por eso sería marron porque esta dentro del body (va hacia el padre preguntando que color tienen y si la encuentra se queda con esa*/
+    color: initial; /*valor por defecto*/
+    font-family: initial;
+
+    /*color: unset; */
+    /*si el valor por defecto era inherit lo vuelve a inherit pero si por defecto era otro lo deja en initial*/
+
+    /*color: revert;*/
+    /*intenta revertirlo a un estilo que pusiese el usuario y sino a inherit*/
+}

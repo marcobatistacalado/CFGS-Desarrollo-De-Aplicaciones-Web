@@ -1,0 +1,16 @@
+p{
+    color: red;
+    /* puedes poner varias fuentes por si alguna no cargarse */
+    font-family: sans-serif, tahoma;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic; /*italic, normal, oblique*/
+    text-align: right; /*center, left, rigth, justify*/
+    /*start - dependiendo del pais de izquierda a derecha o de derecha a izquierda*/
+    text-decoration: underline; /*line-throught - tachar texto*/
+    /*text-decoration: none*/
+    line-height: 1; /*tamaño entre líneas*/
+    letter-spacing: 10px; /*espacio entre letras*/
+    text-transform: uppercase; /*lowercase, capitalize - agregar mayuscula a cada palabra en la primera letra*/
+    text-shadow: 0px 0px 0px 4px;
+}

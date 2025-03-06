@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <h3>Día de la semana de tu cumpleaños en 2024</h3>
+    <input type="date" id="cumple" />
+    <button onclick="mostrarDiaCumple()">Mostrar Día</button>
+
+    <p id="resultadoDia"></p>
+
+    <script>
+        function mostrarDiaCumple() {
+            let fechaCumple = new Date(document.getElementById("cumple").value);
+            fechaCumple.setFullYear(2024);
+            const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            let diaSemana = diasSemana[fechaCumple.getDay()];
+            document.getElementById("resultadoDia").innerText = `Tu cumpleaños en 2024 cae en ${diaSemana}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style type="text/css">
+      .main-box {
+        width: 20%;
+        margin: auto;
+      }
+    </style>
+    <script>
+      let num = 0;
+      let entrada;
+      do {
+        entrada = prompt("Introduce un dato:");
+        // Comprobar si la entrada es un número y si no es "FIN"
+        if (!isNaN(entrada) && entrada !== "FIN") {
+          num += parseInt(entrada); // Sumar los valores numéricos, y no hace falta truncar ya lo hace el parseInt
+          alert("Suma acumulada: " + num);
+        }
+      } while (entrada != "FIN" && entrada != "fin");
+      alert("Se acabo el proceso");
+    </script>
+  </head>
+  <body></body>
+</html>

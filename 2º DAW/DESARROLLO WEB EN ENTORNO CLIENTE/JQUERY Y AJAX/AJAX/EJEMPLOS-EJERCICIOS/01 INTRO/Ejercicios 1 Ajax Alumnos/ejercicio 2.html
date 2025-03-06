@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Fotos</title>
+    <script type="text/javascript">
+        function descargaXML() {
+            // Crear la instancia del objeto XMLHttpRequest		
+            let peticion_http = new XMLHttpRequest();	
+            
+            // Preparar la función de respuesta
+            peticion_http.onload = function() {
+                muestraContenido(peticion_http);
+            };
+
+            // Realizar la petición HTTP
+            peticion_http.open('GET', 'fotos.xml', true);
+            peticion_http.send();
+        }
+
+        function muestraContenido(peticion_http) {
+            if (peticion_http.status == 200) {
+                let xmlDoc = peticion_http.responseXML;
+                let txt = ""; 
+                let x = xmlDoc.getElementsByTagName("FOTO");
+
+                for (let i = 0; i < x.length; i++) {
+                    let imagen = x[i].getElementsByTagName("IMAGEN")[0].textContent;
+                    let src = x[i].getElementsByTagName("SRC")[0].textContent;
+
+                    txt += `<option value="${src}">${imagen}</option>`;
+                }
+
+                document.getElementById("sel").innerHTML += txt;
+            } else {	
+                document.getElementById("demo").innerHTML = "ERROR " + peticion_http.status;
+            }
+        }
+
+        function mostrarImagen() {
+            let select = document.getElementById("sel");
+            let imagenSeleccionada = select.value;
+
+            if (imagenSeleccionada !== "0") {
+                document.getElementById("demo").innerHTML = `<img src="${imagenSeleccionada}" alt="Imagen seleccionada" width="300">`;
+            } else {
+                document.getElementById("demo").innerHTML = "";
+            }
+        }
+    </script>
+</head>
+<body onload="descargaXML()">
+    <div id="titulo"> 
+        <h1>BUSCAR FOTOS</h1> 
+    </div>
+    <select id="sel" onchange="mostrarImagen()">
+        <option value="0">MIS FOTOS</option>
+    </select>
+    <div id="demo"></div>
+</body>
+</html>

@@ -1,0 +1,335 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background: #f0f8ff; /* Azul claro */
+}
+
+header {
+    background-color: #0056b3; /* Azul oscuro */
+    color: white;
+    padding:1.5em;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    height: 15vh;
+    border-radius: 10px;
+}
+
+.nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top:2vh;
+    display: flex;
+    justify-content:end;
+    gap: 3em;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.5s ease;
+}
+
+.nav ul li a:hover {
+    color: #ffcc80; /* Naranja suave */
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    gap:1%;
+}
+
+/* Barra lateral */
+.sidebar {
+    background-color: #ff9800; /* Naranja */
+    color: white;
+    padding: 1rem;
+    width: 15%; 
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 1s ease-in-out;
+    border-radius: 10px;
+}
+
+.sidebar:hover {
+    transform: scale(1.1);
+}
+
+.sidebar h2 {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    background: #ffa726; /* Naranja claro */
+    margin-bottom: 0.5em;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background: #ff6f00; /* Naranja intenso */
+    transform: translateX(5px);
+}
+
+/* Contenido principal */
+main {
+   
+    width:84%;
+    padding-top: 2em;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.titulo{
+    position:absolute;
+    top:50%;
+    left:30%;
+    text-align: center;
+  
+}
+.titulo-content{
+     color:#f0f8ff;
+     padding:0px 30px;
+    /* transform: skewY(-15deg) scaleX(0.5);*/
+     
+}
+
+.titulo h1{
+    font-size: 7vw;
+    opacity:0;
+    animation:Abajo 6s 2s 3 forwards;
+    text-shadow:0px 0px 20px rgba(0,0,0,0.5);
+}
+
+@keyframes Abajo{
+    0%{
+      transform:translateY(-500px);
+      opacity:0;
+      filter: blur(1.5em);
+    }
+  
+    10%{
+        transform:translateY(0);
+        filter:blur(0);
+        opacity:1;
+       
+      }
+    99%{
+      transform:translateY(0);
+      opacity:1;
+     
+    }
+    100%{
+        opacity:0;
+      }
+  }
+
+.titulo h2{
+    font-size:4vw;
+    opacity:0;
+    animation:Arriba 6s 2s 3 forwards;
+    text-shadow:0px 0px 20px rgba(0,0,0,0.5);
+}
+
+@keyframes Arriba{
+    0%{
+      transform:translateY(500px);
+      opacity:0;
+      filter: blur(1.5em);
+    }
+  
+    10%{
+        transform:translateY(0);
+        opacity:1;
+        filter:blur(0);
+       
+      }
+    99%{
+      transform:translateY(0);
+      opacity:1;
+     
+    }
+    100%{
+        opacity:0;
+      }
+  }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(400px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main section{
+    margin-bottom: 20px;
+   
+}
+main section h2{
+    margin-bottom: 20px;
+}
+main section ul{
+    list-style-position: inside;
+    text-indent: 40px;
+}
+
+section h2{
+    text-indent: 40px;
+}
+
+#cabecera{
+    height: 80vh;
+    background-image: url(teatro.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*position:relative;*/
+ }
+
+/* Grid de precios */
+.price-grid {
+    margin-right: 10px;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap: 1em;
+}
+
+.price-item {
+    background: #e3f2fd; /* Azul muy claro */
+    color: #0056b3; /* Azul oscuro */
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.price {
+    font-size: 1.5em;
+    color: #ff5722; /* Naranja fuerte */
+}
+
+/* Formulario */
+form {
+    width: 50%;
+    display: grid;
+    grid-template-columns: auto 1fr; /* Dos columnas */
+    gap: 0.5rem 1rem; /* Espaciado entre filas y columnas */
+    margin:0 auto;
+   
+}
+
+form input, form select, form button {
+   /* width: 100%; */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form label {
+   /* grid-column: span 2; Ocupa ambas columnas */
+    font-weight: bold;
+}
+
+form input:focus, form select:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+form button {
+    grid-column: span 2; /* Botón ocupa ambas columnas */
+ 
+    background: #ffa726; /* Naranja claro */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background-color: #ff9800; /* Naranja */
+    transform: translateY(-2px);
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    background: #0056b3;
+    color: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 700px) { 
+
+    header{
+       height: auto;
+    }
+    .nav ul{
+        flex-direction: column;
+    }
+
+
+    .container{
+        flex-direction: column;
+    }
+
+    .sidebar, main{
+        width: 100%;
+    }
+
+    form{
+        width:90%;
+        grid-template-columns: 1fr;
+    }
+
+    .price-grid {
+    
+        grid-template-columns:100%;
+      
+    }
+
+    section h2{
+        text-indent: 0;
+        text-align: center;
+    }
+
+    form button {
+       grid-column: 1; /* Asegura su correcta alineación */
+    }
+    .titulo{
+        display:none;
+    }
+   
+}

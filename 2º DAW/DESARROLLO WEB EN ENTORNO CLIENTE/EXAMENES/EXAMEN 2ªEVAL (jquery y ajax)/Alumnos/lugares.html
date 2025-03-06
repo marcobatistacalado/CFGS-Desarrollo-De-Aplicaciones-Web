@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lugares de Conciertos en Madrid</title>
+    <link rel="stylesheet" href="lugares.css">
+    <script src="jquery-3.7.1.min.js"> </script>
+    <script>
+        $(document).ready( function() {
+        //a
+            $(".card").slideUp(2000).delay(1000).slideDown(2000);
+            
+        //b
+            let contadorClick = 0;
+            $("#Movi").click(function () {
+                contadorClick++;
+                $(this).animate({opacity:'-=0.25'},"fast")
+                if (contadorClick >= 3) {
+                    $(this).off("click");
+                }
+            });
+        //c
+            $("#Grut").hover(
+                function () { 
+                    $(this).fadeTo(1000, 0.25);  
+                    $("#Moby").delay(1000).fadeTo(1000, 0.25);  
+                },
+                function () { 
+                    $(this).fadeTo(1000, 1); 
+                    $("#Moby").delay(1000).fadeTo(1000, 1);
+                }
+            );
+            
+        //d
+            $("h1").click(function () {
+                let tarjetasc = $(".card").clone(true);
+                $("#principal").append(tarjetasc);
+                    $(".card").first().remove();
+            });
+        //e
+            let rojo = false
+            $("h2").click(function () {
+                if(rojo){
+                    $("h2").each(function(){
+                    $(this).css("color", "black");
+                    $(this).siblings("a").show();
+                    })
+                    
+                    rojo = false
+                }else{
+                $(this).css("color", "red");
+                    $(this).siblings("a").hide();
+                    rojo = true
+                }
+            });
+
+            
+        });
+
+    </script>
+	
+</head>
+<body>
+    <h1>¡Conoce los mejores lugares de conciertos en Madrid!</h1>
+
+    <div id="principal" class="grid-container">
+        <!-- Movistar Arena -->
+        <div class="card" id="Movi">
+           <div class="card-content">
+                <h2 class="nombre-lugar">Movistar Arena</h2>
+                <p class="descripcion-lugar">
+                    Un lugar moderno y vibrante para eventos y conciertos masivos. Ofrece una experiencia única con tecnología de última generación.
+                </p>
+                <a href="https://www.movistararena.es" target="_blank" class="btn-mas-info">Visitar sitio web</a>
+            </div>
+        </div>
+
+        <!-- Gruta 77 -->
+        <div class="card" id="Grut">
+            <div class="card-content">
+                <h2 class="nombre-lugar">Gruta 77</h2>
+                <p class="descripcion-lugar">
+                    La meca del rock underground en Madrid. Ambiente íntimo y auténtico para disfrutar de bandas emergentes y consolidadas.
+                </p>
+                <a href="https://www.gruta77.com" target="_blank" class="btn-mas-info">Visitar sitio web</a>
+            </div>
+        </div>
+
+        <!-- Moby Dick -->
+        <div class="card" id="Moby">
+            <div class="card-content">
+                <h2 class="nombre-lugar">Moby Dick</h2>
+                <p class="descripcion-lugar">
+                    Un clásico de la música en vivo en Madrid. Conciertos de diversos géneros en un entorno acogedor con excelente acústica.
+                </p>
+                <a href="https://www.mobydickclub.com" target="_blank" class="btn-mas-info">Visitar sitio web</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

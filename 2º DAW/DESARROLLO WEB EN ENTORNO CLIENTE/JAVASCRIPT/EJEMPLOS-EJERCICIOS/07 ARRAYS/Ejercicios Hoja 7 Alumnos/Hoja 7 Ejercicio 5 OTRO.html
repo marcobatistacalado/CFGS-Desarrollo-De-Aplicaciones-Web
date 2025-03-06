@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #tabla {
+      text-align: center;
+      margin-left: 45%;
+    }
+    .caja {
+      border: 1px solid;
+      padding: 20px;
+    }
+  </style>
+  <script>
+    let contador = 1;
+    let fallos = 0;
+    function cargar() {
+      let array = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+      array.sort(() => Math.random() - 0.5);
+
+      let cont = 0;
+      let tablaHTML = "<table>";
+      for (let i = 0; i < 3; i++) {
+        tablaHTML += "<tr>";
+        for (let q = 0; q < 3; q++) {
+          tablaHTML += `<td class="caja" onclick="mirar(this)">${array[cont]}</td>`;
+          cont++;
+        }
+        tablaHTML += "</tr>";
+      }
+      tablaHTML += "</table>";
+      document.getElementById("tabla").innerHTML = tablaHTML;
+    }
+    function mirar(x) {
+      //innerHTML contenido txt
+      //alert(x.innerHTML);
+      if (x.innerHTML == contador) {
+        x.style.background = "green";
+        x.style.pointerEvents = "none";
+        contador += 1;
+      } else {
+        x.style.background = "red";
+        fallos++;
+      }
+    }
+  </script>
+  <body onload="cargar()">
+    <div id="tabla"></div>
+  </body>
+</html>

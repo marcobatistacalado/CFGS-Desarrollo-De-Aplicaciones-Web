@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      // Definimos un array llamado 'num' con varios números
+      const num = [1, 22, 100, 300, 45, 33];
+
+      // Mostramos una alerta con el resultado de ordenar el array alfanuméricamente (por defecto)
+      // Orden alfanumérico significa que los números se tratan como cadenas de texto y se ordenan 
+      // según el orden lexicográfico (1, 100, 22, etc.)
+      alert(num.sort());
+
+      // Ordenamos el array de manera numérica ascendente utilizando una función de comparación.
+      // La función de comparación toma dos valores `a` y `b` y devuelve:
+      // - Un número negativo si `a` debe ir antes que `b`.
+      // - Cero si no importa el orden entre ellos.
+      // - Un número positivo si `a` debe ir después de `b`.
+      alert(
+        num.sort(function (a, b) {
+          return a - b; // Orden ascendente: compara los números directamente.
+        })
+      );
+
+      // Ordenamos el array de manera numérica descendente utilizando otra función de comparación.
+      // Aquí simplemente invertimos la resta para ordenar de mayor a menor.
+      alert(
+        num.sort(function (a, b) {
+          return b - a; // Orden descendente.
+        })
+      );
+    </script>
+  </head>
+  <body onload="cargar()">
+    <div>PROBANDO MÉTODOS EN ARRAYS</div>
+  </body>
+</html>

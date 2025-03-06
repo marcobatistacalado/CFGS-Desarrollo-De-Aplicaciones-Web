@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--RESPONSIVE-->
+    <style>
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+            .main--options {
+                flex-direction: column;
+                width: 100%;
+                margin: 0;
+            }
+
+            .main--options--caja {
+                width: 80%;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header {
+                font-size: 2.5em;
+            }
+
+            nav a {
+                font-size: 14px;
+                margin: 5px;
+            }
+
+            .main--options--caja {
+                width: 90%;
+                margin: 15px auto;
+            }
+        }
+
+
+     
+    </style>
+</head>
+<body>
+    <header>
+        MY GYM
+    </header>
+    <nav>
+        <a href="index.html">Nuestro método</a>
+        <a href="usuarios.html">Usuarios</a>
+        <a href="https://go-fit.es/" target="_blank">Conoce más</a>
+    </nav>
+    <main>
+        <div class="main--item">
+            <h1>¿Sabías que practicar deporte al menos <span>150 minutos</span> a la semana te ayuda a conseguir una vida saludable?</h1>
+        </div> 
+        <div class="main--options">
+            <!-- Caja 1 -->
+            <div class="main--options--caja">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span>01</span><img src="../imagenes/gym_eval.png" alt="Evaluación">Te evaluamos
+                    </div>
+                    <div class="flip-card-back">
+                        <!-- Contenido de reverso -->
+                        <p>Más detalles sobre la evaluación</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caja 2 -->
+            <div class="main--options--caja">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span>02</span><img src="../imagenes/gym_pres.jpg" alt="Prescripción">Te prescribimos
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Detalles de la prescripción</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caja 3 -->
+            <div class="main--options--caja">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <span>03</span><img src="../imagenes/gym_acom.jpg" alt="Acompañamiento">Te acompañamos
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Detalles del acompañamiento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>

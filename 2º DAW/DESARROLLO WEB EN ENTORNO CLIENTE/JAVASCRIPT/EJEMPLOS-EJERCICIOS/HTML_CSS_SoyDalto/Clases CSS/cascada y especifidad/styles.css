@@ -1,0 +1,31 @@
+/*estilo navegador-estilo usuario-estilo que le doy yo-etiqueta style-atributo style-!IMPORTANT*/
+
+/*El orden si es el mismo elemento importa el ultimo que este gana*/
+
+h1{
+    color: red;
+}
+h1{
+    color: blue;
+}
+
+/*La clase tiene mas especifidad que el elemento*/
+
+.titulo{
+    color: purple;
+}
+
+/*El id es más especifico que los dos anteriores*/
+
+#titulo{
+    color: green;
+}
+/*si metemos el style directamente en el index gana a todas las anteriores*/
+
+/*si metemos un style como etiqueta en el elemento gana al anterior*/
+
+/*!important gana a todos*/
+h1{
+    color: darkgoldenrod !important;
+}
+

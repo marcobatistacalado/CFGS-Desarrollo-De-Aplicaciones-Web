@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Kite+One|Cherry+Swash' rel='stylesheet' type='text/css'>
+    <style type='text/css'>
+        body {
+            font-family: 'Kite One', sans-serif;
+        }
+
+        #div1 {
+            width: 250px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 20pt;
+        }
+
+        table {
+            background-color: #EFF2FB;
+            text-align: center;
+            width: 250px;
+            border: 1px solid #D0A9F5;
+            font-family: 'Cherry Swash', cursive;
+        }
+
+        .festivo {
+            background-color: #D0A9F5;
+        }
+
+        td {
+            border: 1px solid #D0A9F5;
+        }
+
+        th {
+            background-color: #B4C6E7;
+            border: 1px solid #D0A9F5;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function cargar() {
+            // Pedir al usuario el año o usar 2022 por defecto
+            let ano = prompt("Introduce año (2022 por defecto):", "2022");
+            ano = ano ? Number(ano) : 2022; // Si no se introduce nada, se asigna 2022
+            const fecha = new Date(ano, 11, 1); // 1 de diciembre del año indicado
+            let numeroSemana = fecha.getDay(); // Día de la semana del 1 de diciembre
+            // Ajustamos el valor para que el lunes sea el primer día de la semana (lunes=1)
+            numeroSemana = (numeroSemana === 0) ? 6 : numeroSemana - 1; // Si es domingo (0), lo ajustamos a 6 (sábado)
+
+            const diasFestivos = [6, 8, 25]; // Festivos (6, 8, 25 de diciembre)
+            const tabla = document.createElement('table');
+            let cont = 1;
+
+            // Determinar el número de semanas (filas) en el calendario
+            let semanas = 5;
+            if ((numeroSemana + 31) > 35) {
+                semanas = 6; // Si hay más de 35 días en total, habrá 6 semanas
+            }
+
+            // Crear la cabecera de la tabla (L, M, X, J, V, S, D)
+            let thRow = document.createElement('tr');
+            let diasSemana = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+            for (let i = 0; i < 7; i++) {
+                let th = document.createElement('th');
+                th.innerHTML = diasSemana[i];
+                thRow.appendChild(th);
+            }
+            tabla.appendChild(thRow);
+
+            // Crear el calendario
+            for (let i = 0; i < semanas; i++) {
+                let tr = document.createElement('tr');
+
+                for (let j = 0; j < 7; j++) {
+                    let td = document.createElement('td');
+                    let dia = i * 7 + j - numeroSemana + 1;
+
+                    if (dia > 0 && dia <= 31) {
+                        // Si el día está dentro del mes
+                        td.innerHTML = dia;
+
+                        // Marcar días festivos (6, 8, 25) y domingos (j === 6)
+                        if (diasFestivos.includes(dia) || j === 6) {
+                            td.setAttribute('class', 'festivo'); // Asignar la clase festivo sin classList
+                        }
+                    }
+
+                    tr.appendChild(td);
+                }
+
+                tabla.appendChild(tr);
+            }
+
+            // Mostrar el calendario
+            const div1 = document.getElementById("div1");
+            div1.innerHTML = "<h1>Calendario de Diciembre " + ano + "</h1>";
+            div1.appendChild(tabla);
+        }
+    </script>
+</head>
+
+<body onload="cargar()">
+    <br>
+    <div id="div1">
+        <!-- Aquí se añadirá el calendario dinámicamente -->
+    </div>
+</body>
+
+</html>

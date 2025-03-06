@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metaetiquetas básicas para una página web -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres para admitir caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Vista adaptada para dispositivos móviles -->
+    <title>Ejercicio 1 Bootstrap</title>
+    
+    <!-- Meta adicional (duplicada, se puede eliminar una) -->
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no"> <!-- Vista móvil mejorada (innecesario ya que se repite) -->
+
+    <!-- Archivo JavaScript de Bootstrap -->
+    <script src="../bootstrap-5.2.3/js/bootstrap.min.js"></script>
+    <!-- Archivo CSS de Bootstrap -->
+    <link href="../bootstrap-5.2.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <style>
+        * {
+            margin: 0; /* Elimina márgenes predeterminados */
+            padding: 0; /* Elimina rellenos predeterminados */
+        }
+        body {
+            color: whitesmoke; /* Color de texto blanco humo */
+        }
+        .foto1 [class^="col-"] {
+            background-color: #3B668C; /* Fondo azul oscuro para las columnas dentro de la clase .foto1 */
+        }
+        .foto2 [class^="col-"] {
+            background-color: #8AA3A6; /* Fondo gris azulado para las columnas dentro de la clase .foto2 */
+        }
+        #ppal {
+            background-color: aqua; /* Fondo color aqua para el contenedor principal */
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal con un ancho máximo "md" y centrado de texto -->
+    <div class="container-md text-center id="ppal"> <!-- ERROR: id="ppal" está mal cerrado; debería ir antes del cierre de comillas de class -->
+        
+        <!-- Fila 1: Texto centrado -->
+        <div class="row">
+            <div class="col-md-8 offset-md-2 mt-2 mb-2 p-2 bg-black"> <!-- Columna centrada con márgenes superior e inferior y fondo negro -->
+                <p class="h2">A VECES LO ESENCIAL ES INVISIBLE A LOS OJOS</p> <!-- Texto de cabecera -->
+            </div>
+        </div>
+
+        <!-- Fila 2: Imagen principal -->
+        <div class="row mt-2 bg-black"> <!-- Margen superior y fondo negro -->
+            <div class="col-md-8 offset-md-2 mt-2 mb-2 p-2 bg-black"> <!-- Columna centrada con relleno -->
+                <img src="fotoesencial.jpg" class="img-fluid"> <!-- Imagen ajustada al ancho de su contenedor -->
+            </div>
+        </div>
+
+        <!-- Fila 3: Dos columnas con contenido -->
+        <div class="row mt-2 bg-black">
+            <!-- Parte izquierda -->
+            <div class="col-md-6 mt-2 p-3 foto1"> <!-- Columna izquierda con márgenes y clase personalizada -->
+                <div class="row"> <!-- Subfila dentro de la columna -->
+                    <div class="col-md-12 p-3"> <!-- Columna completa con relleno -->
+                        <img src="fotomes.jpg" class="img-fluid"> <!-- Imagen adaptada al contenedor -->
+                    </div>
+                    <div class="col-md-12 p-3"> <!-- Columna completa -->
+                        <h3>FOTO DEL MES</h3> <!-- Texto de cabecera -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parte derecha -->
+            <div class="col-md-6 mt-2 p-3 foto2"> <!-- Columna derecha con márgenes y clase personalizada -->
+                <div class="row"> <!-- Subfila dentro de la columna -->
+                    <div class="col-md-12 p-3"> <!-- Columna completa con relleno -->
+                        <img src="fotosemana.jpg" class="img-fluid"> <!-- Imagen adaptada al contenedor -->
+                    </div>
+                    <div class="col-md-12 p-3"> <!-- Columna completa -->
+                        <h3>FOTO DE LA SEMANA</h3> <!-- Texto de cabecera -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

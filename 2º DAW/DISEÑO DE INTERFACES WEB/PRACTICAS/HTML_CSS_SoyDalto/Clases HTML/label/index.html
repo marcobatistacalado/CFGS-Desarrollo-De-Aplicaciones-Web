@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form>
+        <h2>Formulario de Contacto</h2>
+        <div class="form-input">
+            <label for="nombre">Nombre Completo</label> <!--FOCUSEAR AL CLICKAR-->
+            <input name="nombre"  placeholder = "Marco Batista" id="nombre">
+        </div>
+        <div class="form-input">
+            <label></label>Email</label>
+            <input name="email" placeholder = "marco@gmail.com">
+        </div>
+        <div class="form-input"></div>
+            <label>Mensaje</label>
+           <textarea readonly maxlength="100" rows="6" placeholder="Deja tu mensaje aqui..."></textarea>
+           <!--
+            readonly: no se puede modificar pero si deja hacer focus
+            disable: lo mismo pero no deja hacer focus
+            maxlength: caracteres maximos
+            rows: cantidad de lineas que dejo escribir, luego se pone el scroll
+           -->
+        </div>
+
+    </form>
+</body>
+</html>

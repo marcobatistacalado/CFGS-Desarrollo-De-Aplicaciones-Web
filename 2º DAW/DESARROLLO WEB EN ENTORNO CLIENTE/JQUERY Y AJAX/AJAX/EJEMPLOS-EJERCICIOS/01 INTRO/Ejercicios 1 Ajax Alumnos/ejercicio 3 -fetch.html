@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>EJERCICIO 3</title>
+    <link rel="stylesheet" href="main.css">
+    
+    <script type="text/javascript">
+        let arr; // Almacenamos los datos de los empleados
+
+        function descargaArchivo() {
+            fetch('empleados.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al obtener el archivo JSON');
+                    }
+                    return response.json(); // Convertimos la respuesta a JSON
+                })
+                .then(data => {
+                    arr = data;
+                })
+                .catch(error => {
+                    console.error("ERROR:", error);
+                });
+        }
+
+        function cargarDatos() {
+            const select = document.getElementById("sel1");
+            const seleccion = select.value;
+
+            // Llamar a la función para filtrar los empleados según la opción seleccionada
+            mostrarEmpleados(arr, seleccion);
+        }
+
+        function mostrarEmpleados(arr, seleccion) {
+            let out = "";
+
+            for (let i = 0; i < arr.length; i++) {
+                const empleado = arr[i];
+
+                // Si seleccionan "Datos sin salario"
+                if (seleccion == 1) {
+                    out += `<li>${empleado.departamento}: ${empleado.nombre} ${empleado.apellido}</li>`;
+                }
+                // Si seleccionan "Datos con salario"
+                else if (seleccion == 2) {
+                    out += `<li>${empleado.departamento}: ${empleado.nombre} ${empleado.apellido} - Salario: ${empleado.salario}</li>`;
+                }
+            }
+
+            // Mostrar los resultados en el HTML
+            document.getElementById("ul1").innerHTML = out;
+        }
+    </script>
+</head>
+<body onload="descargaArchivo()">
+    <div id="titulo">
+        <h1>EMPLEADOS</h1>
+    </div>
+
+    <select id="sel1" onchange="cargarDatos()">
+        <option value="0">Selecciona</option>
+        <option value="1">Datos sin salario</option>
+        <option value="2">Datos con salario</option>
+    </select>
+
+    <br><br>
+
+    <ul id="ul1"></ul>
+</body>
+</html>

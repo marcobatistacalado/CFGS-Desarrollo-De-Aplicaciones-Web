@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background-color: gray;
+}
+
+
+.box {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    margin-top: 50px;
+    background-color: #fff;
+    border: 1px solid#0006;
+    
+    
+    /*define como se ven los saltos de linea*/
+    /*
+    -nowrap: se quita los saltos de linea
+    -pre: detecta los enter introducidos en el html por el programador
+    -pre-wrap: es como normal + pre
+    */
+    white-space: nowrap;
+    text-overflow: ellipsis; /*pone 3... en vez de desbordarse*/
+    overflow: hidden;
+    overflow-wrap: break-word;
+    /*
+    -anywhere: palabras largas se rompen
+    -balance: mas o menos que todo encaje de forma estetica
+    -pretty: evita las palabras viudas y huerfanos es decir una unica palabra que queda de una frase y se salta a la sigioemte pagina
+    */
+}

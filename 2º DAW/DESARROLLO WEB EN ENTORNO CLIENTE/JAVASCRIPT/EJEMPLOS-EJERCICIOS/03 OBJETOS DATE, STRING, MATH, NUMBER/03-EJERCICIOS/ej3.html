@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h3>Fecha de nacimiento y día de la semana</h3>
+    <label>Fecha de nacimiento (dd/mm/yyyy): </label>
+    <input type="text" id="fechaNac" placeholder="dd/mm/yyyy" />
+    <button onclick="calcularNacimiento()">Calcular</button>
+
+    <p id="resultadoNacimiento" style="color: blue;"></p>
+    <p id="error" style="color: red;"></p>
+
+    <script>
+        function calcularNacimiento() {
+            const fechaString = document.getElementById("fechaNac").value;
+            const partes = fechaString.split("/");
+            
+            // Validar formato de entrada
+            if (partes.length !== 3 || !/^\d{2}\/\d{2}\/\d{4}$/.test(fechaString)) {
+                document.getElementById("error").innerText = "Por favor, introduce una fecha válida en el formato dd/mm/yyyy.";
+                document.getElementById("resultadoNacimiento").innerText = "";
+                return;
+            }
+
+            const dia = parseInt(partes[0], 10);
+            const mes = parseInt(partes[1], 10) - 1; // Mes en JavaScript es 0-indexado
+            const año = parseInt(partes[2], 10);
+
+            const fecha = new Date(año, mes, dia);
+
+            // Validar que la fecha sea real (no 30/02, etc.)
+            if (fecha.getDate() !== dia || fecha.getMonth() !== mes || fecha.getFullYear() !== año) {
+                document.getElementById("error").innerText = "La fecha ingresada no es válida.";
+                document.getElementById("resultadoNacimiento").innerText = "";
+                return;
+            }
+
+            // Determinar día de la semana
+            const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+            const diaSemana = diasSemana[fecha.getDay()];
+
+            // Calcular edad considerando si ya cumplió años este año
+            const fechaActual = new Date();
+            let edad = fechaActual.getFullYear() - fecha.getFullYear();
+            const yaCumplio = 
+                fechaActual.getMonth() > fecha.getMonth() || 
+                (fechaActual.getMonth() === fecha.getMonth() && fechaActual.getDate() >= fecha.getDate());
+            if (!yaCumplio) {
+                edad--;
+            }
+
+            // Mostrar resultados
+            document.getElementById("resultadoNacimiento").innerText = 
+                `Naciste un ${diaSemana} y tienes ${edad} años.`;
+            document.getElementById("error").innerText = "";
+        }
+    </script>
+</body>
+</html>

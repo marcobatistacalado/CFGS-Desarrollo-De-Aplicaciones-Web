@@ -1,0 +1,24 @@
+/*Google fonts y descargar una fuente*/
+@font-face{
+    font-family: "Dalto";
+    src: url(/fonts/Montserrat-ExtraLight.ttf) format("truetype");
+    font-weight: 100;
+}
+@font-face{
+    font-family: "Dalto";
+    src: url(/fonts/Montserrat-Regular.ttf) format("truetype");
+    /*darle el format hace que el navegador lo haga más rápido*/
+    font-weight: 400;
+}
+
+@font-face{
+    font-family: "Dalto";
+    src: url(/fonts/Montserrat-Bold.ttf) format("truetype");
+    font-weight: 500;
+}
+
+@font-face{
+    font-family: "Dalto";
+    src: url(/fonts/Montserrat-ExtraBold.ttf) format("truetype");
+    font-weight: 700;
+}

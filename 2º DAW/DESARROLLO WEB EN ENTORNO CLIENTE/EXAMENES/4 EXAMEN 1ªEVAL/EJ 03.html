@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <h1>Formulario Inscripción</h1>
+    <form id="formulario">
+        <label>Nombre y Apellidos: <input type="text" id="nombre"></label><br>
+        <label>Fecha de nacimiento: <input type="date" id="fecha"></label><br>
+        <label>DNI: <input type="text" id="dni"></label><br>
+        <label>DNI Tutor (si es menor de edad): <input type="text" id="dniTutor"></label><br>
+        <label>Teléfono: <input type="text" id="telefono"></label><br>
+        <label>Actividades:</label>
+        <select id="actividad">
+            <option value="Yoga - 20">Yoga 20€</option>
+            <option value="Teatro - 30">Teatro 30€</option>
+            <option value="Ajedrez - 10">Ajedrez 10€</option>
+        </select>
+        <button type="button" onclick="calcularPrecio()">Calcular Precio</button>
+    </form>
+    <script>
+        function calcularPrecio() {
+            const nombre = document.getElementById("nombre").value.trim();
+            const fecha = document.getElementById("fecha").value;
+            const dni = document.getElementById("dni").value;
+            const dniTutor = document.getElementById("dniTutor").value;
+            const telefono = document.getElementById("telefono").value;
+            const actividad = document.getElementById("actividad").value;
+            const edad = calcularEdad(fecha);
+
+            if (!nombre) return alert("El nombre no puede estar vacío.");
+            if (!fecha || isNaN(edad)) return alert("La fecha es inválida.");
+            if (edad < 6 || edad > 25) return alert("Edad fuera de rango (6-25 años).");
+            if (!/^\d{8}[A-Za-z]$/.test(dni)) return alert("DNI inválido.");
+            if (edad < 18 && !/^\d{8}[A-Za-z]$/.test(dniTutor)) return alert("DNI Tutor obligatorio.");
+            if (!/^(\d{3} ){2}\d{3}$/.test(telefono)) return alert("Teléfono inválido (formato 999 999 999).");
+
+            const precio = parseInt(actividad.split("-")[1].trim());
+            alert(`El precio final es: ${precio}€`);
+        }
+
+        function calcularEdad(fechaNacimiento) {
+            const hoy = new Date();
+            const fecha = new Date(fechaNacimiento);
+            let edad = hoy.getFullYear() - fecha.getFullYear();
+            const mes = hoy.getMonth() - fecha.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fecha.getDate())) {
+                edad--;
+            }
+            return edad;
+        }
+    </script>
+</body>
+</html>

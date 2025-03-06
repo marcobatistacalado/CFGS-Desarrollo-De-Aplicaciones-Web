@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>EXAMEN EJERCICIO 1</title>
+
+    <link rel="stylesheet" type="text/css" href="stylepoli.css" />
+    <style type="text/css">
+      body {
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        color: #210b61;
+        font-size: 10pt;
+      }
+      div {
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #central,
+      #abajo {
+        text-align: center;
+      }
+      #pos1 {
+        position: relative;
+        background-color: #f5da81;
+      }
+      table {
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+      }
+      td {
+        font-size: 12px;
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        border: 1px solid black;
+      }
+    </style>
+    <script>
+      function validarFNacimiento() {
+        let dia = document.getElementById("dd");
+        let mes = document.getElementById("mm");
+        let ano = document.getElementById("aaaa");
+
+        if (isNaN(dia.value) || dia.value.trim() === "") {
+          alert("El día debe ser un número entre 1 y 31.");
+          dia.focus();
+          return false;
+        }
+        if (isNaN(mes.value) || mes.value.trim() === "") {
+          alert("El mes debe ser un número entre 1 y 12.");
+          mes.focus();
+          return false;
+        }
+        if (isNaN(ano.value) || ano.value.trim() === "") {
+          alert("El año debe ser un número mayor a 1900.");
+          ano.focus();
+          return false;
+        }
+
+        if (dia.value < 1 || dia.value > 31) {
+          alert("El dia debe estar entre 1 y 31");
+          dia.focus();
+          return false;
+        }
+        if (mes.value < 1 || mes.value > 12) {
+          alert("El mes debe estar entre 1 y 12");
+          ano.focus();
+          return false;
+        }
+        if (ano.value < 1900) {
+          alert("Año debe ser posterior a 1900");
+          ano.focus();
+          return false;
+        }
+        const fecha = new Date(
+          Number(ano.value),
+          Number(mes.value) - 1,
+          Number(dia.value)
+        );
+        const fechaActual = new Date();
+        if (fecha > fechaActual) {
+          alert("Fecha es posterior al sistema.");
+          dia.focus();
+          return false;
+        }
+
+        edad = fechaActual.getFullYear() - fecha.getFullYear();
+        const yaCumplio =
+          fechaActual.getMonth() > fecha.getMonth() ||
+          (fechaActual.getMonth() === fecha.getMonth() &&
+            fechaActual.getDate() >= fecha.getDate());
+        if (!yaCumplio) {
+          edad--;
+        }
+        document.getElementById("edad").value = edad;
+        if (edad < 14 || edad > 80) {
+          alert("Eres menor de 14 años o mayor de 80");
+          dia.focus();
+          return false;
+        }
+
+        return true;
+      }
+      function marcar(elemento) {
+        // Seleccionar todos los elementos <td> del documento
+        let todosTd = document.getElementsByTagName("td");
+
+        // Recorrer la colección de elementos <td>
+        for (let i = 0; i < todosTd.length; i++) {
+          todosTd[i].style.backgroundColor = "white";
+        }
+        elemento.style.backgroundColor = "green";
+      }
+      function validarTarifa() {
+        tarifa = "0";
+        // Seleccionar todos los elementos <td> del documento
+        let todosTd = document.getElementsByName("tar");
+
+        // Recorrer la colección de elementos <td>
+        for (let i = 0; i < todosTd.length; i++) {
+          if (todosTd[i].style.backgroundColor == "green") {
+            tarifa = todosTd[i].getAttribute("data-tarifa"); //ESTO ES NUEVO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            break;
+          }
+        }
+        if (tarifa == "0") {
+          alert("Debes seleccionar una tarifa");
+          return -1;
+        } else {
+          return tarifa;
+        }
+      }
+      function calcularPrecio() {
+        let total;
+        let tarifa = -1;
+        if (validarFNacimiento()) {
+          let tarifa = Number(validarTarifa());
+          if (tarifa != -1) {
+            let elementos = document.getElementsByName("emp");
+            let empadronamiento = 0; // Default a 0 si no se selecciona ninguno
+            for (let i = 0; i < elementos.length; i++) {
+              if (elementos[i].checked) {
+                empadronamiento = Number(elementos[i].value);
+                break;
+              }
+            }
+
+            let familia = 0;
+            elementos = document.getElementsByName("fam");
+            for (let i = 0; i < elementos.length; i++) {
+              if (elementos[i].checked) {
+                familia = Number(elementos[i].value);
+                break;
+              }
+            }
+
+            if (empadronamiento !== 0) {
+              // Empadronado: aplica un 50% sobre la tarifa base, ignora otros descuentos
+              total = tarifa * empadronamiento;
+            } else {
+              // No empadronado: aplica descuentos de familia numerosa y edad
+              if (edad < 18) {
+                total = tarifa * 0.8 - familia; // 20% de descuento para menores de 18
+              } else if (edad > 65) {
+                total = tarifa * 0.7 - familia; // 30% de descuento para mayores de 65
+              } else {
+                total = tarifa - familia; // Solo descuento por familia numerosa
+              }
+            }
+
+
+            // Mostrar el total calculado
+            document.getElementById("precio").value = total;
+            document.getElementById("id33").style.display = 'block';
+          }
+        }
+      }
+
+
+      // Función para cambiar el color
+      function cambiar(elemento, evento) {
+        if (evento.type == "mouseenter"){
+          elemento.style.backgroundColor = "#81DAF5";
+          elemento.style.fontWeight = "bold";
+        }else if(evento.type == "mouseleave")  {
+          elemento.style.backgroundColor = "#FAFAFA";
+          elemento.style.fontWeight = "normal";
+        }
+      }
+
+      function enviarDatos(){
+        let reg1 = /^[A-Ma-m]*[0-9]{2}[A-Ma-m0-9]{4,6}$/; // Al menos 6 caracteres, máx. 8, con dos números consecutivos
+        let reg2 = /^([A-Za-z]\.\d){2,}$/; // Secuencia letra.número al menos 2 veces
+
+        let campo1 = document.getElementById("val1");
+        let campo2 = document.getElementById("val2");
+        if (!reg1.test(campo1.value)){
+          alert("Campo1 mal!!");
+          campo1.focus();
+          return;
+        }
+        if (!reg2.test(campo2.value)){
+          alert("Campo2 mal!!");
+          campo2.focus();
+          return;
+        }
+
+        // Confirmación y ventana emergente
+        if (window.confirm('Seguro??')){
+          mostrarVentana(); // Muestra la ventana
+        }
+      }
+
+      // Función para mostrar ventana emergente
+      function mostrarVentana() {
+        let ventana = window.open(
+          "",
+          "Mensaje",
+          "width=300,height=200,top=200,left=300"
+        );
+        ventana.document.write("<p style='font-size:20px;text-align:center'>Nos pondremos en contacto contigo</p>");
+        setTimeout(() => ventana.close(), 5000); // Cierra la ventana a los 5 segundos
+      }
+      
+
+    </script>
+  </head>
+  <body>
+    <h1>POLIDEPORTIVO LEGANES SPORT</h1>
+    <div id="central">
+      <fieldset id="pos1">
+        Calculamos el precio mensual de tu carnet como socio en nuestro
+        polideportivo. Indica tu fecha de nacimiento y el uso que harías de él.
+      </fieldset>
+    </div>
+    <br />
+    <div id="abajo">
+      <form name="form1">
+        <label>Fecha nacimiento</label>
+        <input
+          type="text"
+          id="dd"
+          placeholder="dd"
+          style="text-align: center"
+          size="3"
+        />
+        <input
+          type="text"
+          id="mm"
+          placeholder="mm"
+          style="text-align: center"
+          size="3"
+        />
+        <input
+          type="text"
+          id="aaaa"
+          placeholder="aaaa"
+          style="text-align: center"
+          size="5"
+        />
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp EDAD
+        <input type="text" id="edad" size="3" readonly />
+
+        <label>Empadronado en Leganés </label>
+        <input type="radio" name="emp" value="0.5" />SÍ
+        <input type="radio" name="emp" checked value="0" />NO
+        <label>Familia numerosa </label>
+        <input type="radio" name="fam" value="5" />SÍ
+        <input type="radio" name="fam" value="0" checked />NO
+        <br />
+        <label>TARIFAS:Clica la que te interesa</label>
+        <table id="tabla">
+          <tr>
+            <!--ESTO ES NUEVO!!!!!!!!!-->
+            <td onclick="marcar(this)" data-tarifa="20" name="tar">
+              1 hora semanal de L a V <b>20€</b>
+            </td>
+            <td onclick="marcar(this)" data-tarifa="30" name="tar">
+              2 horas semanales de L a V <b>30€</b>
+            </td>
+            <td onclick="marcar(this)" data-tarifa="40" name="tar">
+              4 horas semanales de L a V <b>40€</b>
+            </td>
+            <td onclick="marcar(this)" data-tarifa="30" name="tar">
+              Fines de Semana <b>30€</b>
+            </td>
+            <td onclick="marcar(this)" data-tarifa="60" name="tar">
+              Entrada libre todos los días <b>60€</b>
+            </td>
+          </tr>
+        </table>
+        <hr />
+        <label>Descuentos:</label>
+        Menores de 18 años: 20%
+        <br />Mayores de 65 años: 30% <br />Familia numerosa: 5€
+        <br />Empadronado en Leganés: 50% (este descuento anula los anteriores)
+        <br /><br />
+        <input
+          type="button"
+          value="CALCULAR PRECIO"
+          onclick="calcularPrecio()"
+        />
+        <input type="text" id="precio" size="2" readonly />
+      </form>
+    </div>
+    <div id="id33" style="display: block">
+      <form name="form2">
+        <label>Teléfono</label>
+        <input type="text" id="telefono" size="20" onmouseenter="cambiar(this, event)" onmouseleave="cambiar(this, event)" />
+        <br />No soy una máquina (Teclea un texto de entre 6 y 8 caracteres con
+        al menos 2 números seguidos y el resto letras de la A a la M)
+        <input type="text" id="val1" size="20" onmouseenter="cambiar(this, event)" onmouseleave="cambiar(this, event)"/>
+        <br />Vale, el anterior no me sale, pero no soy una máquina (Teclea una
+        secuencia de letra.número al menos 2 veces L.9L.9 )
+        <input type="text" id="val2" size="20" onmouseenter="cambiar(this, event)" onmouseleave="cambiar(this, event)" />
+        <br />
+        <input type="button" value="ENVIAR DATOS" onclick="enviarDatos()"/>
+      </form>
+    </div>
+  </body>
+</html>

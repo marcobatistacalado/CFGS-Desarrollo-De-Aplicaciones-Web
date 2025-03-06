@@ -1,0 +1,182 @@
+<html>
+
+ <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>EXAMEN 1 EVALUACION</title>
+    
+<style type="text/css">
+ body{
+	text-align:center;
+    font-family:'Bookman Old Style',Bookman;
+    color:#29220A;
+     }
+table{
+	background-color: #D5DBDB;
+	border: 2pt solid #fbb;;
+	width:520px;
+	text-align: center;
+	margin: auto;
+	box-shadow: 5px 5px 12px #F5F5DC;
+	font-size: 15px;
+	}
+td{
+	width: 40px;
+	height: 50px;
+}
+img{	
+	width: 40px;
+}
+ #principal{
+ 	width:650px;
+	height:800px;
+	margin-left:auto;
+	margin-right:auto;
+	} 
+  .clasetot{
+	background-color: #fdebd0;
+	}  
+</style>    
+<script>
+var color = ["#FA5858", "#81BEF7", "#F3F781", "#2EFE2E"];
+var colorIndex = 0;
+var colorInterval;
+var tabla;
+var aciertos = [];
+
+function iniciar() {
+    const h1 = document.getElementById("h1");
+
+    // Cambia el color del <h1> cada 3 segundos
+    colorInterval = setInterval(() => {
+        h1.style.color = color[colorIndex];
+        colorIndex = (colorIndex + 1) % color.length;
+    }, 3000);
+
+    // Detiene el cambio de color al hacer clic
+    h1.addEventListener("click", () => {
+        clearInterval(colorInterval);
+    });
+}
+
+function jugar() {
+    const jugadores = parseInt(document.getElementById("jug").value);
+    const fichas = parseInt(document.getElementById("fich").value);
+
+    // Reiniciar tabla y aciertos
+    const contenedor = document.getElementById("fichas");
+    contenedor.innerHTML = "";
+    aciertos = [];
+    for (let i = 0; i < jugadores; i++) {
+        aciertos.push(0);
+    }
+
+    // Crear tabla
+    const numerosDisponibles = [];
+    for (let i = 1; i <= 32; i++) {
+        numerosDisponibles.push(i);
+    }
+
+    tabla = document.createElement("table");
+
+    for (let j = 0; j < jugadores; j++) {
+        const fila = document.createElement("tr");
+
+        // Nombre del jugador
+        const celdaJugador = document.createElement("td");
+        celdaJugador.textContent = `Jugador ${j + 1}`;
+        fila.appendChild(celdaJugador);
+
+        // Fichas del jugador
+        for (let f = 0; f < fichas; f++) {
+            const celdaFicha = document.createElement("td");
+            const randomIndex = Math.floor(Math.random() * numerosDisponibles.length);
+            celdaFicha.textContent = numerosDisponibles[randomIndex];
+            numerosDisponibles.splice(randomIndex, 1);
+            fila.appendChild(celdaFicha);
+        }
+
+        // Columna de aciertos
+        const celdaAciertos = document.createElement("td");
+        celdaAciertos.textContent = 0;
+        celdaAciertos.className = "clasetot";
+        fila.appendChild(celdaAciertos);
+
+        tabla.appendChild(fila);
+    }
+
+    contenedor.appendChild(tabla);
+
+    // Habilitar el botón de sacar ficha
+    document.getElementById("sacar").disabled = false;
+}
+
+function sacarFicha() {
+    const numerosDisponibles = [];
+    for (let i = 1; i <= 32; i++) {
+        numerosDisponibles.push(i);
+    }
+
+    let numeroGenerado;
+    let encontrado = false;
+
+    while (!encontrado) {
+        numeroGenerado = Math.floor(Math.random() * 32) + 1;
+        const filas = tabla.getElementsByTagName("tr");
+
+        for (let i = 0; i < filas.length; i++) {
+            const celdas = filas[i].getElementsByTagName("td");
+
+            for (let j = 1; j < celdas.length - 1; j++) {
+                if (celdas[j].textContent == numeroGenerado) {
+                    celdas[j].innerHTML = '<img src="acierto.jpeg">';
+                    const aciertosCelda = celdas[celdas.length - 1];
+                    aciertos[i]++;
+                    aciertosCelda.textContent = aciertos[i];
+
+                    // Verificar si un jugador ganó
+                    if (aciertos[i] == parseInt(document.getElementById("fich").value)) {
+                        aciertosCelda.style.backgroundColor = "green";
+                        alert(`Jugador ${i + 1} ha ganado!`);
+                        document.getElementById("sacar").disabled = true;
+                    }
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (encontrado) break;
+        }
+    }
+}
+
+// Llamar iniciar al cargar la página
+window.onload = iniciar;
+
+</script>
+</head>
+<body>
+<h1 id="h1"> Pierde tus fichas! </h1>
+Indica número de jugadores 
+<select id="jug">
+<option value="2"  selected>2</option>
+<option value="3" >3</option>
+<option value="4" >4</option>
+</select>
+</br></br>
+Indica número de fichas 
+<select id="fich">
+<option value="5"  selected>5</option>
+<option value="6" >6</option>
+<option value="7" >7</option>
+<option value="8" >8</option>
+</select>
+<br><br>
+<div id="fichas"></div>
+<br>
+<input type="button" id="sacar" value="Sacar ficha" onclick="sacarFicha()">
+<input type="button" value="Reiniciar" onclick="jugar()">
+<br><br> 
+
+</body>
+</html>
+</html>

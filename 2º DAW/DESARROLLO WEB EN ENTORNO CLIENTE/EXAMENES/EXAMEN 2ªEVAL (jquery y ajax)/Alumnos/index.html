@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximos Conciertos en Madrid</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-3.7.1.min.js"> </script>
+    <script>
+        $(document).ready( function() {
+        
+        //a
+            $.ajax({
+                url: "conciertos.json",
+                dataType: "json",
+                success: function (x) {
+                    crearConciertos(x);
+                },
+                error: function () {
+                    alert("error al cargar los conciertos");
+                }
+            });
+        
+        //b
+            $.ajax({
+                url: "footer.js",
+                dataType: "script",
+                success: function (result) {
+                    $(".footer").html(vfooter);
+                },
+                error: function (xhr) {
+                    $(".footer").text("Se ha producido un error " + xhr.status + " " + xhr.statusText);
+                }
+            });
+        //c
+            function crearConciertos(conciertos) {
+                let lugares = new Array(); //lista para los lugare
+                let contenedor = $("#contenedor-cards");
+                contenedor.empty();
+
+                for (let i = 0; i < conciertos.length; i++) {
+                    if (lugares.indexOf(conciertos[i].lugar)==-1){
+                        lugares.push(conciertos[i].lugar); //añadir lugar
+                    }
+                    
+    
+                    let card = $("<div>").addClass('card');
+                    let img = $("<img>").attr("src", "./imagenes/"+conciertos[i].imagen).addClass('card-image');
+                    card.append(img);
+                    
+                    let cardContent = $("<div>").addClass("card-content");
+                    let h2= $("<h2>").addClass("artista").html(conciertos[i].artista);
+                        
+                    var p1 =""
+                    if (conciertos[i].evento !=undefined){
+                        p1 = $("<p>").html("Evento: "+conciertos[i].evento)
+                    }else{
+                        p1 = $("<p>").html("Gira: "+conciertos[i].gira)
+                    }
+
+                    
+                    let p2 = $("<p>").html("Fecha: "+conciertos[i].fecha)
+                    let h4 = $("<h4>").html("Lugar: "+conciertos[i].lugar);
+                    let p3=$("<p>").addClass("descripcion").html(conciertos[i].descripcion)
+                    let button = "<button class='btn-compra'>Comprar Entradas</button>";
+                    cardContent.append(h2);
+                    
+                    cardContent.append(p1);
+                    cardContent.append(p2);
+                    cardContent.append(h4);
+                    cardContent.append(p3);
+                    cardContent.append(button);
+                    card.append(cardContent);
+                    contenedor.append(card);
+                }
+
+                actualizarLugares(lugares);
+                
+            }
+        //d
+            function actualizarLugares(lugares) {
+                let select = $("#filtro-lugar");
+                    select.empty().append('<option value="todos">Todos</option>');
+                lugares.forEach(lugar => {
+                        select.append('<option value='+lugar+'>'+lugar+'</option>');
+                    });
+            }
+        //e
+            $("#filtro-lugar").change(function () {
+                let seleccionado = $(this).val();
+                if (seleccionado == "todos") {
+                    $(".card").show();
+                } else {
+                    $(".card").hide();
+                    $(".card:contains("+seleccionado+")").show();
+                }
+            });
+
+        //f 
+
+            $(document).on("click", ".btn-compra", function () {
+                let cajaClickada = $(this).closest(".card");
+                let lugar = cajaClickada.find("h4").html();
+                lugar = lugar.substring(6,11);
+                let divCargar = $("<div>");
+                $(this).after(divCargar);
+                lugar ="Movi";
+                divCargar.load("lugares.html #"+lugar);
+                $(this).off("click"); 
+            })
+
+
+        
+        
+        
+        });
+        
+    </script>
+</head>
+<body>
+    <h1>Próximos Conciertos en Madrid</h1>
+    <label for="filtro-lugar">Filtrar por lugar:</label>
+    <select id="filtro-lugar" onchange="seleccionar()">
+        <option value="todos">Todos</option>
+    </select>
+    <br>
+
+    <div class="grid-container" id="contenedor-cards">
+        <!-- Las tarjetas se generarán aquí dinámicamente con jQuery -->
+    </div>
+    <footer class="footer">
+    </footer>
+ 
+</body>
+</html>

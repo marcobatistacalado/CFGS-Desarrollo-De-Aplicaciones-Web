@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Transformación 3D</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            perspective: 1000px; /* Define la distancia desde la que se observa el objeto 3D */
+        }
+
+        .cube {
+            width: 150px;
+            height: 150px;
+            background-color: #4caf50;
+            transform: rotateX(45deg) rotateY(45deg); /* Rotación en ejes X e Y */
+            transform-style: preserve-3d; /* Mantiene las transformaciones 3D de los hijos */
+            animation: spin 5s infinite linear; /* Animación para rotar el cubo */
+        }
+
+        .cube::before, .cube::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .cube::before {
+            transform: translateZ(75px); /* Caras frontales */
+        }
+
+        .cube::after {
+            transform: translateZ(-75px); /* Caras traseras */
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotateX(0) rotateY(0);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cube"></div>
+</body>
+</html>

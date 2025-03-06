@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // Función para cargar los colores
+            function cargaColores(){            
+                $.ajax({
+                    url: 'colores.json', 
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (request) {
+                        let arr = request;
+                        for (let i = 0; i < arr.length; i++) {
+                            let option = $("<option>");
+                            option.attr('value', arr[i].valorHexadec).html(arr[i].nombreColor);
+                            option.appendTo($('#colores'));  // Añadir el <option> al <select> con id 'colores'
+                        }            
+                    }
+                });
+            }
+
+            // Llamar a la función después de que el DOM esté completamente cargado
+            cargaColores();
+			// Función para cambiar el color de fondo del div
+            function cambiarColorDiv(e) {
+                // Obtener el valor seleccionado y cambiar el fondo del div
+                var color = $(e).val();  // Obtener el valor del color seleccionado
+                $("#id1").css("background-color", color);  // Cambiar el color de fondo
+            }
+
+			// Asociar la función al evento onchange del select
+            $('#colores').change(function() {
+                cambiarColorDiv(this);  // Pasar el select como argumento
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="id1">
+        <select id="colores">
+            <!-- Opciones se llenarán dinámicamente -->
+        </select>
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+\doxysection{gestor.\+Gestor\+Tareas Class Reference}
+\hypertarget{classgestor_1_1_gestor_tareas}{}\label{classgestor_1_1_gestor_tareas}\index{gestor.GestorTareas@{gestor.GestorTareas}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgestor_1_1_gestor_tareas_a1afb8098d0777750f4bcee623dbd4885}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\item 
+\mbox{\hyperlink{classgestor_1_1_gestor_tareas_a348eb5c6b6acbf5e12d01170fbba6cc4}{agregar\+\_\+tarea}} (self, tarea)
+\item 
+\mbox{\hyperlink{classgestor_1_1_gestor_tareas_aee77bb34531ed8c8176e46d19d033f02}{mostrar\+\_\+tareas}} (self)
+\item 
+\mbox{\hyperlink{classgestor_1_1_gestor_tareas_a06a33fa340a5b438e76a9c2b8e44d9ca}{completar\+\_\+tarea}} (self, index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgestor_1_1_gestor_tareas_a1f6c622b6afcbcee615aff84b66d9860}\label{classgestor_1_1_gestor_tareas_a1f6c622b6afcbcee615aff84b66d9860} 
+list {\bfseries tareas} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}Clase para gestionar una lista de tareas.
+
+:param tareas: Lista de tareas a gestionar.
+:type tareas: list
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgestor_1_1_gestor_tareas_a1afb8098d0777750f4bcee623dbd4885}\index{gestor.GestorTareas@{gestor.GestorTareas}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!gestor.GestorTareas@{gestor.GestorTareas}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classgestor_1_1_gestor_tareas_a1afb8098d0777750f4bcee623dbd4885} 
+gestor.\+Gestor\+Tareas.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Inicializa el gestor de tareas con una lista vacía.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgestor_1_1_gestor_tareas_a348eb5c6b6acbf5e12d01170fbba6cc4}\index{gestor.GestorTareas@{gestor.GestorTareas}!agregar\_tarea@{agregar\_tarea}}
+\index{agregar\_tarea@{agregar\_tarea}!gestor.GestorTareas@{gestor.GestorTareas}}
+\doxysubsubsection{\texorpdfstring{agregar\_tarea()}{agregar\_tarea()}}
+{\footnotesize\ttfamily \label{classgestor_1_1_gestor_tareas_a348eb5c6b6acbf5e12d01170fbba6cc4} 
+gestor.\+Gestor\+Tareas.\+agregar\+\_\+tarea (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{tarea}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Agrega una tarea a la lista de tareas.
+
+:param tarea: La tarea a agregar.
+:type tarea: Tarea
+\end{DoxyVerb}
+ \Hypertarget{classgestor_1_1_gestor_tareas_a06a33fa340a5b438e76a9c2b8e44d9ca}\index{gestor.GestorTareas@{gestor.GestorTareas}!completar\_tarea@{completar\_tarea}}
+\index{completar\_tarea@{completar\_tarea}!gestor.GestorTareas@{gestor.GestorTareas}}
+\doxysubsubsection{\texorpdfstring{completar\_tarea()}{completar\_tarea()}}
+{\footnotesize\ttfamily \label{classgestor_1_1_gestor_tareas_a06a33fa340a5b438e76a9c2b8e44d9ca} 
+gestor.\+Gestor\+Tareas.\+completar\+\_\+tarea (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{index}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Marca una tarea como completada dado su índice en la lista.
+
+:param index: El índice de la tarea a completar.
+:type index: int
+:return: True si la tarea fue completada, False si no existe.
+:rtype: bool
+\end{DoxyVerb}
+ \Hypertarget{classgestor_1_1_gestor_tareas_aee77bb34531ed8c8176e46d19d033f02}\index{gestor.GestorTareas@{gestor.GestorTareas}!mostrar\_tareas@{mostrar\_tareas}}
+\index{mostrar\_tareas@{mostrar\_tareas}!gestor.GestorTareas@{gestor.GestorTareas}}
+\doxysubsubsection{\texorpdfstring{mostrar\_tareas()}{mostrar\_tareas()}}
+{\footnotesize\ttfamily \label{classgestor_1_1_gestor_tareas_aee77bb34531ed8c8176e46d19d033f02} 
+gestor.\+Gestor\+Tareas.\+mostrar\+\_\+tareas (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Muestra todas las tareas en la lista.
+
+:return: Lista de tareas con su estado.
+:rtype: list
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+gestor.\+py\end{DoxyCompactItemize}

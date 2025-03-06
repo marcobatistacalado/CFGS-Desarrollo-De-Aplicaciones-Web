@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <!-- Dos divisores vacíos para mostrar resultados en ellos -->
+    <div id="demo"></div>
+    <div id="demo2"></div>
+  </body>
+  <script type="text/javascript">
+    // Se define un array llamado 'vocales' que contiene las letras "a", "e", "i", "o", "u"
+    const vocales = ["a", "e", "i", "o", "u"];
+    
+    // Variable para construir el contenido que se mostrará en el primer div
+    let texto = "";
+
+    // Se utiliza el método forEach para recorrer cada elemento del array 'vocales'
+    vocales.forEach(print);
+
+    // El contenido de la variable 'texto' se inserta en el div con id="demo"
+    document.getElementById("demo").innerHTML = texto;
+
+    // Función 'print' que es llamada en cada iteración del forEach
+    function print(value, index, array) {
+      // En cada iteración, se agrega el valor actual (la vocal) y un salto de línea a 'texto'
+      texto += value + "<br>";
+    }
+
+    // Ahora se reinicia 'texto' para construir una lista desordenada (<ul>)
+    texto = "<ul>";
+
+    // Se utiliza nuevamente forEach, pero ahora llamando a la función 'printList'
+    vocales.forEach(printList);
+
+    // Se cierra la lista desordenada y se agrega al final de 'texto'
+    texto += "</ul>";
+
+    // El contenido de 'texto' se inserta en el segundo div con id="demo2"
+    document.getElementById("demo2").innerHTML = texto;
+
+    // Función 'printList' que es llamada en cada iteración del forEach
+    function printList(value, index, array) {
+      // En cada iteración, se agrega un elemento de lista (<li>) con el valor actual (la vocal)
+      texto += "<li>" + value + "</li>";
+    }
+  </script>
+</html>

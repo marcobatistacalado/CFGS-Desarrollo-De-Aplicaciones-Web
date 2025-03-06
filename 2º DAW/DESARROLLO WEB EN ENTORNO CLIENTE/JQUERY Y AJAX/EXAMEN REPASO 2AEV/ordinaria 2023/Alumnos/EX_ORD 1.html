@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>EXAMEN ORDINARIA 1</title>
+<style type="text/css">
+ body{text-align:center;
+   font-family:"Trebuchet MS", Helvetica, sans-serif;
+   color:#210B61;
+   font-size:10pt;
+ }
+div{
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	}
+#pos1 {
+	position:relative;
+	background-color:#F5DA81;
+}
+.nuevo {
+	position:relative;
+	background-color: #F5B7B1 ;
+}
+ #boton1,#boton2 {display:none}
+			table{
+				margin-right:auto;
+				margin-left:auto;
+				text-align:center;
+			}
+			td{ 	
+				font-size:26px;
+				width:150px;
+				height:150px;
+				text-align:center;
+				border:1px solid black;
+			}
+</style>
+<script src="jquery-3.7.1.min.js"></script> 
+<script type="text/javascript">
+	var imagenes = [
+		'fotos/num 1.JPG', 'fotos/num 2.JPG', 'fotos/num 3.JPG', 'fotos/num 4.JPG', 'fotos/num 5.JPG',
+		'fotos/num 6.JPG', 'fotos/num 7.JPG', 'fotos/num 8.JPG', 'fotos/num 9.JPG'
+	];
+
+	var todos = 0
+	$(document).ready(function() {
+		$("td").each(
+			function(){
+				img=$("<img style='height:150px; width:150px' src='./fotos/fondo.jpg'></img>");
+				$(this).append(img)
+			}
+		);
+
+		$("td img").one('click', function() {
+			todos +=1; //sumar al total de clickados
+			var index = $(this).closest('td').index();
+			tr = $(this).closest('tr').index();
+			if (tr==1){
+				index += 3;
+			}else if(tr==2){
+				index +=6;
+			}
+			$(this).hide().attr("src", imagenes[index]).show(500);
+			if(todos == imagenes.length){
+				$('input[type="button"]').show()
+			}
+		});
+
+		$("#boton1").on('click', function(){
+			$("img").each(function(i){
+				$(this).delay(i*500).fadeTo(200, 0.1);
+			})
+		});	
+
+		$("#boton2").on('click', function(){
+			$("img").each(function(i){
+				$(this).attr("src", imagenes[i]).css('opacity','1');
+			})
+
+		});	
+
+		$("#pos1").hover(
+		function(){
+			$(this).css("background-color","green")
+		},
+		function(){
+			$(this).css("background-color","#F5DA81")
+		}
+		)
+		
+		$("h1").one('click', function(){
+			$(this).wrap("<div class='nuevo'></div>")
+		})
+
+	});
+</script>
+</head>
+<body>
+<h1>JUGANDO CON LOS NUMEROS</h1>
+<div id="central">
+<fieldset id="pos1">
+Bienvenido a nuestra web, puedes jugar y divertirte
+</fieldset>
+</div>
+ 
+<div id="div1">
+</div>
+<br><br><br>
+ 
+<p align="center">
+<table>
+<tr>
+<td></td><td></td><td></td>
+</tr>
+<tr>
+<td></td><td></td><td></td>
+</tr>
+<tr>
+<td></td><td></td><td></td>
+</tr>
+</table>
+<br><br>
+<input type="button" id="boton1" class="boton" value="PULSAME">
+<br><br>
+<input type="button" id="boton2" class="boton" value="LOS COLOCO">
+</p>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+body{
+    margin:0;
+    font-family: sans-serif;
+    color: #eee;
+    background-color: #222;
+}
+h2{
+    text-align: center;
+    margin: 0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 22px;
+    padding: 10px;
+
+}
+
+form{
+    background-color: transparent;
+    padding: 20px 0;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 0px 0px 55px #fff2;
+    border-radius: 8px;
+}
+.form-input{
+    padding: 6px 20px;
+}
+
+input, textarea{
+    color: #eee;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 12px;
+    border: none;
+    border-left: 3px solid #4f3;
+    box-shadow: 0px 0px 15px #0003;
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+textarea{
+    min-width: 100%;
+    resize: vertical; /*DEPENDE DE LA PROPIEDAD EL ESTIRAMIENTO*/
+
+    max-height: 200px;
+    /*textarea trae su fuente por defecto*/
+    font-family: sans-serif;
+    /*form-sizing: content; van a meter esto para que se adapte al texto escrito sin scroll*/
+}
+
+label{
+    font-size: 0.88em;
+    line-height: 2;
+}

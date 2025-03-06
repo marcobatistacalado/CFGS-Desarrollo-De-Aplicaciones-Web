@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Drop Down Menu</title>
+
+    <!-- Enlace a jQuery desde la CDN de Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Asegúrate de que la ruta de la hoja de estilos esté correcta -->
+    <link rel="stylesheet" href="stilos 01.css" type="text/css">
+
+    <script>
+        $(document).ready(function(){
+            // Mostrar progresivamente los items del menú
+            $("#item1").show(1000); // Aparece después de 1 segundo
+            $("#item2").show(2000); // Aparece después de 2 segundos
+            $("#item3").show(3000); // Aparece después de 3 segundos
+
+            // Cambiar de color al pasar el ratón
+            $("a").hover(
+                function() {
+                    $(this).css("background", "gray");  // Cambiar fondo al pasar
+                },
+                function() {
+                    $(this).css("background", "");  // Restaurar al salir
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+
+    <div id="menu">
+        <ul>
+            <li><a id="item1" href="#">Inicio</a></li>
+            <li><a id="item2" href="#">Tutoriales</a></li>
+            <li><a id="item3" href="#">Ejemplos</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

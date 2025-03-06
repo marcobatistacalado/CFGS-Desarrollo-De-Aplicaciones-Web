@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>PROBANDO JAVASCRIPT</title>
+    <script type="text/JavaScript">
+      function aleatorioBuena (min,max){
+       return Math.floor(Math.random()*(max - min +1)+min);
+      }
+
+      function aleatorioMala (min,max){
+       return Math.round(Math.random()*(max - min))+min;
+      }
+
+
+      var buena=Array(0,0,0,0,0,0,0,0,0,0);
+      var mala=Array(0,0,0,0,0,0,0,0,0,0);
+      for (i=0;i<10000;i++){
+      		n= (aleatorioBuena(1,10));
+      		buena[n-1]++;
+      		n= (aleatorioMala(1,10));
+      		mala[n-1]++;
+      		}
+      alert (buena);
+      alert (mala);
+    </script>
+  </head>
+  <body>
+    PROBANDO JAVASCRIPT
+  </body>
+</html>

@@ -1,0 +1,66 @@
+/*PSEUDOCLASE: seleccionar un elemento cuando este en un cierto estado*/
+
+h1{
+    color: blue;
+}
+/*PASAR MOUSE POR ENCIMA*/
+h1:hover{
+    color: green;
+}
+/*MIENTRAS SE HAGA CLICK*/
+h1:active{
+    background-color: gray;
+}
+
+/*SELECCIONAR PRIMER ELEMENTO*/
+li:first-child{
+    color: red;
+}
+/*SELECCIONAR ULTIMO ELEMENTO*/
+li:last-child{
+    color: aqua;
+}
+/*SELECCIONAR ELEMENTOS QUE NO SEAN NI EL PRIMERO NI EL ULTIMO*/
+li:nth-child(3){
+    color: greenyellow;
+}
+
+/*SELECCIONAR TODOS LOS ELEMENTOS: le pasamos esto*/
+/*(1n)*/
+/*SELECCIONAR UN ELEMENTO SI UNO NO*/
+/*(2n)*/
+/*CADA CUANTOS ELEMENTOS+N PARA SELECCIONARLOS BASICAMENTE*/
+/*importante saber que coge los elementos en orden aunque no fuesen un li, si seleccionas 3 y el elemento no es un li no te hace caso para eso ponemos:*/
+
+/*li:nth-of-type(2){    SOLO CUENTA LOS ELEMENTOS LI
+
+}*/
+
+/*SELECCIONANDO LOS LI DENTRO DE ".lista" PERO QUE NO TENGAN LA CLASE "EXCLUIR" */
+.lista li:not(.excluir){
+    color: red;
+}
+
+/*SELECCIONAR ELEMENTO SOLO SI ESTA VACIO*/
+.div:empty{
+    background-color: green;
+}
+
+input [type="checkbox"]{
+    margin: 50px;
+}
+
+input [type="checkbox"]:checked{
+    margin: 0;
+}
+
+/*Cambiar color si no esta visitado el link*/
+a:link{
+    color: red;
+}
+/*cambiar color si ha sido visitado*/
+a:visited{
+    color: aqua;
+}
+
+/*HAY MUCHAS PSEUDOCLASES DE LINKS Y FORMULARIOS BUSCAR!*/

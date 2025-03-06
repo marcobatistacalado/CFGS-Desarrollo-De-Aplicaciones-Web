@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>PROBANDO JAVASCRIPT</title>
+    <script type="text/JavaScript">
+      let min = Number(prompt ("Introduce el mínimo número del intervalo"));
+      let max = Number(prompt ("Introduce el máximo número del intervalo"));
+      let mas;
+      do
+      {
+      a=Math.random();
+      alert (a);
+      //FORMULAR = Math.floor(Math.random() * (max - min + 1)) + min;
+      a=Math.floor(a*(max - min +1)+min);
+      alert (a);
+      mas = prompt ("Mas?",'s');
+      }
+      while (mas=='s');
+      /* 
+      -----EL NORMAL:
+      let numeroAleatorio = Math.floor(Math.random() * 11); // 0 a 10
+      console.log(numeroAleatorio);
+
+      -----Seleccionar un Elemento Aleatorio de una Lista
+      let colores = ["rojo", "azul", "verde", "amarillo"];
+      let colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+      console.log(colorAleatorio);
+
+      */
+    </script>
+  </head>
+  <body>
+    PROBANDO JAVASCRIPT
+  </body>
+</html>

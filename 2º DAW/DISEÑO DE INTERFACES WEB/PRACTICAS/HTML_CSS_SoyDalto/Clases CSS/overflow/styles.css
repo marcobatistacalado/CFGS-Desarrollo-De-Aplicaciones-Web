@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background-color: gray;
+}
+
+
+.box {
+    width: 220px;
+    height: 220px;
+    background-color: white;
+    color: red;
+    position: relative;
+    left: 0;
+    border: 2px solid#0009;
+    margin: auto;
+    margin-top: 50px;
+    overflow: clip;
+    display: inline-block; 
+}
+/*
+overflow: visible: El contenido que desborda el contenedor se muestra fuera de los límites del mismo. Este es el valor predeterminado si no se especifica overflow.
+
+overflow: hidden: Corta el contenido que desborda el área del contenedor y lo oculta. Esta es una de las propiedades más usadas cuando no quieres que el contenido que sobrepasa los límites del contenedor sea visible.
+
+overflow: scroll: Muestra siempre las barras de desplazamiento (scrollbars), incluso si el contenido no se desborda. Puede ser útil si deseas que el usuario sepa que hay más contenido disponible.
+
+overflow: auto: Muestra las barras de desplazamiento solo si el contenido desborda el contenedor. Es una opción más dinámica que scroll.
+
+overflow: clip: Recorta el contenido como hidden, pero no permite ningún tipo de desplazamiento. Es más restrictivo.
+
+overflow-x y overflow-y: Permiten controlar el comportamiento de desbordamiento en las direcciones horizontal y vertical de forma independiente.
+*/

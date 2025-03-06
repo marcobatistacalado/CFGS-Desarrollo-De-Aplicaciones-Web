@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprobador de Expresiones Regulares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1 {
+            color: #5c6bc0;
+        }
+        label, button {
+            font-size: 16px;
+        }
+        textarea, input {
+            font-size: 16px;
+            padding: 8px;
+            width: 100%;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .match {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .no-match {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Comprobador de Expresiones Regulares</h1>
+
+    <label for="regex">Expresión Regular:</label>
+    <input type="text" id="regex" value="^Ba. [A-Z]{1}[a-z]$" placeholder="Introduce la expresión regular" />
+
+    <label for="flags">Selecciona las banderas:</label>
+    <select id="flags">
+        <option value="">Ninguna</option>
+        <option value="g">Global (g)</option>
+        <option value="i">Insensible a mayúsculas (i)</option>
+        <option value="gi">Global e insensible a mayúsculas (gi)</option>
+    </select>
+
+    <label for="testString">Cadena a verificar:</label>
+    <textarea id="testString" placeholder="Introduce la cadena para probar" rows="4">Ba. Abc</textarea>
+
+    <button onclick="testRegex()">Comprobar</button>
+
+    <div id="output" class="output"></div>
+</div>
+
+<script>
+    function testRegex() {
+        const regexInput = document.getElementById("regex").value;
+        const flagsInput = document.getElementById("flags").value;
+        const testString = document.getElementById("testString").value;
+        
+        // Construir la expresión regular con las banderas seleccionadas
+        let regex;
+        try {
+            regex = new RegExp(regexInput, flagsInput);
+        } catch (e) {
+            document.getElementById("output").innerHTML = `<p class="no-match">Error en la expresión regular: ${e.message}</p>`;
+            return;
+        }
+        
+        // Probar la expresión regular con la cadena introducida
+        const result = regex.test(testString);
+
+        // Mostrar el resultado
+        const outputElement = document.getElementById("output");
+        if (result) {
+            outputElement.innerHTML = `<p class="match">¡Coincide!</p>`;
+        } else {
+            outputElement.innerHTML = `<p class="no-match">No coincide.</p>`;
+        }
+    }
+</script>
+
+</body>
+</html>

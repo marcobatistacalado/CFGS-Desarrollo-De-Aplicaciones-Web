@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Mis Discos</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// Al hacer clic en el botón
+			$("button").click(function(){
+				var btn = $(this);
+				btn.prop('disabled', true); // Deshabilitar el botón
+				$("#demo").html("Cargando..."); // Mostrar mensaje de carga
+
+				// Realizar petición AJAX
+				$.ajax({
+					url: 'discos2.xml', // Ruta del archivo XML
+					type: 'GET',
+					dataType: 'xml',
+					success: function(data){
+						$("#demo").html(""); // Limpiar mensaje de carga
+
+						// Crear la lista
+						var ul = $("<ul>");
+						
+						$(data).find("CD").each(function(){
+							var title = $(this).find("TITLE").text();
+							var artist = $(this).find("ARTIST").text();
+							var year = $(this).find("YEAR").text();
+
+							// Crear un ítem de lista para cada disco
+							var li = $("<li>").html("<strong>Título:</strong> " + title + ", <strong>Artista:</strong> " + artist + ", <strong>Año:</strong> " + year);
+							ul.append(li);
+						});
+
+						$("#demo").append(ul); // Agregar la lista al div
+					},
+					error: function(xhr, status, error){
+						// Mostrar mensaje de error si la petición falla
+						$("#demo").html("Hubo un error al cargar los datos: " + error);
+						btn.prop('disabled', false); // Habilitar el botón nuevamente
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+
+<!-- Botón para solicitar la información -->
+<button type="button">MIS DISCOS</button>
+
+<!-- Contenedor para mostrar la información de los discos -->
+<div id="demo"></div>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+prettier --> identar mejor el codigo
+indent rainbow --> agrega espacios de identado que ayudan mucho
+image preview --> ver cuando pase por encima de una ruta de imagen se ve
+live server --> los cambios se muestran en tiempo real
+palenight theme --> tema guay [cntrl+k+d]

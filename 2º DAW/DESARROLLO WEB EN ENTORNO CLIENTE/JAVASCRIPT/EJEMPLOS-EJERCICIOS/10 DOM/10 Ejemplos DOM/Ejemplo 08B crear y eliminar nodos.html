@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="main.css" />
+    <script>
+		// Variable global para llevar la cuenta de los párrafos añadidos dinámicamente
+		var n = 1;
+	  
+		// Función para añadir un nuevo párrafo al final del div con id "principal"
+		function añadir() {
+		  // Crear un nuevo elemento <p>
+		  var nuevo = document.createElement("p");
+		  // Asignar contenido HTML al nuevo párrafo
+		  nuevo.innerHTML = "Este párrafo no existía en el HTML original " + n;
+		  // Obtener el elemento div con id "principal"
+		  padre = document.getElementById("principal");
+		  // Añadir el nuevo párrafo como hijo del div "principal"
+		  padre.appendChild(nuevo);
+		  // Incrementar el contador para el texto del próximo párrafo
+		  n++;
+		}
+	  
+		// Función para eliminar el primer párrafo del documento
+		function eliminar() {
+		  // Seleccionar el primer párrafo del documento (primer <p> que encuentre)
+		  var pborrar = document.getElementsByTagName("p")[0];
+		  // Obtener el nodo padre del párrafo seleccionado
+		  padre = pborrar.parentNode;
+		  // Pedir al nodo padre que elimine al párrafo hijo
+		  padre.removeChild(pborrar);
+		}
+	  
+		// Función para reemplazar el primer párrafo por otro
+		function cambiar() {
+		  // Seleccionar el primer párrafo del documento
+		  var pReemplazo = document.getElementsByTagName("p")[0];
+		  // Crear un nuevo elemento <p> para reemplazarlo
+		  var pCreo = document.createElement("p");
+		  // Asignar contenido HTML al nuevo párrafo
+		  pCreo.innerHTML = "Este párrafo sustituye al anterior";
+		  // Obtener el nodo padre del párrafo a reemplazar
+		  padre = pReemplazo.parentNode;
+		  // Reemplazar el párrafo antiguo con el nuevo
+		  padre.replaceChild(pCreo, pReemplazo);
+		}
+	  
+		// Función para insertar un párrafo antes del segundo párrafo en el documento
+		function intercalar() {
+		  // Seleccionar el segundo párrafo del documento
+		  var pSeQuedaDetras = document.getElementsByTagName("p")[1];
+		  // Crear un nuevo elemento <p> para intercalar
+		  var pCreo = document.createElement("p");
+		  // Asignar contenido HTML al nuevo párrafo
+		  pCreo.innerHTML = "Este se intercala";
+		  // Obtener el nodo padre del párrafo seleccionado
+		  padre = pSeQuedaDetras.parentNode;
+		  // Insertar el nuevo párrafo antes del segundo párrafo
+		  padre.insertBefore(pCreo, pSeQuedaDetras);
+		}
+	  </script>
+	  
+  </head>
+  <body>
+    <input
+      type="button"
+      value="Añadir nodo al final del primer div"
+      onclick="añadir()"
+    />
+    <input
+      type="button"
+      value="Elimina nodo (siempre el primer parrafo)"
+      onclick="eliminar()"
+    />
+    <input
+      type="button"
+      value="Cambiar nodo (cambia el primer párrafo)"
+      onclick="cambiar()"
+    />
+    <input
+      type="button"
+      value="Poner nodo entre 1º y 2º"
+      onclick="intercalar()"
+    />
+    <div id="principal">
+      <p>Primer párrafo</p>
+      <p>Segundo párrafo</p>
+      <p>Tercer párrafo</p>
+    </div>
+    <div id="otro">
+      <p>Primer párrafo de otro</p>
+      <p>Segundo párrafo de otro</p>
+      <p>Tercer párrafo de otro</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CONTROL FORMULARIOS</title>
+    <link rel="stylesheet" href="main.css">
+    <script>
+        function confirmNavigation() {
+            // Mensaje de confirmación al hacer clic en el enlace
+            const confirmation = window.confirm("Eres consciente de que vas a entrar a una página peligrosa para ludópatas o alérgicos a determinadas publicistas. ¿Quieres continuar?");
+            return confirmation; // Devuelve true si el usuario acepta, de lo contrario cancela la navegación
+        }
+
+        function changeImageToBW(img) {
+            img.src = "garfield2.jpg"; // Cambiar a imagen en blanco y negro
+        }
+
+        function changeImageToOriginal(img) {
+            img.src = "garfield.jpg"; // Volver a la imagen original
+        }
+
+        function changeButtonColor(button) {
+            button.style.backgroundColor = "orange"; // Cambiar a color naranja al pasar el ratón
+        }
+
+        function resetButtonColor(button) {
+            button.style.backgroundColor = "gray"; // Volver a gris al salir el ratón
+        }
+
+        function removeButton(button) {
+            button.style.display = "none"; // Ocultar el botón al hacer clic
+        }
+    </script>
+</head>
+
+<body>
+    <a href="https://www.yobingo.es/" onclick="return confirmNavigation();">Juguemos al Bingo</a>
+    <br />
+    <img src="garfield.jpg" width="300" height="300"
+        onmouseover="changeImageToBW(this);" 
+        onmouseout="changeImageToOriginal(this);">
+    <br />
+    <input type="button" value="PULSAME" 
+        style="background-color: gray;"
+        onmouseover="changeButtonColor(this);" 
+        onmouseout="resetButtonColor(this);" 
+        onclick="removeButton(this);">
+</body>
+
+</html>

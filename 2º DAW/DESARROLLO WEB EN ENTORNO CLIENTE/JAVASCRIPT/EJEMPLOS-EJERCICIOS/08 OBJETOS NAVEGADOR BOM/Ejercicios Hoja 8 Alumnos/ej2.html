@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var mia=null;
+    
+    function abrirVentana(){
+        mia=window.open('','tuya','width=500,height=500,top=0, left=0' );
+        mia.document.write("<h1>Yo si que me aburro</h1>");
+        let intervalo = window.setInterval(function() {
+        mia.moveBy(20,20);   
+        }, 100);
+    }
+    function cerrarVentana(){
+        mia.close();  // para que al abrir de nuevo limpie el documento
+    }
+
+</script>
+<body>
+   <button onclick="abrirVentana()">ME ABURRO</button> 
+   <button onclick="cerrarVentana()">STOP</button> 
+</body>
+</html>

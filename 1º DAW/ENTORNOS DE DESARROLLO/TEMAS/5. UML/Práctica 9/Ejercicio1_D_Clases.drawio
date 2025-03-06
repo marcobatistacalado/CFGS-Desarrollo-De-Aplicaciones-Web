@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2024-03-08T09:22:35.811Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="ckq-jbvoK1roRqCiWyYd" version="23.1.4" type="google">
+  <diagram name="Página-1" id="MZs7rzr7ikr8c3AiCmQS">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="rew5HX4wiaD7FovtIx2D-25" value="Biblioteca" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-380" y="128" width="280" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-32" value="- socios: Socio[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-25">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-31" value="- libros: Libro[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-25">
+          <mxGeometry y="52" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-30" value="- direccion: Direccion" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-25">
+          <mxGeometry y="78" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-58" value="- telefono: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-25">
+          <mxGeometry y="104" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-29" value="- nombre: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-25">
+          <mxGeometry y="130" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-27" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-25">
+          <mxGeometry y="156" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-28" value="+ altaLibro(Libro): boolean&lt;br&gt;&lt;br&gt;+altaSocio(Socio): boolean&lt;br&gt;&lt;br&gt;+prestarLibro(string,string): boolean (mirará si está prestado o no)&lt;br&gt;&lt;br&gt;+devolverLibro(string): double (llama a prestarLibro y calcula fechaPrestamo; multa)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-25">
+          <mxGeometry y="164" width="280" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-33" value="Direccion" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="145" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-37" value="- calle: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-33">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-38" value="- nuimero: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-33">
+          <mxGeometry y="52" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-40" value="- ciudad: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-33">
+          <mxGeometry y="78" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-39" value="- codigoPostal: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-33">
+          <mxGeometry y="104" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-41" value="Socio" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-20" y="585" width="160" height="112" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-44" value="- nombre: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-41">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-42" value="- DNI: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-41">
+          <mxGeometry y="52" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-45" value="- dirección: Dirección" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-41">
+          <mxGeometry y="78" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-43" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-41">
+          <mxGeometry y="104" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-46" value="Libro" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-240" y="540" width="160" height="268" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-50" value="- titulo: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-46">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-51" value="- autor: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-46">
+          <mxGeometry y="52" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-57" value="- editorial: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-46">
+          <mxGeometry y="78" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-60" value="- socio: Socio" style="text;strokeColor=none;fillColor=#33FFFF;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-46">
+          <mxGeometry y="104" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-62" value="- fechaPrestamo: LocalDate" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-46">
+          <mxGeometry y="130" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-48" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-46">
+          <mxGeometry y="156" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-49" value="+ prestar(Socio): void (llama a prestarLibro en biblioteca)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-46">
+          <mxGeometry y="164" width="160" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-64" value="+ devolver(): void (null socio y fechaPrestamo)" style="text;strokeColor=none;fillColor=#33FF33;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="rew5HX4wiaD7FovtIx2D-46">
+          <mxGeometry y="216" width="160" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-53" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;entryX=1.006;entryY=0.231;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="rew5HX4wiaD7FovtIx2D-38" target="rew5HX4wiaD7FovtIx2D-30">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-110" y="410" as="sourcePoint" />
+            <mxPoint x="50" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-54" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;entryX=0.488;entryY=1.02;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="rew5HX4wiaD7FovtIx2D-46" target="rew5HX4wiaD7FovtIx2D-28">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint y="220" as="sourcePoint" />
+            <mxPoint x="-99" y="222" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-55" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.644;entryY=1.02;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="rew5HX4wiaD7FovtIx2D-41" target="rew5HX4wiaD7FovtIx2D-28">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="10" y="230" as="sourcePoint" />
+            <mxPoint x="-150" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-59" value="Basandonos en el enunciado: &lt;br&gt;&lt;b&gt;1ª OPC:&lt;/b&gt; puedo guardar en libro el socio que lo tiene (solo existe 1 libro = 1 socio ) --&amp;gt; nos cargamos la booleana de prestado porque el socio es obj o null. Además me evito búsqueda en array dentro de array.&lt;br&gt;2ª OPC: en el socio guardar los libros en un array (pq los socios pueden tener varios libros)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#33FFFF;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="-10" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-61" value="NO basándonos en el enunciado:&lt;br&gt;si hubiese varios libros del mismo titulo, cualquier opción sería valida: pq en la primera llevaríamos también un array de socios ya que pueden tenerlo varios. Así que en ambas se harían doble búsqueda.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#33FFFF;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="840" width="330" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-63" value="DEVOLVER LIBRO:&lt;br&gt;1ª OPC: 2 sets de Socio y fechaPrestamo en libro que los llamamos desde devolverLibro() en Biblioteca, pasandole null&lt;br&gt;&lt;b&gt;2ª OPC:&lt;/b&gt; metodo en Libro que marque a null socio, fechaPrestamo, solo se llama en devolverLibro() de biblioteca" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#33FF33;" vertex="1" parent="1">
+          <mxGeometry y="440" width="330" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rew5HX4wiaD7FovtIx2D-65" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="rew5HX4wiaD7FovtIx2D-42" target="rew5HX4wiaD7FovtIx2D-60">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-90" y="710" as="sourcePoint" />
+            <mxPoint x="70" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

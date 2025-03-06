@@ -1,0 +1,30 @@
+/*SELECTOR POR ATRIBUTO*/
+img[src="dalto.png"]{
+    width: 100%;
+}
+
+/*
+[src$="png"] --> acabar por
+[src^="dalto"] --> empezar por
+*/
+
+ul span{ /*darle la condicion a los span que esten dentro de ul, hasta a los nietos*/
+    color: blue; /*puede estar dentro de dentro de dentro*/
+}
+/*SELECTO HIJO DIRECTO*/
+li > em{ /*este es hijo directo solo hace efecto a ese*/
+    color: green;
+}
+/*SELECTOR DE HERMANO ADYACENTE*/
+h1 + p{ /*afecta a los h1 que vayan despues de p: solo el primero*/
+    color: RED;
+}
+
+/*SELECTOR DE HERMANO GENERAL*/
+h1 ~ p{ /*aplicar morado a todos los p que vengan despues de h1*/
+    color: purple;
+}
+
+h1,p{ /*aplica a ambos*/
+    color: brown;
+}

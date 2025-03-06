@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Archivo JavaScript de Bootstrap -->
+    <script src="../bootstrap-5.2.3/js/bootstrap.min.js"></script>
+    <!-- Archivo CSS de Bootstrap -->
+    <link href="../bootstrap-5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-morado {
+            background-color: #5B3A5B;
+            color: white;
+        }
+        body {
+            background: #9B90C8;
+            color: #5B3A5B;
+            font-family: 'Raleway', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <legend>Datos Personales</legend>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="nombreCompleto" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombreCompleto" placeholder="Escribe tu nombre completo">
+            </div>
+            <div class="col-lg-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="correo@dominio.com">
+            </div>
+            <div class="col-lg-6">
+                <label for="pais" class="form-label">País</label>
+                <input type="text" class="form-control" id="pais">
+            </div>
+            <div class="col-lg-6">
+                <label for="fnac" class="form-label">Fecha Nacimiento</label>
+                <input type="date" class="form-control" id="fnac">
+            </div>
+        </div>
+
+        <h2>Datos de tarjeta de crédito</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="num" class="form-label">Número</label>
+                <input type="text" class="form-control" id="num" placeholder="Ej. 55555555555555555">
+            </div>
+            <div class="col-lg-6">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre del propietario">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-2">
+                <button type="submit" class="btn btn-morado">Realizar compra</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

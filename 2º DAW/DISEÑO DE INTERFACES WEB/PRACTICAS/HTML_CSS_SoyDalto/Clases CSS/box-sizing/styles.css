@@ -1,0 +1,21 @@
+body{
+    margin:0;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background: #48e;
+    margin: 10px;
+}
+.box-default{
+    padding: 25px;
+    border: 10px solid black;
+}
+
+/*LA FORMA IDEAL: para no tener que calcular cuánto debe ocupar*/
+.box-new{
+    box-sizing: border-box;
+    padding:25px;
+    border: 10px solid black;
+}
+

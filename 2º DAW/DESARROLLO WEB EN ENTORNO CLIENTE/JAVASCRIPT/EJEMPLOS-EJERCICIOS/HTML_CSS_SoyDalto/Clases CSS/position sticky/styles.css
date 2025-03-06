@@ -1,0 +1,43 @@
+/* Estilos generales para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Estilos para la sección de contenido principal */
+.contenido {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/*
+    Estilos para el mensaje de registro "Regístrate aquí".
+    - position: sticky se usa para que este elemento sea "pegajoso".
+    - top: 0 indica que cuando el div llegue a la parte superior de la página (al hacer scroll),
+      se quedará fijo en esa posición.
+    - Webkit-sticky es solo un prefijo para Safari.
+*/
+.registro-sticky {
+    position: -webkit-sticky; /* Soporte para Safari */
+    position: sticky; /* Hace que el div se quede pegado en la parte superior cuando haces scroll */
+    top: 0; /* El punto donde el elemento se pega (en este caso, al llegar a la parte superior) */
+    background-color: #f90; /* Fondo del mensaje */
+    padding: 10px 20px; /* Espaciado interno del mensaje */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio debajo del mensaje */
+}
+
+/* Estilos para el enlace de registro */
+.registro-sticky a {
+    color: white; /* Color del texto del enlace */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    font-weight: bold; /* Hace que el texto sea más grueso */
+}
+
+/* Cambio de color cuando se pasa el ratón por encima del mensaje */
+.registro-sticky:hover {
+    background-color: #ffb84d; /* Color más claro al hacer hover */
+}

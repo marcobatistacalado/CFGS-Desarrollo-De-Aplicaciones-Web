@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>EVENTOS</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="../../../jquery-3.7.1.min.js"> </script>
+    <script>
+        $(document).ready(function() {
+            // (A) Método hover() para el primer div
+            $('div').hover(
+                function() { // Cuando el ratón pasa por encima
+                    $(this).css('background-color', '#FAD7A0');
+                    $(this).html('Paso por encima');
+                },
+                function() { // Cuando el ratón sale
+                    $(this).css('background-color', ''); // vuelve al color original
+                    $(this).html('SALGO');
+                }
+            );
+
+            // (A.2) Método on() para el click en el primer div
+            $('div').on('click', function() {
+                $(this).css('background-color', ''); // Vuelve al color original
+                $(this).html('(A) Método hover(): Pasa con el ratón por encima y luego sal.'); // Vuelve al
+            });
+
+            // (B) Método on() con varios eventos para el botón
+            $('#boton').on({
+                mouseenter: function() {
+                    $(this).animate({ opacity: 0.3 }, 600); // Cuando el ratón entra
+                },
+                mouseleave: function() {
+                    $(this).animate({ opacity: 1.0 }, 600); // Cuando el ratón sale
+                },
+                click: function(event) {
+                    $('span').html('Has hecho ' + event.type + ' en el botón');
+                },
+                dblclick: function(event) {
+                    $('span').html('Has hecho ' + event.type + ' en el botón');
+                }
+            });
+
+            // (C) Confirmación al clicar en el link
+            $('a').on('click', function(e) {
+                if (!confirm('¿Estás seguro de que quieres ir a la página?')) {
+                    e.preventDefault(); // Anula la acción si no se confirma
+                }
+            });
+
+            // (D) Método one() para el primer click en otro botón
+            $('#otro').one('click', function() {
+                alert('Solo te lo digo una vez, lo estás haciendo muy bien.');
+            });
+
+            // (E) Cambiar estilo al hacer clic en los párrafos
+            $('p').on('click', function() {
+                $(this).css({
+                    'background-color': '#85C1E9',
+                    'font-size': '+=5px'
+                });
+            });
+
+            // (F) Método off() para desactivar eventos
+            $('#otromas').on('click', function() {
+                // Desactivar el evento click de los párrafos
+                $('p').off('click');
+
+                // Desactivar el hover del primer div
+                $('div').off('mouseenter mouseleave');
+            });
+
+            // (G) Mostrar keyCode, charCode y la letra al escribir en el input
+            $('#texto').on('input', function(event) {
+                var keyCode = event.keyCode || event.which;
+                var charCode = event.charCode || event.keyCode;
+                var letra = String.fromCharCode(charCode);
+                $('#mensaje').html('keyCode: ' + keyCode + ' charCode: ' + charCode + ' Letra: ' + letra);
+            });
+
+            // (G.2) Cambiar color de fondo al poner y quitar foco en el campo de texto
+            $('#texto').on({
+                focus: function() {
+                    $(this).css('background-color', '#B6FAF3');
+                },
+                blur: function() {
+                    $(this).css('background-color', '');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<h3>GESTIÓN DE EVENTOS</h3>
+<p>Los eventos sirven para que el usuario interaccione con la página. A medida que se producen podemos programar acciones en respuesta a éstos.</p>
+<br><br>
+<div>
+    (A) Método hover(): Pasa con el ratón por encima y luego sal.
+</div>
+<br>
+(B) <button id="boton" style="position:relative">Yo tengo el método on con varios eventos</button><span></span><br><br>
+(C) <a href="https://www.w3schools.com/jquery/jquery_events.asp">Eventos en W3schools</a><br><br>
+(D) <button id="otro"> Yo tengo el método one </button><br><br>
+(E) <p>Somos párrafos</p>
+    <p>en el que cliques se vuelve azul y su letra se agranda</p>
+(F) <button id="otromas"> Y yo el método off. Anulo el click de los párrafos </button>
+<br><br>
+(G) Y para acabar dime algo bonito<input type="text" id="texto">
+<div id="mensaje"></div>
+
+</body>
+</html>

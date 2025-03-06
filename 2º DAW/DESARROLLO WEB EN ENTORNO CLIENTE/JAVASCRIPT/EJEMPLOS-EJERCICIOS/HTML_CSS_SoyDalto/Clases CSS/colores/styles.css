@@ -1,0 +1,8 @@
+.box{
+    width: 100px;
+    height: 100px;
+    /*background: rgb(255,0,0); /*-->RGB*/
+    /*background: #e60; /*hexadecimal abreviado: 0-9. a-f*/
+    /*background: hsl(120, 100%, 50%); /*HSL*/
+    margin: 20px;
+}

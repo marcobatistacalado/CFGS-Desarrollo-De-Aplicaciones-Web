@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+.descendants *
+{ 
+display: block;
+border: 2px solid lightgrey;
+color: grey;
+padding: 5px;
+margin: 15px;
+}
+
+</style>
+<title>Ejemplo 01</title>
+<script src="..\jquery-3.7.1.min.js"> </script>
+<script>
+$(document).ready( function() {
+    $("li").first().css("background-color","orange");
+    $("li").last().css("background-color","yellow");
+    $("li").eq(3).css("background-color","blue");
+    $("li").filter(":odd").css("color","red");
+    $("li").not(":odd").css("color","green");  
+    $("li").slice(2,5).css("font-size","30px"); 
+			
+    $("#boton1").click(function(){
+        $(".descendants").children().css({"color":"red","border":"2px solid red"});
+        $(".descendants").children("h3").css('background-color','green');
+         });
+    
+    $("#boton2").click(function(){
+        $(".descendants").find("*").css({"color":"red","border":"2px solid red"});
+	    $(".descendants").find("span").css('background-color','green');  
+         });  
+    
+    $("#boton3").click(function(){
+        $("p").parent("div").css({"color":"blue","border":"2px solid blue"});
+        $("span").parent().css("background-color","lightgrey");    
+         });
+    
+    $("#boton4").click(function(){
+	  $("span").parents().css({"color":"blue","border":"2px solid green"});
+       $("span").parents("div").css({"color":"red","border":"2px solid red"});
+   
+         });
+    
+   $("#boton5").click(function(){ 
+     $("span").closest("p").css("border","2px solid green");
+	 $("span").closest("div").css("border","2px solid orange");
+    });
+
+    $("#boton6").click(function(){ 
+      $("h2").siblings().css({"color": "red", "border": "2px solid red"});
+    });  
+    
+    $("#boton7").click(function(){ 
+      $("h2").next().css({"color": "red", "border": "2px solid red"});
+    }); 
+    
+    $("#boton8").click(function(){ 
+      $("h2").nextAll().css({"color": "red", "border": "2px solid red"});
+    }); 
+    
+    $("#boton9").click(function(){ 
+      $("h2").prev().css({"color": "red", "border": "2px solid red"});
+    }); 
+    
+    $("#boton10").click(function(){ 
+      $("h2").prevAll().css({"color": "red", "border": "2px solid red"});
+    }); 
+     
+} );
+		
+</script>
+
+</head>
+<body>
+ <ol>
+	<li> Uno </li>
+	<li> Dos </li>
+	<li> Tres </li>
+	<li> Cuatro </li>
+	<li> Cinco </li>
+	<li> Seis </li>
+	<li> Siete </li>
+	<li> Ocho </li>
+ </ol>
+<input type='button' id='boton1' value="(1) children()">
+<input type='button' id='boton2' value="(2) find()">
+<input type='button' id='boton3' value="(3) parent()">
+<input type='button' id='boton4' value="(4) parents()">
+<input type='button' id='boton5' value="(5) closest()">
+<br><br>
+<div class="descendants" style="width:500px;">
+Div principal con clase descendants
+  <p>p Hijo
+    <span>span Nieto</span>     
+  </p>
+  <p>p Hijo
+    <span>span Nieto</span>
+  </p> 
+  <h3> h3 hijo de Div </h3>
+</div>
+<p>p que no está dentro de un div</p> 
+<input type='button' id='boton6' value="(6) siblings()">
+<input type='button' id='boton7' value="(7) next()">
+<input type='button' id='boton8' value="(8) nextAll()">
+<input type='button' id='boton9' value="(9) prev()">
+<input type='button' id='boton10' value="(10) prevAll()">
+<br><br>   
+<div class="siblings" style="width:500px;" >Otro div (para los hermanos)
+  <h5>h5</h5>
+  <h5>h5</h5>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <h5>h5</h5>
+</div>  
+ 
+</body>
+</html>

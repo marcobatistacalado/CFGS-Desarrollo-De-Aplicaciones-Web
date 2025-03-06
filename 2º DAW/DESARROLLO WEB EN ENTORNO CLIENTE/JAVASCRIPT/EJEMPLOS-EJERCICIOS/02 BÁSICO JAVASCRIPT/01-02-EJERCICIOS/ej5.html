@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type='text/css'>
+        .main-box{
+            width: 20%;
+            margin: auto;
+        }
+    </style>
+    <script>
+        
+        let cont =0;
+        let entrada;
+        let cadMayor = "";
+        do{
+           entrada = prompt("Introduce una cadena:");
+           if (entrada.length > cadMayor.length){
+            cadMayor = entrada;
+           }
+        cont++;
+        }while(cont != 5);
+        alert("La cadena mayor es: "+cadMayor);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

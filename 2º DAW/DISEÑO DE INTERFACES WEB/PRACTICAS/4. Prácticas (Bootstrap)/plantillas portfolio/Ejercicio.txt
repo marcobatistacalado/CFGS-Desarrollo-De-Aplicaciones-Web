@@ -1,0 +1,7 @@
+Modifica las plantillas con los siguientes cambios:Magister:
+
+    - Añade un submennú a Get int touch que nos lleve a un formulario con los datos de contactos.
+   - Organiza las tarjetas de manera que haya 3 en cada línea.
+Portfolio:
+   - En home, haz que la imagen ocupe el 50%
+   - En contact coloca el formulario arriba y el resto abajo de manera que quede visualmente bien. Cuidado con el responsive.

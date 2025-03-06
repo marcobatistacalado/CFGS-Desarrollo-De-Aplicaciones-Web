@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <h3>Escribe tu nombre</h3>
+    <label>Nombre: </label>
+    <input type="text" id="nombre" onfocus="iniciarTemporizador()" onblur="detenerTemporizador()" />
+    <p id="tiempo"></p>
+
+    <script>
+        let tiempoInicio, tiempoFinal;
+
+        function iniciarTemporizador() {
+            tiempoInicio = new Date().getTime();
+        }
+
+        function detenerTemporizador() {
+            tiempoFinal = new Date().getTime();
+            let segundos = (tiempoFinal - tiempoInicio) / 1000;
+            document.getElementById("tiempo").innerText = `Has tardado ${segundos.toFixed(2)} segundos en escribir tu nombre.`;
+        }
+    </script>
+</body>
+</html>

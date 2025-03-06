@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav{
+    height: 10vh;
+    width: 50%;
+    margin-left: 50%;
+
+}
+
+.nav__link{
+    float: left;
+    text-decoration: none;
+    text-align: center;
+    width: 25%;
+    margin-left: 12.5%;
+    color: black;
+    border-bottom: 2px solid black;
+    margin-top: 45px;
+    
+}
+
+.nav__link:hover{
+    background-color: black;
+    color: white;
+}
+
+.link--diferent{
+    margin-left: 0;
+}
+
+.container{
+    height: 90vh;
+    position: relative;
+    background-image: url('./imagenes/lisboaplaza.webp');
+    background-size: cover;
+}
+
+.container h1{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 50px;
+}
+
+.container h4{
+    width: 50%;
+    margin: auto;
+    padding-top: 40px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 1px 1px gray;;
+}
+.container h4 span{
+    color: red;
+    font-style: italic;
+}
+.container__logo{
+    width: 100px;
+    position: absolute; /*para que esto funcione el que le contiene debe tener otro tipo de position: relative*/
+    top: 5%;
+    left: 5%;
+}
+
+.container__logo:hover{
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+.numeros{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 200px; /*NO SE PORQUE ES MUCHO*/
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif
+}
+.numeros--box{
+    width: 33%;
+    background-color: white;
+    display: inline-block;
+}
+.numeros--box span{
+    font-size: 4em;
+    
+}

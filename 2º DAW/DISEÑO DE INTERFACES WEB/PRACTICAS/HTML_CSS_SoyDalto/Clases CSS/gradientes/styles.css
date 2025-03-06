@@ -1,0 +1,24 @@
+body{
+    background-color: red;
+    margin: 0;
+}
+.box{
+    width: 400px;
+    height: 400px;
+    margin:20px;
+    background-color: red;
+    background: linear-gradient(to top, transparent,#000); /*puedes invertir el orden*/
+    /*se le puede añadir radial-gradiente: es como una mira*/
+    margin: auto;
+    margin-top: 30px;
+    border-top:  20px;
+    border-radius: 7px;
+    
+}
+h1{
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-family: sans-serif;
+}

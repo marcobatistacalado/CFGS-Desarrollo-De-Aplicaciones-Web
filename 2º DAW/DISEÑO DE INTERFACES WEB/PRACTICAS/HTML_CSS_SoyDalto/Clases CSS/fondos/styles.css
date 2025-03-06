@@ -1,0 +1,16 @@
+body{
+    background-color: #0f0;
+    margin: 0;
+}
+.box{
+    width: 400px;
+    height: 400px;
+    margin:20px;
+    background-color: #000;
+    background-image: url("https://yt3.googleusercontent.com/jHpWdf9qWNdrCjxfQxCxR0aiYY9Y1IO7s6Jwlk-OgKxS8nzjEMffakE6mdOdp2u22R3130U0nQ=s900-c-k-c0x00ffffff-no-rj");
+    /*background-size: 100%;*/
+    /*background-size: contain; /*la imagen se adapta a la caja*/
+    background-size: cover;
+    background-position: top;
+    /*background-attachment: fixed;/*se queda la imagen de fondo y se mueve el texto en el scroll muy lindo la vd*/
+}

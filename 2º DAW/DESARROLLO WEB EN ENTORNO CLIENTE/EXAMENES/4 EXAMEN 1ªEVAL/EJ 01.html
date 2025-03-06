@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        font-family: "Garamond", sans-serif;
+        font-size: 18px;
+      }
+
+      #div1 {
+        width: 250px;
+        margin: auto;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 20pt;
+      }
+
+      table {
+        background-color: #f3e0b6;
+        text-align: center;
+        width: 250px;
+        border: 1px solid #83682b;
+      }
+
+      td {
+        border: 1px solid #83682b;
+      }
+
+      .producto {
+        background-color: #f8b00d;
+      }
+    </style>
+    <script type="text/javascript">
+      function generarTabla() {
+        repetir = true;
+        while (repetir == true) {
+          var fil = Number(
+            prompt("Introduce el numero de filas (entre 3 y 9): ")
+          );
+          var col = Number(
+            prompt("Introduce el numero de columnas (entre 3 y 9): ")
+          );
+
+          if (fil < 3 || fil > 9 || col < 3 || col > 9) {
+            alert("El número debe estar entre 3 y 9.");
+          } else {
+            repetir = false;
+            break;
+          }
+        }
+
+        let tabla = document.createElement("table");
+        let div = document.getElementById("div1");
+        div.innerHTML = "";
+        div.appendChild(tabla);
+
+        for (let i = 0; i < fil; i++) {
+          let fila = document.createElement("tr");
+          tabla.appendChild(fila);
+          multiplicacion = 1;
+          for (let j = 0; j < col; j++) {
+            let celda = document.createElement("td");
+            let numero = Math.floor(Math.random() * 5) + 1;
+            multiplicacion *= numero;
+            celda.textContent = numero;
+
+            celda.onclick = function () {
+              let valor = parseInt(celda.textContent);
+
+              if (valor > 0) {
+                valor--;
+                celda.textContent = valor;
+
+                //rehacer la multiplicacion
+                let padre = celda.parentNode;
+                let hijos = padre.childNodes;
+                let multiplicacion = 1;
+                let max = hijos.length - 1;
+                for (let i = 0; i < hijos.length; i++) {
+                  if (i != max) {
+                    multiplicacion *= Number(hijos[i].innerHTML);
+                  }
+                }
+                let hijoProd = padre.lastChild;
+                hijoProd.innerHTML = multiplicacion;
+
+                if (valor == 0) {
+                  celda.style.backgroundColor = "gray";
+                  celda.style.pointerEvents = "none";
+                }
+              }
+            };
+
+            fila.appendChild(celda);
+          }
+          //añadir producto
+          producto = document.createElement("td");
+          producto.innerHTML = multiplicacion;
+          producto.className = "producto";
+          fila.appendChild(producto);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>1ª Evaluación</h2>
+    <h3>EJERCICIO 1</h3>
+    <div id="div1"></div>
+    <button onclick="generarTabla()">Generar Tabla</button>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="main.css">
+<script src="../../../jquery-3.7.1.min.js"> </script>
+<script>
+	$(document).ready(function() {
+		// Para cada pregunta
+		$("div[id^='id']").each(function() {
+			var preguntaId = $(this).attr('id');  // ID de la pregunta
+			var respuestaCorrecta = $(this).find('input[type="text"]').val();  // Respuesta correcta
+
+			// Cuando se selecciona una respuesta
+			$(this).find('input[type="radio"]').click(function() {
+				var seleccionada = $(this).val(); // Valor de la respuesta seleccionada
+
+				// Cambiar el texto según la respuesta seleccionada
+				if(seleccionada == respuestaCorrecta) {
+					$(this).closest('div').find('h3').text('OK');  // Si es correcta
+				} else {
+					$(this).closest('div').find('h3').text('ERROR');  // Si es incorrecta
+				}
+			});
+		});
+	});
+</script>
+<style>
+#container {
+	position:relative;
+	margin:auto;
+	width:800px;
+}
+#id1, #id2, #id3 {
+	position:absolute;
+	padding:10px;
+}
+#id1 {
+	left:20px;
+	top:50px;
+}
+#id2 {
+	left:250px;
+	top:50px;
+}
+#id3 {
+	left:450px;
+	top:50px;
+}
+</style>
+</head>
+<body>
+<div id="#container">
+
+<div id="id1">
+<h3> CONTESTA </h3>
+¿De que color era el caballo <br> blanco de Santiago?
+<br><br><input type="radio" name="p1" value="1"> Negro  
+<br><input type="radio" name="p1" value="2"> Blanco 
+<br><input type="radio" name="p1" value="3"> Marrón 
+<input type="text" style="display:none" value="2">
+</div>
+<div id="id2">
+<h3> CONTESTA </h3>
+¿Cuantas patas tiene una  <br> araña ?
+<br><br><input type="radio" name="p2" value="1"> Cuatro  
+<br><input type="radio" name="p2" value="2"> Seis 
+<br><input type="radio" name="p2" value="3"> Ocho 
+<input type="text" style="display:none" value="3">
+</div>
+<div id="id3">
+<h3> CONTESTA </h3>
+¿A quién quieres más, a papá, <br> a mamá o al ay ay ay?
+<br><br><input type="radio" name="p3" value="1"> Papá  
+<br><input type="radio" name="p3" value="2"> Mamá 
+<br><input type="radio" name="p3" value="3"> Ay ay ay
+<input type="text" style="display:none" value="3">
+</div>
+</div>
+</body>
+</html>

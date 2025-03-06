@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CONTROL FORMULARIOS</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            font: "Trebuchet MS", sans-serif;
+            margin: 50px;
+        }
+
+        .demoHeaders {
+            margin-top: 2em;
+        }
+
+        .but {
+            width: 15px;
+            height: 15px;
+            border: 0px;
+        }
+    </style>
+    <script>
+        i = 0;
+        arr = [];
+
+        $(document).ready(function () {
+            realizarProceso("1GEN"); // Cargar por defecto
+            
+
+            $('#selGen').on('change', function () {
+                realizarProceso($(this).val()); // Pasar el valor seleccionado
+                i=0;//reiniciar contador
+            });
+
+            $('#uno').on('click', function () {
+                mostrar();
+            });
+
+            function realizarProceso(archivo) {
+
+                if (!archivo) {
+                    archivo = "1GEN"; // Fallback en caso de valor vacío
+                }
+
+                $.ajax({
+                    url: 'pokemon.' + archivo + '.json',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (request) {
+                        arr = request;
+                        mostrar(); 
+                    },
+                    error: function () {
+                        alert("Error al cargar el archivo JSON");
+                    }
+                });
+            }
+
+            function mostrar(){
+                
+                
+                let principalDiv = $('#principal');
+
+                // Limpiar el contenido anterior
+                principalDiv.empty();
+
+                // Mostrar los datos
+                    let title = $("<h4>").text("Pokedex: " + arr[i].pokedex);
+                    principalDiv.append(title);
+                    let img = $("<img>").attr('src', "./pokemon2/"+arr[i].nombre+".png");
+                    principalDiv.append(img);
+                    let descr = $("<p>").html(arr[i].comentarios);
+                    principalDiv.append(descr);
+                    let tipo = $("<h4>").html("Tipo: "+arr[i].tipo)
+                    principalDiv.append(tipo);
+                
+                if (arr.length -1 == i){
+                    i = 0;
+                }else{
+                    i++;
+                }
+            }
+
+            $("#dos").click(function(){
+                let principalDiv = $('#principal');
+
+                // Limpiar el contenido anterior
+                principalDiv.empty();
+                $.ajax({url: "masinfo.js",
+                        dataType: "script",
+                        success: function(result){
+                            //alert(result);
+                        },
+                        error: function(xhr){
+                                alert("Se ha producido un error " + xhr.status + " " + xhr.statusText);
+                            }
+                        });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h3>Pokemon</h3>
+
+    <select id="selGen">
+        <option value="1GEN">1ª Generación</option>
+        <option value="2GEN">2ª Generación</option>
+        <option value="3GEN">3ª Generación</option>
+    </select>
+
+    <br><br>
+
+    <input type="button" id="uno" value="AVANZAR">
+    <input type="button" id="dos" value="TRAER TXT">
+    
+    <div id="principal"></div>
+
+</body>
+</html>

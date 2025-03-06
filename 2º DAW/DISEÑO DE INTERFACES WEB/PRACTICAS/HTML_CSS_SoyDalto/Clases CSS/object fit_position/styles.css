@@ -1,0 +1,163 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/* Contenedor para ejemplos de object-fit */
+.object-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.object-box {
+    width: 200px;
+    height: 150px;
+    border: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Necesario para ver el efecto de object-fit */
+}
+
+/* Cada imagen tiene un tamaño fijo */
+.object-box img {
+    width: 100%; /* Ancho 100% de su contenedor */
+    height: 100%; /* Alto 100% de su contenedor */
+}
+
+/* Explicaciones de object-fit */
+
+/* 
+    object-fit: fill
+    Este es el valor por defecto. Estira la imagen para rellenar todo el espacio del contenedor.
+    Si la proporción de la imagen no coincide con la del contenedor, puede deformarse.
+*/
+.fill {
+    object-fit: fill;
+}
+
+/*
+    object-fit: contain
+    La imagen se escala para caber completamente dentro del contenedor,
+    manteniendo su proporción original. Puede quedar espacio vacío.
+*/
+.contain {
+    object-fit: contain;
+}
+
+/*
+    object-fit: cover
+    La imagen se escala para cubrir todo el contenedor.
+    Puede que algunas partes de la imagen se recorten para llenar todo el espacio.
+*/
+.cover {
+    object-fit: cover;
+}
+
+/*
+    object-fit: none
+    La imagen no se escala ni se recorta.
+    Si es más grande que el contenedor, solo se mostrará la parte que cabe en el contenedor.
+*/
+.none {
+    object-fit: none;
+}
+
+/*
+    object-fit: scale-down
+    La imagen se escala como en contain, pero solo si es más grande que el contenedor.
+    Si no, se mantiene en su tamaño original.
+*/
+.scale-down {
+    object-fit: scale-down;
+}
+
+/* Estilos para la sección de Position */
+.position-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.position-box {
+    width: 150px;
+    height: 100px;
+    background-color: #3498db;
+    color: white;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static; /* Valor por defecto, puede ser sobrescrito */
+    margin-bottom: 40px;
+}
+
+/* Explicaciones de position */
+
+/*
+    position: static
+    Este es el valor por defecto de todos los elementos.
+    El elemento se posiciona según el flujo normal del documento.
+*/
+.static {
+    position: static; /* No se mueve de su posición en el flujo del documento */
+}
+
+/*
+    position: relative
+    El elemento se posiciona relativo a su posición original.
+    Puedes ajustar su ubicación con top, left, bottom y right.
+    Aquí movemos el elemento 20px a la derecha y 10px hacia abajo.
+*/
+.relative {
+    position: relative;
+    left: 20px;
+    top: 10px;
+}
+
+/*
+    position: absolute
+    El elemento se posiciona en relación con su contenedor más cercano con posición relativa, absoluta o fija.
+    Aquí movemos el elemento a 10px de la parte superior y 20px de la izquierda del contenedor.
+*/
+.absolute {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+/*
+    position: fixed
+    El elemento se posiciona relativo a la ventana del navegador.
+    Se mantiene fijo en la misma posición incluso cuando haces scroll.
+    En este caso, se mantiene en la esquina inferior derecha.
+*/
+.fixed {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+/*
+    position: sticky
+    El elemento se comporta como un elemento estático hasta que se alcanza un cierto punto al hacer scroll.
+    Aquí el elemento se quedará pegado en la parte superior cuando hagas scroll y se desplace con el contenido.
+*/
+.sticky {
+    position: -webkit-sticky; /* Soporte para Safari */
+    position: sticky;
+    top: 0; /* Se pega a la parte superior cuando haces scroll */
+    background-color: #e74c3c;
+}

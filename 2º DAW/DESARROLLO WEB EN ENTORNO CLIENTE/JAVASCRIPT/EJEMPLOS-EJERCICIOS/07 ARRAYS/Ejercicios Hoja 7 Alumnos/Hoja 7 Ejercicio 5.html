@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juego de Números Ordenados</title>
+  <style type="text/css">
+    table {
+      background-color: white;
+      border: 1px solid #75756A;
+      width: 300px;
+      text-align: center;
+      margin: auto;
+      box-shadow: 5px 5px 12px #F5F5DC;
+      font-size: 20px;
+      font-family: 'Arial', sans-serif;
+    }
+    td {
+      border: 1px solid black;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    let tabla = [];
+    let fil = 3;
+    let col = 3;
+    let siguienteNumero = 1;
+    let errores = 0;
+
+    // Función para generar un array con los números del 1 al 9 en orden aleatorio
+    function generarNumerosAleatorios() {
+      const numeros = [];
+      for (let i = 1; i <= 9; i++) {
+        numeros.push(i);
+      }
+
+      const numerosAleatorios = [];
+      while (numeros.length > 0) {
+        const index = Math.floor(Math.random() * numeros.length);
+        numerosAleatorios.push(numeros.splice(index, 1)[0]);
+      }
+      return numerosAleatorios;
+    }
+
+    // Función para llenar la tabla con los números aleatorios generados
+    function generarTabla() {
+      const numerosAleatorios = generarNumerosAleatorios();
+      let contador = 0;
+      for (let i = 0; i < fil; i++) {
+        tabla[i] = [];
+        for (let j = 0; j < col; j++) {
+          tabla[i][j] = numerosAleatorios[contador];
+          contador++;
+        }
+      }
+    }
+
+    // Función que se llama al hacer clic en una celda
+    function jugar(celda) {
+      const valor = parseInt(celda.textContent);
+      if (valor === siguienteNumero) {
+        celda.style.backgroundColor = "blue";
+        siguienteNumero++;
+      } else {
+        celda.style.backgroundColor = "red";
+        errores++;
+      }
+
+      // Desactivar clic en la celda después de seleccionarla
+      celda.style.pointerEvents = "none";
+
+      // Cuando se alcanzan los 9 números, mostrar mensaje final
+      if (siguienteNumero > 9) {
+        if (errores === 0) {
+          alert("¡Felicidades! Has completado el juego sin errores.");
+        } else {
+          alert("Juego terminado con " + errores + " error(es).");
+        }
+      }
+    }
+
+    // Función para mostrar la tabla en el HTML
+    function mostrarTabla() {
+      const tablaHTML = document.createElement("table");
+      for (let i = 0; i < fil; i++) {
+        const fila = document.createElement("tr");
+        for (let j = 0; j < col; j++) {
+          const celda = document.createElement("td");
+          celda.textContent = tabla[i][j];
+          celda.onclick = function () {
+            jugar(celda);
+          };
+          fila.appendChild(celda);
+        }
+        tablaHTML.appendChild(fila);
+      }
+      document.getElementById("div1").innerHTML = ""; // Limpiar el contenedor antes de agregar la tabla
+      document.getElementById("div1").appendChild(tablaHTML);
+    }
+
+    // Función que se ejecuta al cargar la página
+    function iniciar() {
+      generarTabla();
+      mostrarTabla();
+    }
+  </script>
+</head>
+<body onload="iniciar()">
+  <div id="div1"></div>
+</body>
+</html>

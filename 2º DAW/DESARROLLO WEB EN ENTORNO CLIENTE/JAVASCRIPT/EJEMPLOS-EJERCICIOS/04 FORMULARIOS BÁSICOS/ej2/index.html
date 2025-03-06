@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Paga Especial</title>
+    <link rel="stylesheet" type="text/css" href="stylenomina.css" />
+    
+    <script>
+        function validarFormulario() {
+            //Validar nombre
+            var nombre = document.getElementById("nombre");
+            if (nombre.value.trim().length == 0) {
+                alert("Campo nombre vacío");
+                nombre.focus();
+                return;
+            }
+            if (nombre.value.length < 3) {
+                alert("El nombre debe contener mínimo 3 caracteres");
+                nombre.focus();
+                return;
+            }
+
+            //Validar apellido
+            var apellidos = document.getElementById("apellidos");
+            if (apellidos.value.trim().length == 0) {
+                alert("Campo apellido vacío");
+                apellidos.focus();
+                return;
+            }
+            if (apellidos.value.length < 3) {
+                alert("El apellido debe contener mínimo 3 caracteres");
+                apellidos.focus();
+                return;
+            }
+
+            //Validar año de nacimiento
+            var anoNacimiento = document.getElementById("anoNacimiento");
+            if (anoNacimiento.value.trim().length == 0) {
+                alert("Campo año de nacimiento vacío");
+                anoNacimiento.focus();
+                return;
+            }
+            if (isNaN(anoNacimiento.value)) {
+                alert("El año de nacimiento es un campo numérico");
+                anoNacimiento.focus();
+                return;
+            }
+            if (Number(anoNacimiento.value) > new Date().getFullYear()) {
+                alert("El año de nacimiento no puede ser mayor al año actual");
+                anoNacimiento.focus();
+                return;
+            }
+            let edad = new Date().getFullYear() - anoNacimiento.value;
+            if (edad < 18 || edad > 65) {
+                alert("Eres menor de edad o jubileta");
+                anoNacimiento.focus();
+                return;
+            }
+
+            //Validar año de entrada a la empresa
+            var anoEntrada = document.getElementById("anoEntrada");
+            if (anoEntrada.value.trim().length == 0) {
+                alert("Campo año de entrada vacío");
+                anoEntrada.focus();
+                return;
+            }
+            if (isNaN(anoEntrada.value)) {
+                alert("El año de entrada es un campo numérico");
+                anoEntrada.focus();
+                return;
+            }
+            if (Number(anoEntrada.value) > new Date().getFullYear()) {
+                alert("El año de entrada es posterior al año actual");
+                anoEntrada.focus();
+                return;
+            }
+            if (Number(anoEntrada.value) < 2000) {
+                alert("El año de entrada es anterior al año de apertura");
+                anoEntrada.focus();
+                return;
+            }
+            let edadEntrada = edad - (new Date().getFullYear() - anoEntrada.value);
+            if (edadEntrada < 18) {
+                alert("Eras menor cuando entraste a la empresa");
+                anoEntrada.focus();
+                return;
+            }
+
+            //Validar Salario Base
+            var salarioBase = document.getElementById("salarioBase");
+            if (salarioBase.value.trim().length == 0) {
+                alert("Campo salario base vacío");
+                salarioBase.focus();
+                return;
+            }
+            if (isNaN(salarioBase.value)) {
+                alert("El salario base es un campo numérico");
+                salarioBase.focus();
+                return;
+            }
+            if (parseFloat(salarioBase.value) < 1100) {
+                alert("El salario base no puede ser menor de 1100€");
+                salarioBase.focus();
+                return;
+            }
+
+            //Validar sucursal
+            var sucursal = document.getElementById("sucursal").value;
+            if (sucursal == "0") {
+                alert("No has seleccionado la sucursal");
+                document.getElementById("sucursal").focus();
+                return;
+            }
+
+            //Validar IRPF
+            let elementos = document.getElementsByName("irpf");
+            let irpf;
+            for (let i = 0; i < elementos.length; i++) {
+                if (elementos[i].checked) {
+                    irpf = Number(elementos[i].value);
+                    break;
+                }
+            }
+            if (typeof irpf === 'undefined') {
+                alert("No has seleccionado el tipo de IRPF");
+                return;
+            }
+
+            //Cálculos finales
+            let trienios = calcularTrienios();
+            let pagaEspecial = calcularPagaEspecial(trienios);
+            let resultadoFinal = calcularIRPF(pagaEspecial, irpf);
+            
+            //Mostrar resultados
+            document.getElementById("resultado").innerHTML = 
+                "Has trabajado " + trienios + " trienios y vas a cobrar: " + resultadoFinal.toFixed(2) + "€.";
+
+            //Mensaje para el correo
+            if (document.getElementById("correo").checked) {
+                alert("La información se enviará a su correo electrónico.");
+            }
+        }
+
+        function calcularTrienios() {
+            var ano_entrada = parseInt(document.getElementById("anoEntrada").value.trim());
+            var trienio = new Date().getFullYear() - ano_entrada;
+            trienio = Math.floor(trienio / 3); //redondear hacia abajo
+            return trienio;
+        }
+
+        function calcularPagaEspecial(trienios) {
+            var salarioBase = parseFloat(document.getElementById("salarioBase").value);
+            var pagaE = ((10 * salarioBase) / 100) * trienios;
+            var sucursalBonificacion = parseFloat(document.getElementById("sucursal").value);
+            return pagaE + sucursalBonificacion;
+        }
+
+        function calcularIRPF(pagaEspecial, irpf) {
+            var desc = pagaEspecial - (pagaEspecial * irpf) / 100;
+            return desc; //retorna el total de la paga especial después del IRPF
+        }
+    </script>
+</head>
+<body>
+  <h1>Formulario de Paga Especial</h1>
+  <form id="formulario">
+      <label >Nombre:</label>
+      <input type="text" id="nombre"  > 
+      <label >Apellidos:</label>
+      <input type="text" id="apellidos" ><br><br>
+
+      <label >Año de Nacimiento:</label>
+      <input type="text" id="anoNacimiento" size="6">
+
+      <label >Año de Entrada a la Empresa:</label>
+      <input type="text" id="anoEntrada" size="6" ><br><br>
+
+      <label >Salario Base:</label>
+      <input type="text" id="salarioBase" ><br><br>
+
+      <label >Sucursal:</label>
+      <select id="sucursal">
+          <option value="0">Seleccione una opción</option>
+          <option value="100">Madrid</option>
+          <option value="60">Alcobendas</option>
+          <option value="50">San Sebastián de los Reyes</option>
+      </select><br><br>
+
+      <label>Tipo de IRPF:</label><br>
+      <input type="radio"  name="irpf" value="19"> 19%
+      <input type="radio"  name="irpf" value="24"> 24%
+      <input type="radio"  name="irpf" value="30"> 30%<br><br>
+
+      <label >¿Desea recibir correo electrónico?</label>
+      <input type="checkbox" id="correo"><br><br>
+
+      <button type="button" onclick="validarFormulario()">Validar</button>
+      
+      <div id="resultado"></div>
+
+  </form>
+     
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de las cajas con outline */
+.outline-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.outline-box {
+    width: 250px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    font-size: 16px;
+    text-align: center;
+}
+
+/*
+    Ejemplo de un outline básico.
+    Un outline es similar a un borde (border), pero no afecta el tamaño del elemento ni su flujo.
+    Se dibuja por fuera del borde del elemento.
+*/
+.outline-simple {
+    outline: 2px solid black; /* Outline negro, sólido, y de 2 píxeles de grosor */
+}
+
+/*
+    Outline con un grosor más grande.
+    Puedes cambiar el grosor del outline de la misma manera que lo harías con un borde.
+*/
+.outline-thick {
+    outline: 5px solid black; /* Outline más grueso de 5 píxeles */
+}
+
+/*
+    Outline con un estilo dashed.
+    Al igual que el border, el outline puede tener diferentes estilos, como "dashed" (discontinuo).
+*/
+.outline-dashed {
+    outline: 3px dashed red; /* Outline de 3 píxeles, discontinuo, y color rojo */
+}
+
+/*
+    Outline con un color personalizado.
+    Puedes usar cualquier color que desees para el outline.
+*/
+.outline-colored {
+    outline: 3px solid blue; /* Outline azul de 3 píxeles */
+}
+
+/*
+    Outline con desplazamiento (outline-offset).
+    Esto define la distancia entre el borde y el outline.
+*/
+.outline-offset {
+    outline: 4px solid green; /* Outline verde de 4 píxeles */
+    outline-offset: 10px; /* Desplazamiento del outline de 10 píxeles desde el borde del elemento */
+}
+
+/*
+    Outline con estilo double.
+    Similar a "border", puedes usar estilos como "double" para un efecto de doble línea.
+*/
+.outline-double {
+    outline: 6px double purple; /* Outline de 6 píxeles con doble línea morada */
+}

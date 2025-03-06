@@ -1,0 +1,105 @@
+body {
+    font-family: Calibri, Arial, sans-serif;
+    background-color: #f4f4f9;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el filtro */
+#filtro-lugar {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#filtro-lugar:hover {
+    border-color: #888;
+}
+
+#filtro-lugar:focus {
+    border-color: #333;
+    box-shadow: 0 0 5px rgba(51, 51, 51, 0.5);
+}
+
+/* Estilos para las tarjetas */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 350px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-image {
+    width: 90%;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: left;
+}
+
+.artista {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.evento {
+    color: #777;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.fecha,
+.lugar {
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.descripcion {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.btn-compra {
+    display: inline-block;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn-compra:hover {
+    background-color: #ff4c4c;
+}

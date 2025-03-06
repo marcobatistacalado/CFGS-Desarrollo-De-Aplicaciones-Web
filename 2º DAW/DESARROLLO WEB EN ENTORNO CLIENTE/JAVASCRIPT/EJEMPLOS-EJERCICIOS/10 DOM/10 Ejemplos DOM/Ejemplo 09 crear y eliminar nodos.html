@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="main.css" />
+
+    <script>
+      // Variable global para contar los párrafos añadidos dinámicamente
+      var n = 1;
+    
+      // Función para añadir un nuevo párrafo al primer <div>
+      function añadir() {
+        // Crear un nuevo elemento <p>
+        var p = document.createElement("p");
+        // Crear un nodo de texto con el contenido dinámico
+        var texto = document.createTextNode(
+          "Este párrafo no existía en el HTML original " + n
+        );
+        // Añadir el nodo de texto como hijo del elemento <p>
+        p.appendChild(texto);
+        // Seleccionar todos los elementos <div> del documento
+        e = document.getElementsByTagName("div");
+        // Añadir el nuevo párrafo al primer <div> encontrado
+        e[0].appendChild(p);
+        // Incrementar el contador para el texto del próximo párrafo
+        n++;
+      }
+    
+      // Función para eliminar el primer párrafo (<p>) del documento
+      function eliminar() {
+        // Seleccionar el primer párrafo encontrado en el documento
+        var p = document.getElementsByTagName("p")[0];
+        // Obtener el nodo padre del párrafo
+        // y pedirle que elimine el párrafo seleccionado
+        p.parentNode.removeChild(p);
+      }
+    
+      // Función para reemplazar el primer párrafo por un nuevo párrafo
+      function cambiar() {
+        // Seleccionar el primer párrafo encontrado en el documento
+        var p1 = document.getElementsByTagName("p")[0];
+        // Crear un nuevo elemento <p>
+        var p = document.createElement("p");
+        // Crear un nodo de texto con el nuevo contenido
+        var texto = document.createTextNode(
+          "Este párrafo sustituye al anterior"
+        );
+        // Añadir el nodo de texto al nuevo elemento <p>
+        p.appendChild(texto);
+        // Reemplazar el párrafo original con el nuevo
+        p1.parentNode.replaceChild(p, p1);
+      }
+    
+      // Función para intercalar un párrafo antes del segundo <p>
+      function intercalar() {
+        // Seleccionar el segundo párrafo encontrado en el documento
+        var p1 = document.getElementsByTagName("p")[1];
+        // Crear un nuevo elemento <p>
+        var p = document.createElement("p");
+        // Crear un nodo de texto con el contenido dinámico
+        var texto = document.createTextNode("Este se intercala");
+        // Añadir el nodo de texto al nuevo elemento <p>
+        p.appendChild(texto);
+        // Insertar el nuevo párrafo antes del segundo párrafo existente
+        p1.parentNode.insertBefore(p, p1);
+      }
+    </script>
+    
+    
+  </head>
+  <body>
+    <input type="button" value="Añadir nodo" onclick="añadir()" />
+    <input type="button" value="Elimina nodo" onclick="eliminar()" />
+    <input type="button" value="Cambiar nodo" onclick="cambiar()" />
+    <input
+      type="button"
+      value="Poner nodo entre 1º y 2º"
+      onclick="intercalar()"
+    />
+    <p>Primer párrafo</p>
+    <p>Segundo párrafo</p>
+    <p>Tercer párrafo</p>
+    <div>Esto es un div</div>
+    <div>Y esto es otro</div>
+  </body>
+</html>

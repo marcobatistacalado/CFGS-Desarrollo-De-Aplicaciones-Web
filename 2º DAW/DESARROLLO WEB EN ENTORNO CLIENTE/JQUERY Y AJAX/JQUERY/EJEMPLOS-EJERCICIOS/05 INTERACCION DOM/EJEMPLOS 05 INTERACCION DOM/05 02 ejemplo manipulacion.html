@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo 02</title>
+<style>
+.borde {
+    background: transparent;
+    border: 10px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    max-width: 95%;
+}
+</style>
+	<script src="../jquery-3.7.1.min.js"> </script>
+<script>
+$(document).ready(function(){
+ $(":checkbox").prop("checked",false);
+ $("button").eq(0).click(function(){
+    $("img").attr("width","150").attr("height","150");
+	$("img").addClass("borde");
+  });
+
+  $("button").eq(1).click(function(){
+	 $("img").each(function(i){
+		$(this).attr("width",(i+1)*100);
+		$("img").removeClass("borde");
+		});
+  });
+
+$("img").click(function(){
+	$(this).prop("width",$(this).prop("width")/2).prop("height",$(this).prop("height")/2);
+	$(this).toggleClass("borde");
+	});
+	
+ $(":checkbox").click(function(evento){
+				if ($(":checkbox").prop("checked")){
+					$("#span1").css("display", "none");
+				}else{
+					$("#span1").css("display", "inline");
+				}
+			});
+});
+</script>
+</head>
+<body>
+
+<img src="f1.jpg"  width="120" height="200">
+<img src="f2.jpg"  width="150" height="260">
+<img src="f3.jpg"  width="100" height="100">
+<br>
+<button>Pulsa para cambiar misma anchura a todas las imagenes</button>
+<br><br>
+<button>Pulsa para cambiar distinta anchura a las imagenes</button>
+<br><br>
+<input type="checkbox" > <span id="span1">check y me oculto </span>
+
+</body>
+
+
+</html>

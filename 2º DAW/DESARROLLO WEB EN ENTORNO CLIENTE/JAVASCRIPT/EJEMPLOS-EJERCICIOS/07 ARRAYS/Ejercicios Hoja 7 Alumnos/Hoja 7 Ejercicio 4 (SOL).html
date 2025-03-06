@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    table {
+      background-color: #F7F793;
+      border: 1px solid #75756A;
+      width: 300px;
+      text-align: center;
+      margin: auto;
+      box-shadow: 5px 5px 12px #F5F5DC;
+      font-size: 20px;
+      font-family: 'Indie Flower', cursive;
+    }
+    td {
+      border: 1px solid red;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 18px;
+    }
+  </style>
+  <script type="text/javascript">
+    let tabla = [];
+    let fil = 4;
+    let col = 4;
+    let visible = []; // Matriz que controla si un valor está visible
+    let fallos = 0;
+
+    function generarTabla() {
+      // Crear y llenar la tabla con números aleatorios del 0 al 9
+      for (let i = 0; i < fil; i++) {
+        tabla[i] = [];
+        visible[i] = [];
+        for (let j = 0; j < col; j++) {
+          tabla[i][j] = Math.floor(Math.random() * 10);
+          visible[i][j] = false; // Inicialmente oculto
+        }
+      }
+    }
+
+    function mostrarTabla() {
+      // Mostrar la tabla en el HTML (con números ocultos)
+      let codigo = "<table>";
+      for (let i = 0; i < fil; i++) {
+        codigo += "<tr>";
+        for (let j = 0; j < col; j++) {
+          codigo += "<td>" + (visible[i][j] ? tabla[i][j] : "*") + "</td>";
+        }
+        codigo += "</tr>";
+      }
+      codigo += "</table>";
+      document.getElementById("div1").innerHTML = codigo;
+    }
+
+    function buscar(num) {
+      // Buscar el primer valor no visible que coincida con el número seleccionado
+      let encontrado = false;
+      for (let i = 0; i < fil; i++) {
+        for (let j = 0; j < col; j++) {
+          if (tabla[i][j] == num && !visible[i][j]) {
+            visible[i][j] = true; // Marcarlo como visible
+            encontrado = true;
+            break;
+          }
+        }
+        if (encontrado) break;
+      }
+
+      if (!encontrado) {
+        fallos++;
+        alert("Fallaste! Fallos actuales: " + fallos);
+      }
+
+      if (fallos >= 5) {
+        alert("¡Juego terminado! Has alcanzado el límite de 5 fallos.");
+        reiniciarJuego();
+      }
+
+      mostrarTabla();
+    }
+
+    function reiniciarJuego() {
+      // Reiniciar el juego y recargar la tabla
+      fallos = 0;
+      generarTabla();
+      for (let i = 0; i < fil; i++) {
+        for (let j = 0; j < col; j++) {
+          visible[i][j] = false; // Reiniciar visibilidad
+        }
+      }
+      mostrarTabla();
+    }
+
+    // Inicializar juego
+    window.onload = function() {
+      generarTabla();
+      mostrarTabla();
+    };
+  </script>
+</head>
+
+<body>
+  <div>
+    <input type="button" value="1" onclick="buscar(this.value)"> 
+    <input type="button" value="2" onclick="buscar(this.value)"> 
+    <input type="button" value="3" onclick="buscar(this.value)"><br> 
+    <input type="button" value="4" onclick="buscar(this.value)"> 
+    <input type="button" value="5" onclick="buscar(this.value)"> 
+    <input type="button" value="6" onclick="buscar(this.value)"><br> 
+    <input type="button" value="7" onclick="buscar(this.value)"> 
+    <input type="button" value="8" onclick="buscar(this.value)"> 
+    <input type="button" value="9" onclick="buscar(this.value)"><br> 
+    <input type="button" value="0" onclick="buscar(this.value)">  
+  </div>
+
+  <div id="div1"></div>
+</body>
+</html>

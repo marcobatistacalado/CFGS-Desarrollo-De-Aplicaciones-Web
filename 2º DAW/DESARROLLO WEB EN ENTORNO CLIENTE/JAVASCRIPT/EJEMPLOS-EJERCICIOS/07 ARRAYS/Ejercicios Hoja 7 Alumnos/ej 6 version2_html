@@ -1,0 +1,68 @@
+function crearCalendario() {
+    const fechaActual = new Date();
+    const mes = fechaActual.getMonth();
+    const anio = fechaActual.getFullYear();
+
+    // Obtener el primer día del mes y el número de días en el mes
+    const primerDia = (new Date(anio, mes, 1).getDay() + 6) % 7; // Ajustar para que lunes sea el primer día
+    const diasEnMes = new Date(anio, mes + 1, 0).getDate();
+
+    // Crear una matriz bidimensional para el calendario
+    const calendario = [];
+    let dia = 1;
+
+    for (let i = 0; i < 6; i++) { // Hasta 6 semanas
+        const semana = [];
+        for (let j = 0; j < 7; j++) { // 7 días por semana
+            if ((i === 0 && j < primerDia) || dia > diasEnMes) {
+                semana.push(""); // Celda vacía
+            } else {
+                semana.push(dia++); // Agregar el día
+            }
+        }
+        calendario.push(semana);
+    }
+
+    // Crear la tabla del calendario en el DOM
+    const contenedor = document.getElementById("calendario");
+    contenedor.innerHTML = ""; // Limpiar contenido previo
+
+    const tabla = document.createElement("table");
+    tabla.style.borderCollapse = "collapse";
+    tabla.style.margin = "auto";
+    tabla.style.textAlign = "center";
+
+    // Encabezado de los días de la semana
+    const diasSemana = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
+    const encabezado = document.createElement("tr");
+
+    diasSemana.forEach(dia => {
+        const th = document.createElement("th");
+        th.textContent = dia;
+        th.style.border = "1px solid black";
+        th.style.padding = "5px";
+        encabezado.appendChild(th);
+    });
+
+    tabla.appendChild(encabezado);
+
+    // Filas del calendario
+    calendario.forEach(semana => {
+        const fila = document.createElement("tr");
+        semana.forEach(dia => {
+            const celda = document.createElement("td");
+            celda.textContent = dia;
+            celda.style.border = "1px solid black";
+            celda.style.padding = "5px";
+            celda.style.width = "40px";
+            celda.style.height = "40px";
+            fila.appendChild(celda);
+        });
+        tabla.appendChild(fila);
+    });
+
+    contenedor.appendChild(tabla);
+}
+
+// Llamar a la función al cargar la página
+window.onload = crearCalendario;

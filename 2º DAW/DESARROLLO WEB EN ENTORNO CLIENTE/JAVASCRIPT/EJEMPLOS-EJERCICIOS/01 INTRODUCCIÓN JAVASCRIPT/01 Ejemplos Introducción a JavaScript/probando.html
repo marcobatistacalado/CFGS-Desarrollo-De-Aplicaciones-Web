@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probando</title>
+</head>
+
+<body>
+    <div>
+        Número 1
+        <input type="text" id="caja1"><br><br>
+        Número 2
+        <input type="text" id="caja2"><br><br>
+        <input type="button" value="sumar" onclick="sumar()">
+        <input type="button" value="restar" onclick="restar()">
+        <div id="resultado">
+
+        </div>
+    </div>
+
+
+
+</body>
+<script type="text/javascript">
+    function sumar() {
+        let num1 = document.getElementById("caja1").value;
+        let num2 = document.getElementById("caja2").value;
+        if (num1 == "" || num2 == "") {
+            alert("Alguna de las celdas está vacía.")
+        } else {
+            let suma = Number(num1) + Number(num2);
+            document.getElementById("resultado").innerHTML = "<br>La suma es " + suma;
+        }
+    }
+    function restar() {
+        let num1 = document.getElementById("caja1").value;
+        let num2 = document.getElementById("caja2").value;
+        let suma = Number(num1) - Number(num2);
+        if (num1 == "" || num2 == "") {
+            alert("Alguna de las celdas está vacía.")
+        } else {
+            document.getElementById("resultado").innerHTML = "<br> La suma es " + suma;
+        }
+    }
+
+</script>
+
+</html>

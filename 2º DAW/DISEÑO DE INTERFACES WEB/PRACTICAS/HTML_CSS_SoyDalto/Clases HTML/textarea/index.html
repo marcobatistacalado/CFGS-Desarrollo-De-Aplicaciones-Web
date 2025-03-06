@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form>
+        <h2>Formulario de Contacto</h2>
+        <div class="form-input">
+            <input name="nombre"  placeholder = "Nombre">
+        </div>
+        <div class="form-input">
+            <input name="email" placeholder = "Email">
+        </div>
+        <div class="form-input"></div>
+           <textarea readonly maxlength="100" rows="6" placeholder="Escribe aqui"></textarea>
+           <!--
+            readonly: no se puede modificar pero si deja hacer focus
+            disable: lo mismo pero no deja hacer focus
+            maxlength: caracteres maximos
+            rows: cantidad de lineas que dejo escribir, luego se pone el scroll
+           -->
+        </div>
+
+    </form>
+</body>
+</html>

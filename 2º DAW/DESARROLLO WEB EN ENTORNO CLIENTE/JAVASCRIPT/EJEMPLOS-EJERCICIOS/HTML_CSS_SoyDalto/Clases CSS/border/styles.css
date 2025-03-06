@@ -1,0 +1,19 @@
+DIV{
+    background-color: RED;
+    width: 150px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    
+    /*BORDES*/
+    /*
+        border-style: solid;
+        border-width: 5px;
+        border-color: black;
+    */
+    border: 3px solid black;
+    /*border-top...*/
+    border-radius: 5%; /*puedes usar % se genera desde el centro del div y pixeles: se genera en cuadraditos en cada esquina*/
+    /*border-top-left-radius*/
+
+}

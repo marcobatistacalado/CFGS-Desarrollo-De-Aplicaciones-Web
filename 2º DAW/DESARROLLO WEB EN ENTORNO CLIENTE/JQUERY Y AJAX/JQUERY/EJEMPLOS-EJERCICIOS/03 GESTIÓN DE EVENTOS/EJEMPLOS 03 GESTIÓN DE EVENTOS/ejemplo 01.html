@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejemplo 01</title>
+
+<script src="../../../jquery-3.7.1.min.js"> </script>
+<script>
+$(document).ready( function() {
+	$('p').click(function(){
+	$("#muestra").html('Hacemos Click en '+$(this).html());})
+	
+	$('div,a').click(function(evento){
+				$("#muestra").html(evento.type+
+				' Coordenadas '+evento.pageX+' '+
+				evento.pageY+' '+evento.target.nodeName);
+				})
+				
+	$('a').click( function(evento){
+		evento.preventDefault();
+		$(this).hide(500);
+		})
+} );
+</script>
+</head>
+<body>
+<p> Uno </p>
+<p> Dos </p>
+<p> Tres </p>
+<p> Cuatro </p>
+<div id="div1"> Cinco <br>
+      Seis <br>
+      Siete <br>
+	 <ul>
+<li> lista 1</li>
+<li> lista 2</li>
+<li> lista 3</li>
+<li> lista 4</li>
+</ul> 
+</div>
+<a href="http://www.google.es" >Ir a Google </a>
+
+<br>  <br>
+<div id="muestra">
+</div>
+</body>
+</html>

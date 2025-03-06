@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <!-- Bootstrap -->
+    <link href="../bootstrap-5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../bootstrap-5.2.3/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Yusei Magic', sans-serif;
+            font-size: 16px;
+            color: dimgrey;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .formulario {
+            padding-top: 4rem;
+        }
+        button {
+            background-color: dimgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container justify-content-center">
+        <h1>Cuestionario</h1>
+        <h2>Gracias por colaborar con nosotros</h2>
+        <div class="formulario">
+            <!-- Nombre -->
+            <div class="row offset-md-3 col-md-6 pt-md-4">
+                <label for="nombre" class="form-label col-md-6">Nombre</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre">
+                </div>
+            </div>
+
+            <!-- Correo -->
+            <div class="row offset-md-3 col-md-6 pt-md-4">
+                <label for="correo" class="form-label col-md-6">Correo</label>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" id="correo" placeholder="Escribe tu correo">
+                </div>
+            </div>
+
+            <!-- Fecha de Envío -->
+            <div class="row offset-md-3 col-md-6 pt-md-4">
+                <label for="fechaEnvio" class="form-label col-md-6">Fecha de Envío</label>
+                <div class="col-md-6">
+                    <input type="date" class="form-control" id="fechaEnvio">
+                </div>
+            </div>
+
+            <!-- Obra Favorita -->
+            <div class="row offset-md-3 col-md-6 pt-md-4">
+                <label for="obraFavorita" class="form-label col-md-6">¿Cuál es tu obra favorita?</label>
+                <div class="col-md-6">
+                    <select class="form-control" id="obraFavorita">
+                        <option value="monaLisa">La Mona Lisa</option>
+                        <option value="starryNight">La noche estrellada</option>
+                        <option value="theScream">El grito</option>
+                        <option value="guernica">Guernica</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Otras Obras -->
+            <div class="row offset-md-3 col-md-6 pt-md-4">
+                <label for="otrasObras" class="form-label col-md-6">Si son otras, indica cuáles</label>
+                <div class="col-md-6">
+                    <textarea class="form-control" id="otrasObras" rows="3" placeholder="Escribe las otras obras aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- Checkbox: Recibir información -->
+            <div class="row offset-md-3 col-md-6 pt-md-4">
+                <div class="col-md-12">
+                    <div class="form-check">
+                        <input class="form-check-inp ut" type="checkbox" id="recibirInfo">
+                        <label class="form-check-label" for="recibirInfo">Deseas recibir información sobre nosotros</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkbox: Aceptar política de privacidad -->
+            <div class="row offset-md-3 col-md-6 pt-md-4">
+                <div class="col-md-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="aceptarPolitica">
+                        <label class="form-check-label" for="aceptarPolitica">Aceptas nuestra política de privacidad</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón de Enviar -->
+            <div class="row offset-md-5 col-md-4 pt-md-4 text-center">
+                <button type="submit" class="btn btn-dark w-100">Enviar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form>
+        <h2>Formulario de Contacto</h2>
+        <fieldset>
+            <legend>INFORMACIÓN BÁSICA</legend>
+            <div class="form-input">
+                <label for="nombre">Nombre Completo</label> <!--FOCUSEAR AL CLICKAR-->
+                <input name="nombre"  placeholder = "Marco Batista" id="nombre">
+            </div>
+            <div class="form-input">
+                <label></label>Email</label>
+                <input name="email" placeholder = "marco@gmail.com">
+            </div>
+        </fieldset>
+        <!--SELECT Y OPTION-->
+        <fieldset>
+            <div class="form_input">
+                <label>Tipo usuario
+                    <select name="type-of-user">
+                        <option value="user1">Seguidor</option>
+                        <option value="user2">Empresa</option>
+                        <option value="user3">Otro</option>
+                    </select>
+                </label>
+            </div>
+        </fieldset>
+
+        <!--DATALIST Y OPTION-->
+        <fieldset>
+            <div class="form_input">
+                <label>Referente
+                    <input list="referente" name="referente"><!--debe haber un input con el id-->
+                    <datalist id="referente"name="type-of-user">
+                        <option value="Soy Dalto">Un creador de contenido</option>
+                        <option value="Una empresa">Una empresa</option>
+                        <option value="Un amigo">Un amigo</option>
+                    </select>
+                </label>
+            </div>
+        </fieldset>
+
+        <div class="form-input"></div>
+            <label>Mensaje</label>
+           <textarea readonly maxlength="100" rows="6" placeholder="Deja tu mensaje aqui..."></textarea>
+           <!--
+            readonly: no se puede modificar pero si deja hacer focus
+            disable: lo mismo pero no deja hacer focus
+            maxlength: caracteres maximos
+            rows: cantidad de lineas que dejo escribir, luego se pone el scroll
+           -->
+        </div>
+
+    </form>
+</body>
+</html>

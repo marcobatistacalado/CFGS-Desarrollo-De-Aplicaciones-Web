@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Contraseña</title>
+</head>
+<script>
+    function validar(elemento) {
+        const re1 = /\d/; // Dígitos
+        const re2 = /[a-z]/; // Letras minúsculas
+        const re3 = /[A-Z]/; // Letras mayúsculas
+        const re4 = /[!@#$%^&*(),.?":{}|<>]/; // Caracteres especiales
+
+        if (re1.test(elemento.value)) {
+            document.getElementById("1").style.backgroundColor = "rgb(214, 214, 214)";
+        } else {
+            document.getElementById("1").style.backgroundColor = "red";
+        }
+
+        if (re2.test(elemento.value)) {
+            document.getElementById("2").style.backgroundColor = "rgb(214, 214, 214)";
+        } else {
+            document.getElementById("2").style.backgroundColor = "red";
+        }
+
+        if (re3.test(elemento.value)) {
+            document.getElementById("3").style.backgroundColor = "rgb(214, 214, 214)";
+        } else {
+            document.getElementById("3").style.backgroundColor = "red";
+        }
+
+        if (re4.test(elemento.value)) {
+            document.getElementById("4").style.backgroundColor = "rgb(214, 214, 214)";
+        } else {
+            document.getElementById("4").style.backgroundColor = "red";
+        }
+
+        // Mensaje de validación general
+        const mensajeError = document.getElementById("mensaje-error");
+        if (re1.test(elemento.value) && re2.test(elemento.value) && re3.test(elemento.value) && re4.test(elemento.value) && elemento.value.length >= 8) {
+            mensajeError.textContent = "Contraseña válida.";
+            mensajeError.style.color = "green";
+        } else {
+            mensajeError.textContent = "La contraseña debe tener al menos 8 caracteres, incluyendo dígitos, letras minúsculas, mayúsculas y caracteres especiales.";
+            mensajeError.style.color = "red";
+        }
+    }
+
+    function enviar() {
+        const input = document.getElementById("password"); // Acceso directo al campo de contraseña
+        const re1 = /\d/;
+        const re2 = /[a-z]/;
+        const re3 = /[A-Z]/;
+        const re4 = /[!@#$%^&*(),.?":{}|<>]/;
+
+        // Validación final al enviar
+        if (re1.test(input.value) && re2.test(input.value) && re3.test(input.value) && re4.test(input.value) && input.value.length >= 8) {
+            alert("Enviada correctamente");
+        } else {
+            alert("Por favor, completa los requisitos de la contraseña.");
+        }
+    }
+</script>
+<body>
+    <form onsubmit="return false;">
+        <h1>Crear Contraseña</h1>
+        <input type="text" id="password" placeholder="Introduce tu contraseña" onchange="validar(this)">
+        <input type="button" value="Enviar" onclick="enviar()">
+        <p id="mensaje-error" style="color: red;">La contraseña debe tener al menos 8 caracteres, incluyendo dígitos, letras minúsculas, mayúsculas y caracteres especiales.</p>
+        
+        <!-- Indicadores de cada validación -->
+        <span id="1" style="border: solid black 1px; padding: 10px; background-color: rgb(214, 214, 214);">Dígito</span>
+        <span id="2" style="border: solid black 1px; padding: 10px; background-color: rgb(214, 214, 214);">Minúscula</span>
+        <span id="3" style="border: solid black 1px; padding: 10px; background-color: rgb(214, 214, 214);">Mayúscula</span>
+        <span id="4" style="border: solid black 1px; padding: 10px; background-color: rgb(214, 214, 214);">Especial</span>
+    </form>
+</body>
+</html>

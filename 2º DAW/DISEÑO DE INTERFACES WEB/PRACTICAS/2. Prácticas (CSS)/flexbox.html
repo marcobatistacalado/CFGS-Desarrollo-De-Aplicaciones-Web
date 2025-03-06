@@ -1,0 +1,55 @@
+flip-card<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .flex-container {
+          display: flex;
+          background-color:blueviolet;
+          width:40%;
+         
+          margin:auto;
+
+          
+          flex-direction:row;
+          
+          flex-wrap: wrap;
+          
+          justify-content:space-around;
+          
+          align-items:flex-end;
+          
+        }
+        
+        .flex-container > div {
+          background-color: #f1f1f1;
+          margin: 10px;
+          padding: 20px;
+          font-size: 30px;
+          width:80px;
+          height: 60px;
+          text-align: center;       
+          
+        }
+
+        
+     
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div id="uno">1</div>
+        <div id="dos">2</div>
+        <div id="tres">3</div>  
+      
+    </div>
+</body>
+</html>

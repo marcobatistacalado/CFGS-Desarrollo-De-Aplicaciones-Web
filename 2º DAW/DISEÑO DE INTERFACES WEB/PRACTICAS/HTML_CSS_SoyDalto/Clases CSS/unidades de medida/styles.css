@@ -1,0 +1,29 @@
+div{
+    background: #ededed;
+    padding: 20px;
+    font-family: sans-serif;
+    border-left: 5px solid #999;
+    font-size: 15px;
+}
+
+h1{
+    margin:0;
+    font-size:24px;
+    /*height: 50vh; la mitad de la altura total de la ventana*/
+    /*width: 50vw; la mitad del horizontal total de la ventana*/
+}
+
+span{
+    color: #999;
+    font-size: 16px;
+    font-weight: 100;
+}
+
+p{
+    color: #555;
+    background: red;
+    margin: 0;
+    /*width: 50%; /*ocupa respecto a la caja que le contiene*/
+    font-size: 3e; /*multiplica por el 3*font-size del padre: en este caso div, pero si no lo tuviese definido sube al siguiente padre*/
+    font-size: 1rem; /*este coge de la clase html*/
+}

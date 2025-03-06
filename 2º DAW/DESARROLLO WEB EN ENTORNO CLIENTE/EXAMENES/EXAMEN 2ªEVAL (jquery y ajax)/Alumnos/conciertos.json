@@ -1,0 +1,65 @@
+[
+  {
+    "artista": "Amaia",
+    "gira": "Si abro los ojos no es real",
+    "fecha": "2025-02-25",
+    "lugar": "Movistar Arena",
+	  "imagen": "amaia.jpg",
+    "descripcion": "Amaia presenta su nuevo álbum con un setlist de casi 30 canciones, incluyendo temas de sus tres discos.",
+    "enlace": "https://los40.com/2025/02/22/setlist-de-canciones-de-amaia-para-su-gira-si-abro-los-ojos-no-es-real/"
+  },
+  {
+    "artista": "Gloria Trevi",
+    "gira": "Isla Divina World Tour",
+    "fecha": "2025-07-03",
+    "lugar": "Movistar Arena",
+	  "imagen": "gloria_trevi.jpg",
+    "descripcion": "La cantante mexicana regresa a España con su gira mundial, presentando su nuevo sencillo 'Q.E.P.D.'.",
+    "enlace": "https://los40.com/2025/02/22/gloria-trevi-ahora-que-estan-tan-duros-es-muy-bonito-ver-a-las-personas-inmigrantes-triunfar/"
+  },
+  {
+    "artista": "Marc Seguí",
+    "evento": "LOS40 Primavera Pop 2025",
+    "fecha": "2025-04-11",
+    "lugar": "Movistar Arena",
+		"imagen": "marc_segui.jpg",
+    "descripcion": "Marc Seguí se presenta en el festival LOS40 Primavera Pop, mostrando su evolución musical con nuevos temas.",
+    "enlace": "https://los40.com/2025/02/22/marc-segui-artista-confirmado-para-los40-primavera-pop-2025/"
+  },
+  {
+    "artista": "Tigre y Diamante",
+    "evento": "Girando Por Salas",
+    "fecha": "2025-03-15",
+    "lugar": "Gruta 77",
+	  "imagen": "tigre_y_diamante.jpg",
+    "descripcion": "La banda participa en el ciclo Girando Por Salas, presentando su último trabajo en una serie de conciertos.",
+    "enlace": "https://madridenvivo.com/"
+  },
+  {
+    "artista": "Jairo DeRemache",
+    "evento": "Girando Por Salas",
+    "fecha": "2025-04-10",
+    "lugar": "Villanos",
+	"imagen": "jairo_deremache.jpg",
+    "descripcion": "El artista ofrece un concierto íntimo como parte del ciclo Girando Por Salas.",
+    "enlace": "https://madridenvivo.com/"
+  },
+  {
+    "artista": "Diagnóstico Binario",
+    "evento": "Girando Por Salas",
+    "fecha": "2025-05-05",
+    "lugar": "Moby Dick",
+	  "imagen": "diagnostico_binario.jpg",
+    "descripcion": "La banda presenta su nuevo álbum en el marco del ciclo Girando Por Salas.",
+    "enlace": "https://madridenvivo.com/"
+  },
+  {
+    "artista": "La Furia",
+    "evento": "Girando Por Salas",
+    "fecha": "2025-05-20",
+    "lugar": "Vesta",
+	  "imagen": "la_furia.jpg",
+    "descripcion": "La rapera ofrece un enérgico concierto como parte del ciclo Girando Por Salas.",
+    "enlace": "https://madridenvivo.com/"
+  }
+]

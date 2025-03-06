@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+		<title>Ejemplo 04</title>
+		<style type="text/css">
+		table { 
+			background-color:white;
+			text-align:center;
+			 
+			width:150px;
+			height:150px;
+		}
+		td{
+			border: 2px solid #D0A9F5;
+		}
+		</style>
+		<script src="../../../jquery-3.7.1.min.js"> </script>
+		<script>
+			$(document).ready( function() {
+			 	$('tr').on({
+					'click': function() { 
+							$(this).css("background-color","gray");  
+								},
+					'mouseleave': function() { 
+						$(this).css("background-color","white"); 
+					}
+				});
+				
+				$('h2').one('click',function(){
+					alert("Una y no más");
+					$('tr').off('mouseleave');
+							});
+				$("div").hover( function(){
+									$(this).html("ENTRO");
+									$(this).css("background-color","gray");
+									},
+								function() {
+									$(this).html("SALGO");
+									$(this).css("background-color","white"); 
+								});
+
+			} );
+		
+		</script>
+		
+	</head>
+	<body>
+	<h2> No me cambies más </h2>
+
+	<table>
+	<tr>
+		<td>1</td><td>2</td><td>3</td><td>4</td>
+	</tr>
+	<tr>
+		<td>5</td><td>6</td><td>7</td><td>8</td>
+	</tr>
+	<tr>
+		<td>9</td><td>10</td><td>11</td><td>12</td>
+	</tr>
+	</table>
+	<br>
+ <div>
+	Aquí prueba el hover
+ </div>
+	</body>
+	
+</html>
