@@ -1,0 +1,26 @@
+[
+    {
+        "identificador": "pl",
+        "categoria": "PLANETAS",
+        "imagen": "planet.jpg",
+        "descripcion": "Un planeta es un objeto astronómico que orbita una estrella y que es lo suficientemente masivo como para ser redondeado por su propia gravedad, pero no lo suficientemente masivo como para causar fusión termonuclear, y que ha despejado su región vecina de planetesimales."
+       
+    },
+    {
+        "identificador": "gl",
+        "categoria": "GALAXIAS",
+        "imagen": "galaxy.jpg",
+        "descripcion": "Una galaxia es un conjunto de gases, polvo, estrellas y sus sistemas solares. La galaxia se mantiene unida gracias a la fuerza de gravedad. Nuestra galaxia, la Vía Láctea, también tiene un  aguejero negro en el medio."
+
+
+    },
+    {
+        "identificador": "cl",
+        "categoria": "CONSTELACIONES",
+        "imagen": "constelaciones.jpg",
+        "descripcion": "Una constelación, en astronomía, es el límite en que está dividida la bóveda celeste, cada una está conformada por la agrupación convencional de estrellas, cuya posición en el cielo nocturno es aparentemente invariable. Los pueblos, generalmente de civilizaciones antiguas, decidieron vincularlas mediante trazos imaginarios, creando así siluetas virtuales sobre la esfera celeste."
+
+
+    }
+
+]

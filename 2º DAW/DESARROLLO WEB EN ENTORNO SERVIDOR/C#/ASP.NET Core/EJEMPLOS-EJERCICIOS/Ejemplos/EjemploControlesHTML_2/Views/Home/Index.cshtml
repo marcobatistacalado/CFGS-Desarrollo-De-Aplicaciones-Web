@@ -1,0 +1,49 @@
+﻿@model Ejemplo
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<form asp-action="Details">
+    <div class="container">
+
+                <div class="form-group">
+                    <label class="control-label" for="Nombre">Nombres</label>
+                    <input asp-for="Nombre" type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Introduzca su nombre" required autofocus />
+                </div> 
+                <br />
+
+                <div class="form-group">
+                    <label class="control-label" for="Sexo">Sexo</label>
+                    <input  type="radio"  asp-for="Sexo"  name="Sexo" value="Hombre" /> Hombre
+                    <input asp-for="Sexo" type="radio"  name="Sexo" value="Mujer"/> Mujer
+
+                </div> 
+                <br />
+
+
+                <div class="form-group">
+                    <label class="control-label" >Mis Aficiones</label>
+                    <br />
+                    @for (var i=0;i< @Model.MisAficiones.Count();i++)
+                    {
+                        <input type="checkbox"  asp-for="@Model.MisAficiones[i].isChecked">@Model.MisAficiones[i].Nombre 
+                        <input type="hidden" asp-for="@Model.MisAficiones[i].Nombre" >
+                    }
+                </div>
+
+
+                <br />
+                <div class="form-group">                
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                    <input type="reset" class="btn btn-default" value="Limpiar">                
+                </div>
+                <br />
+
+
+             
+    </div>
+
+</form>

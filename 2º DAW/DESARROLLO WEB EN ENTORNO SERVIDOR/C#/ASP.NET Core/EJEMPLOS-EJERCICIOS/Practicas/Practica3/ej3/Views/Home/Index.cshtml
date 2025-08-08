@@ -1,0 +1,40 @@
+﻿@model ej3.Models.Persona
+
+<h1>Formulario de Registro</h1>
+<form asp-controller="Home" asp-action="MostrarResultado" method="post">
+    <div>
+        <label for="Nombre">Nombre:</label>
+        <input type="text" asp-for="Nombre" id="Nombre" />
+    </div>
+    <div>
+        <label for="Apellidos">Apellidos:</label>
+        <input type="text" asp-for="Apellidos" id="Apellidos" />
+    </div>
+    <div>
+        <label for="Edad">Edad:</label>
+        <input type="number" asp-for="Edad" id="Edad" />
+    </div>
+    <div>
+        <label>Sexo:</label>
+        <input type="radio" asp-for="Sexo" value="Masculino" /> Masculino
+        <input type="radio" asp-for="Sexo" value="Femenino" /> Femenino
+        <input type="radio" asp-for="Sexo" value="Otro" /> Otro
+    </div>
+    <div>
+        <label for="TemaInteres">Temas de Interés:</label>
+        <select asp-for="TemaInteres" id="TemaInteres">
+            <option value="Tecnología">Tecnología</option>
+            <option value="Cultura">Cultura</option>
+            <option value="Deportes">Deportes</option>
+            <option value="Viajes">Viajes</option>
+        </select>
+    </div>
+    <div>
+        <label>Aficiones:</label>
+        <input type="checkbox" name="Aficiones" value="Fútbol" /> Fútbol
+        <input type="checkbox" name="Aficiones" value="Música" /> Música
+        <input type="checkbox" name="Aficiones" value="Cine" /> Cine
+        <input type="checkbox" name="Aficiones" value="Lectura" /> Lectura
+    </div>
+    <button type="submit">Enviar</button>
+</form>

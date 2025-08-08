@@ -1,0 +1,27 @@
+﻿@model List<Proyecto>
+<div class="container" style="background-color:dimgray; width: 100%">
+    <br /> <br />
+    <!-- Sección de proyectos -->
+    <div class="row">
+        @foreach (var proyecto in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">@proyecto.Titulo</h3>
+                        <p class="card-text">@proyecto.Descripcion</p>
+
+                        <!-- Tecnologías utilizadas -->
+                        <h5>Tecnologías:</h5>
+                        <ul>
+                            @foreach (var tech in proyecto.Stack)
+                            {
+                                <li>@tech</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

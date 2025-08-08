@@ -1,0 +1,51 @@
+Ejercicio sin Async - Apartado A
+--------------------------------
+Inicialmente, intenté hacer la validación del usuario sin utilizar programación asíncrona. 
+En esta versión, el servicio tenía un método getUsuarios() que obtenía todos los usuarios 
+del JSON y los pasaba a la página de inicio de sesión (Login).
+
+El problema surgía porque, al verificar si el usuario existía, el código seguía ejecutándose 
+mientras la lista de usuarios aún se estaba cargando. Como resultado, el mensaje de éxito 
+o error se imprimía antes de que la lista estuviera completamente disponible, lo que 
+impedía la navegación a la siguiente página.
+
+Curiosamente, ahora funciona sin cambios aparentes, pero cuando lo revisamos con Rosa, 
+llegamos a la conclusión de que el problema estaba en la falta de control sobre el 
+tiempo de carga de los datos.
+
+
+Ejercicio con Async/Await
+-------------------------
+Luego, rehice el ejercicio aplicando manejo asíncrono con async y await. 
+Con esta solución, el código espera a que los datos se carguen antes de verificar 
+el usuario, evitando el problema anterior.
+
+Sin embargo, esto presenta una limitación: no podemos implementar la funcionalidad 
+de agregar usuarios correctamente, ya que esto requeriría un método PUT para actualizar 
+los datos en la API (en este caso, el JSON). Para añadir usuarios de manera adecuada, 
+sería necesario serializar los datos y hacer una petición PUT para actualizar la lista en la API.
+
+A pesar de esta limitación, el resto del ejercicio funciona correctamente con la implementación asíncrona.
+
+
+Ejercicio sin Async siguiendo el método de Rosa
+-----------------------------------------------
+Por último, implementé el ejercicio sin async, pero siguiendo el enfoque de Rosa. 
+En esta versión, el servicio carga los datos del JSON solo una vez y los almacena 
+en una lista dentro del servicio. A partir de ahí, todas las operaciones (búsqueda, 
+validación, modificaciones) se realizan sobre esa lista local en memoria, en lugar 
+de hacer nuevas peticiones a la API en cada operación.
+
+Este método funciona correctamente y evita problemas de asincronía, aunque no actualiza 
+la fuente de datos externa, ya que las modificaciones solo afectan a la lista almacenada en memoria.
+
+
+Conclusión
+----------
+Cada enfoque tiene ventajas y desventajas.
+
+- El método sin async (Apartado A) funciona pero tiene problemas de sincronización.
+- El método con async/await soluciona la asincronía pero requiere PUT para añadir datos.
+- El método de Rosa es eficiente en memoria, pero los cambios no se reflejan en el JSON original.
+
+Idealmente, una implementación robusta com

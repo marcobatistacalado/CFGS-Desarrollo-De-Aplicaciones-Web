@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "EjemploSesion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-4">Ejemplo Sesion - @Context.Session.GetString("nombre")</h1>
+<br /><br />
+<form asp-controller="Home" asp-action="AddNumeroSesion" method="post">
+    <div class="mb-3">
+        <label for="numero" class="form-label">Número</label>
+        <input type="text" name="numero" class="form-control" id="numero" placeholder="Número" />
+    </div>
+    <br />
+    <button type="submit">Enviar</button>
+</form>
+
+<br /><br />
+
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CloseSesion">CERRAR SESIÓN</a>

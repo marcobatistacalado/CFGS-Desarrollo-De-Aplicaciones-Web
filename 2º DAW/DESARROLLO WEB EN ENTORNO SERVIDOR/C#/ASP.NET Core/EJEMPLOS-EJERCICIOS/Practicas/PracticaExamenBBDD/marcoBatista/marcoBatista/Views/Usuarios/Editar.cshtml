@@ -1,0 +1,17 @@
+﻿@model String
+@if (!string.IsNullOrEmpty(ViewBag.Error as string))
+{
+    <p style="color: red;">@ViewBag.Error</p>
+}
+<form asp-controller="Usuarios" asp-action="Editar">
+    <div>
+        <label for="contrasenna">Contraseña:</label>
+        <input name="Contrasenna" type="password" id="contrasenna" required />
+    </div>
+    <div>
+        <label for="confirmarContrasenna">Confirmar contraseña:</label>
+        <input name="ConfirmarContrasenna" type="password" id="confirmarContrasenna" required />
+        <input name="@Model" hidden/>
+    </div>
+    <button type="submit">Cambiar Contraseña</button>
+</form>

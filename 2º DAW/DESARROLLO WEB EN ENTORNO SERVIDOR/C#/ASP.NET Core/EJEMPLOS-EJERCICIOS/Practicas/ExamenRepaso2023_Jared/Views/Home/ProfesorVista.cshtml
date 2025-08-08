@@ -1,0 +1,31 @@
+﻿@model List<Alumno>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h2>Lista de Alumnos</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>Email</th>
+            <th>Ciclo</th>
+            <th>Curso</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alumno in Model)
+        {
+            <tr>
+                <td>@alumno.Nombre</td>
+                <td>@alumno.Email</td>
+                <td>@alumno.Ciclo</td>
+                <td>@alumno.Curso</td>
+            </tr>
+        }
+    </tbody>
+</table>

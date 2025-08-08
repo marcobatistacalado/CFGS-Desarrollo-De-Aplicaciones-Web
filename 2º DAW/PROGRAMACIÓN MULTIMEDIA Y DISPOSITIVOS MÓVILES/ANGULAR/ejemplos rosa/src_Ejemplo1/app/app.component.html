@@ -1,0 +1,21 @@
+<h2>Ejemplo paso de dadtos del componente al HTML - Binding</h2>
+<hr>
+<!--obtener los valores de la clase del componente-->
+<p>Tu nombre: {{nombre}}</p>
+<p>Tu edad: {{edad}}</p>
+
+<!--escribo el valor de la clase en un control hTML-->
+<form>
+  <label for="name">Nombre</label><br>
+  <input type="text" name="name" [value]="nombre"><br> <!--va a ir a la clase y va a coger el valor de esta propiedad-->
+  <label for="age">Edad</label><br>
+  <input type="text" name="age" [value]="edad">
+</form>
+
+<!--DOBLE BINDING-->
+<form>
+  <label for="name">Nombre</label><br>
+  <input type="text" name="name" [(ngModel)]="nombre"><br> <!--objeto que asigna el valor de la clase y si realizas cambio en tiempo de ejecucion va a cambiar el valor tambien de la propiedad de la clase-->
+  <label for="age">Edad</label><br>
+  <input type="text" name="age" [(ngModel)]="edad">
+</form>

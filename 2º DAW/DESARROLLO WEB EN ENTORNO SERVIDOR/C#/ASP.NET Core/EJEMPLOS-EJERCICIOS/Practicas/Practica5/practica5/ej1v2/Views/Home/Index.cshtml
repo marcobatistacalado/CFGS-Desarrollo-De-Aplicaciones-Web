@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ej1v2.Models.Ciclo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista Ciclos</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Siglas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Num_Curso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Siglas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Num_Curso)
+            </td>
+            <td>
+                    <a class="btn btn-success" asp-controller="Cursos" asp-action="Details" asp-route-siglas="@item.Siglas"><i class="bi-eye-fill"></i></a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdCiclo"><i class="bi-trash-fill"></i></a>
+                    <a class="btn btn-warning" asp-controller="Alumnos" asp-action="Create" asp-route-siglas="@item.Siglas"><i class="bi-person-plus-fill"></i></a>
+                    <a class="btn btn-info" asp-controller="Alumnos" asp-action="Index" asp-route-siglas="@item.Siglas"><i class="bi-people-fill"></i></a>
+            </td>
+                    
+        </tr>
+}
+    </tbody>
+</table>

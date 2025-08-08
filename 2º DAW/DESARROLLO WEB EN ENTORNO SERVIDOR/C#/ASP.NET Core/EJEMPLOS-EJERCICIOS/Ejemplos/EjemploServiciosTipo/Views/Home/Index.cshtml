@@ -1,0 +1,14 @@
+﻿@model List<EjemploServiciosTipo.Models.EjemploGUIDViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@foreach (var s in Model){
+<div>
+Transitorio: <p style="color:red"> @s.Transitorio  </p>
+Delimitado: <p style="color:blue">@s.Delimitado </p>
+Único: <p style="color:green">@s.Unico </p>
+</div>
+<hr>
+<br>
+}

@@ -1,0 +1,14 @@
+﻿@model List<Alumno>
+
+<h2>LISTADO DE ALUMNOS DAW2</h2>
+<hr />
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.DNI</td>
+            <td>@item.Nota</td>
+        </tr>
+    }
+</table>

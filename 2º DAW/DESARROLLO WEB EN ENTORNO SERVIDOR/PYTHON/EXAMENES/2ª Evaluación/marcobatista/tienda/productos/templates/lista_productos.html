@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%block enlace %}
+<h4><a href="{% url 'login' %}" >Iniciar Sesión</a> </h4>
+<br>
+{%endblock%}
+
+{%block titulo %}<h2>Lista de Productos</h2> {%endblock%}
+
+
+{%block contenido %}
+<table class="table">
+    
+    <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        
+    </tr>
+    {% for p in productos %}
+    <tr>
+        <td>{{p.nombre}}</td>
+        <td>{{p.descripcion}}</td>
+        <td>{{p.precio}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{%endblock%}

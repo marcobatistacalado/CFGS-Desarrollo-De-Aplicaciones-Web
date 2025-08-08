@@ -1,0 +1,13 @@
+-ARREGLAR ERRORES EXAMEN: redirectto en el login y paises en la lista esta mal montado
+
+VALIDACIONES: MODELSTATE
+-hacer que los campos sean obligatorios
+-email tiene que ser un email
+-password tiene que ser segura
+-alumno que sea del curso 1 o 2
+
+-Profesor añadir alumno, editar curso o email de un alumno
+-Añadir id del alumno.
+
+-Varios controladores: logeo--> redirecionar a otro controlador Profesor/Alumno (redirectotoaction("Index", "Alumno", usuario) y en la accion index del controlador alumno recogemos (Alumno a) y return view(a)) esto
+ seria si pasasemos el alumno completo pero ahora solo queremos pasar el id en este caso el email return directotoaction("Index", "Alumno", new {email = usuario.Email }); y al controlador string Email

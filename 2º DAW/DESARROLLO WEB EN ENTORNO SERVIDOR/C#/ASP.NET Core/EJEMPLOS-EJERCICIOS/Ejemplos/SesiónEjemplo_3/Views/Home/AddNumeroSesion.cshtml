@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "AddNumeroSesion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ejemplo Sesión - @Context.Session.GetString("nombre")</h1>
+<br /><br />
+<h3>Listado Números Introducidos</h3>
+
+@{
+    var l = Context.Session.GetObject<List<int>>("numeros");
+    var i = 0;
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Orden</th>
+            <th>Números</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in l) {
+            i++;
+            <tr>
+                 <td>
+         @i
+    </td>
+    <td>
+         @item
+    </td>
+
+</tr>
+}
+</tbody>
+</table
+

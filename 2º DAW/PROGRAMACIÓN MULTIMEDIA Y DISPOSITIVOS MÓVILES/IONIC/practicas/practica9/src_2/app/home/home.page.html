@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Formulario de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="usuarioForm" (ngSubmit)="registrar()">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Formulario</ion-label>
+      </ion-list-header>
+
+      <!-- Nombre -->
+      <ion-item>
+        <!--<ion-label position="floating">Nombre:</ion-label>-->
+        <ion-input type="text" placeholder="Tu nombre" formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioForm.controls['nombre'].errors?.['required'] && usuarioForm.controls['nombre'].touched">
+        * El nombre es obligatorio
+      </ion-label>
+
+      <!-- Email -->
+      <ion-item>
+        <!--<ion-label position="floating">Email:</ion-label>-->
+        <ion-input type="email" placeholder="Tu email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioForm.controls['email'].errors?.['required'] && usuarioForm.controls['email'].touched">
+        * El email es obligatorio
+      </ion-label>
+      <ion-label color="danger" *ngIf="usuarioForm.controls['email'].errors?.['email'] && usuarioForm.controls['email'].touched">
+        * Ingresa un email válido
+      </ion-label>
+
+      <!-- Fecha de Nacimiento -->
+      <ion-item>
+        <!--<ion-label>Fecha de Nacimiento:</ion-label>-->
+        <ion-datetime display-format="DD/MM/YYYY" formControlName="fechaNacimiento"></ion-datetime>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioForm.controls['fechaNacimiento'].errors?.['required'] && usuarioForm.controls['fechaNacimiento'].touched">
+        * La fecha de nacimiento es obligatoria
+      </ion-label>
+
+      <!-- Teléfono -->
+      <ion-item>
+        <!--<ion-label position="floating">Teléfono Móvil:</ion-label>-->
+        <ion-input type="tel" placeholder="Tu teléfono" formControlName="telefono"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioForm.controls['telefono'].errors?.['required'] && usuarioForm.controls['telefono'].touched">
+        * El teléfono es obligatorio
+      </ion-label>
+      <ion-label color="danger" *ngIf="usuarioForm.controls['telefono'].errors?.['pattern'] && usuarioForm.controls['telefono'].touched">
+        * Ingresa un número de teléfono válido
+      </ion-label>
+
+      <!-- Sexo -->
+      <ion-item>
+        <!--<ion-label>Sexo:</ion-label>-->
+        <ion-select formControlName="sexo">
+          <ion-select-option value="Masculino">Masculino</ion-select-option>
+          <ion-select-option value="Femenino">Femenino</ion-select-option>
+          <ion-select-option value="Otro">Otro</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioForm.controls['sexo'].errors?.['required'] && usuarioForm.controls['sexo'].touched">
+        * Selecciona una opción
+      </ion-label>
+
+    </ion-list>
+
+    <p class="ion-text-center">
+      <ion-button type="submit" [disabled]="!usuarioForm.valid">Registrar</ion-button>
+    </p>
+
+    <p class="ion-padding">
+      <strong>Datos ingresados:</strong>
+      <br>Nombre: {{ usuarioForm.controls['nombre'].value }}
+      <br>Email: {{ usuarioForm.controls['email'].value }}
+      <br>Fecha de nacimiento: {{ usuarioForm.controls['fechaNacimiento'].value }}
+      <br>Teléfono: {{ usuarioForm.controls['telefono'].value }}
+      <br>Sexo: {{ usuarioForm.controls['sexo'].value }}
+    </p>
+  </form>
+</ion-content>

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+<h2>Park OnLine</h2>
+<table class="table">
+    <tr>
+        <td style="padding-top:80px"><h2>Reserva tu aparcamiento y disfruta de Madrid</h2></td>
+        <td></td>
+        <td></td>
+        <td>
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+
+                    <h2>Login</h2>
+                
+
+                <form >
+
+                        <input type="text"  class="fadeIn second" placeholder="Usuario" />
+                        <input type="password"  class="fadeIn third" placeholder="Password" />
+                        <br /><br />
+                        <input type="submit" class="fadeIn fourth btn-primary" value="Log In">
+                    </form>
+
+                           
+
+
+
+                </div>
+                <br />
+                <div id="noregistro">
+                    @Html.ActionLink("Inicia sin registro", "", "")&nbsp;&nbsp;|&nbsp;&nbsp;@Html.ActionLink("Regístrate", "", "")
+                </div>
+            </div>
+        </td>
+    </tr>
+
+</table>
+

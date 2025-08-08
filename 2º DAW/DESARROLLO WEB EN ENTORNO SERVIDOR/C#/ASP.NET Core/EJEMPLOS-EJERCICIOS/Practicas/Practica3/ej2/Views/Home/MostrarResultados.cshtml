@@ -1,0 +1,24 @@
+﻿@model ej2.Models.Persona
+
+@if (Model.Aficciones == null || Model.Aficciones.Length == 0)
+{
+    <p>@Model.Nombre, eres un soso.</p>
+}else{
+    @if (Model.Aficciones.Length == 1)
+    {
+        <p>@Model.Nombre deberías buscar más aficiones a parte de @Model.Aficciones[0]</p>
+    }
+
+    @if (Model.Aficciones.Length == 5)
+    {
+        <p>@Model.Nombre, creo que tienes demasiadas aficciones</p>
+    }
+
+    <ul>
+        @foreach (var aficcion in Model.Aficciones)
+        {
+            <li>@aficcion</li>
+        }
+    </ul>
+}
+

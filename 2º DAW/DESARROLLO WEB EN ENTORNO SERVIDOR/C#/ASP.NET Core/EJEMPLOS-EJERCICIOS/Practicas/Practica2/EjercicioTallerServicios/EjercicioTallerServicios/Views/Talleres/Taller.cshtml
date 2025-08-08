@@ -1,0 +1,23 @@
+﻿@model EjercicioTallerServicios.Models.Talleres
+
+@{
+    ViewData["Title"] = "Taller";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4"> @Model.nombre</h1>
+
+    <!-- Información del Taller -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4 class="card-title">Información del Taller</h4>
+        </div>
+        <div class="card-body">
+            <p>
+                <strong>Dirección:</strong> @Model.direccion.calle, @Model.direccion.numero,
+                @Model.direccion.poblacion, @Model.direccion.provincia, @Model.direccion.codPostal
+            </p>
+            <p><strong>Teléfono:</strong> @Model.telefono</p>
+        </div>
+    </div>
+</div>

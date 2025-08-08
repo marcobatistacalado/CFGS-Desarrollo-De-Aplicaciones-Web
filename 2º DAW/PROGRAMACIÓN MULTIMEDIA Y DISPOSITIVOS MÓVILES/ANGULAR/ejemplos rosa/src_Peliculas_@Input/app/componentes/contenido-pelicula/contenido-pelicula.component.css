@@ -1,0 +1,49 @@
+/* contenido-pelicula.component.css */
+
+:host {
+    display: block;
+    max-width: 600px; /* Ancho máximo del contenedor */
+    margin: 20px auto; /* Centrar el contenedor */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    background-color: #fff; /* Fondo blanco */
+  }
+  
+  h2 {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem; /* Tamaño del título */
+    color: #333; /* Color del texto */
+    margin-bottom: 10px; /* Espacio inferior */
+    text-align: center; /* Centrar el título */
+  }
+  
+  img {
+    margin-left: 25%;
+    max-width: 50%; /* Hacer que la imagen no exceda el contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    border-radius: 5px; /* Bordes redondeados para la imagen */
+    margin-bottom: 15px; /* Espacio inferior */
+  }
+  
+  div {
+    font-family: 'Arial', sans-serif; /* Fuente general */
+    color: #555; /* Color del texto */
+  }
+  
+  p {
+    margin: 8px 0; /* Espaciado entre párrafos */
+  }
+  
+  strong {
+    color: #000; /* Color para los elementos destacados */
+  }
+  
+  /* Estilos para el contenedor de la sinopsis */
+  .sinopsis {
+    font-size: 1rem; /* Tamaño de fuente */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin-top: 10px; /* Espacio superior */
+    color: #666; /* Color más claro para la sinopsis */
+  }
+  

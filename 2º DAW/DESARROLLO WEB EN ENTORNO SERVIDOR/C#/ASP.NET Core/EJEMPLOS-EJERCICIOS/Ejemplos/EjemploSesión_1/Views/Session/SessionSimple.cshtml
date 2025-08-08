@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Session Simple</h1>
+
+<a asp-controller="Session" asp-action="SessionSimple" asp-route-accion="almacenar">Almacenar</a> |
+<a asp-controller="Session" asp-action="SessionSimple" asp-route-accion="mostrar">Mostrar</a>
+<br /><br />
+<h3>@ViewData["MENSAJE"]</h3>
+
+
+    @if (@ViewData["USUARIO"]!=null)
+    {
+  
+    <h2 style="color:blue"> Usuario: @ViewData["USUARIO"]</h2>
+    <h2 style="color:fuchsia">Hora: @ViewData["HORA"]</h2>
+    <h2 style="color:forestgreen">Color Favorito: @Context.Session.GetString("color")</h2>
+    }
+    
+
+

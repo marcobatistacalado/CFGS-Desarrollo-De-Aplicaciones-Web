@@ -1,0 +1,30 @@
+[{
+        "usuario": "rosarosa",
+        "password": "rosarosa",
+        "nombre": "Rosa Rodríguez",
+        "email": "rrodriguez@gmail.com",
+        "perfil": "profesor"
+    },
+    {
+        "usuario": "anana",
+        "password": "anana",
+        "nombre": "Ana Pérez",
+        "email": "aperez@gmail.com",
+        "perfil": "estudiante"
+    },
+    {
+        "usuario": "juanjuan",
+        "password": "juanjuan",
+        "nombre": "Juan García",
+        "email": "jgarcia@gmail.com",
+        "perfil": "estudiante"
+    },
+    {
+        "usuario": "admin",
+        "password": "a1234567",
+        "nombre": "Luis Santos",
+        "email": "lsantos@gmail.com",
+        "perfil": "administrador"
+    }
+
+]

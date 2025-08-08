@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Ejemplo navegación entre páginas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+    <ion-list>
+        <ion-item *ngFor="let pelicula of peliculas" (click)="mostrarDetalles(pelicula)">
+            {{ pelicula.titulo }}
+            <ion-button [routerLink]="['/pagina2', pelicula.id]" expand="block" fill="clear" shape="round">
+                Click me
+            </ion-button>
+        </ion-item>
+
+    </ion-list>
+</ion-content>

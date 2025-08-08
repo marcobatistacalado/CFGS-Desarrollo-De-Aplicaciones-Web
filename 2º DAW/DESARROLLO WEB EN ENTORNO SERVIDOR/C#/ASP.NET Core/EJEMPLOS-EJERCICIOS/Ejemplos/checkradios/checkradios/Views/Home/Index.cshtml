@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-controller="Home" asp-action="Detalles">
+<input type="radio" name="sexo"  value="M"/>Mujer
+<input type="radio" name="sexo" value="H" />Hombre
+
+<input type="checkbox" name="aficiones" value="leer" />Leer
+<input type="checkbox" name="aficiones" value="Viajar" />Viajar
+
+<select name="curso">
+    <option value="daw">Desarrollo web</option>
+    <option value="asir">Sistemas informáticos</option>
+
+</select>
+<button type="submit">Enviar</button>
+</form>
+

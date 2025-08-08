@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink='/Inicio'>INICIO </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/Contacto">CONTACTO</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/About">ACERCA DE</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+<br><br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav">
+            <li class="nav-item active" *ngFor="let m of listaMenu">
+                <a class="nav-link" [routerLink]='m.path'>{{m.text}} </a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>

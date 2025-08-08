@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Funcionesyarrays2", "Funcionesyarrays2.csproj", "{F729392B-1E4C-410A-8271-EADFACD37E1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F729392B-1E4C-410A-8271-EADFACD37E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F729392B-1E4C-410A-8271-EADFACD37E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F729392B-1E4C-410A-8271-EADFACD37E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F729392B-1E4C-410A-8271-EADFACD37E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D093996F-0545-4711-8201-974500668214}
+	EndGlobalSection
+EndGlobal

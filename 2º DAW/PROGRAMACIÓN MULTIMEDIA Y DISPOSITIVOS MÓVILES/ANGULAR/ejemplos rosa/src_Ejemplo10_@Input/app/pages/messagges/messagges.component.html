@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    <h2 class="text-primary">Messages</h2>
+  
+    <!-- Mensaje de información si no hay mensajes disponibles -->
+    <div *ngIf="messagges.length === 0" class="alert alert-info">
+      No messages to display.
+    </div>
+  
+    <!-- Lista de mensajes -->
+    <div *ngFor="let m of messagges" class="card mb-3">
+      <app-messagge [messagge]="m"></app-messagge> <!--INTRODUCIR ESTA PROPIEDAD PARA EL "BINDING" PADRE HIJO-->
+    </div>
+  </div>
+  

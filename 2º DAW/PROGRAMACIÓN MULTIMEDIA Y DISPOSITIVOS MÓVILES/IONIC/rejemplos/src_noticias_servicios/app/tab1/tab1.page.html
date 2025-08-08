@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Noticias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" *ngFor="let n of lNoticias">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{n.author}}</ion-card-subtitle>
+            <ion-card-title>{{n.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-img *ngIf="n.urlToImage" [src]="n.urlToImage"></ion-img>
+          <ion-content>
+            <p>{{n.description}}</p>
+          </ion-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

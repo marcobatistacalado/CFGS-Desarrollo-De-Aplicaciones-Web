@@ -1,0 +1,75 @@
+﻿@model ExamenRepasoExtraOrdinaria2024.Models.RegisterViewModel;
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+
+  <div class="flotar">  Registro - Socio</div>
+<div class="flotar" id="flotacentro">
+    @{
+        if (ViewData["Error"] is not null)
+        {
+            <div class="alert alert-danger" role="alert">
+
+                <p>@ViewData["Error"]</p>
+
+            </div>
+        }
+    }
+</div>
+<div class="flotar" id="flotaderecha"> <a asp-controller="Home" asp-action="Index">Back to HOME  </a></div>
+   
+
+<hr />
+
+
+    <div class="row ">
+    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form method="post">
+            
+            <div data-mdb-input-init class="form-outline mb-4" >
+                <input placeholder="Nombre" asp-for="NombreRegister" />
+                <span asp-validation-for="NombreRegister" class="text-danger"></span>
+                
+            </div>
+            <div data-mdb-input-init class="form-outline mb-4">
+               
+                <input placeholder="DNI" asp-for="DniRegister" />
+                <span asp-validation-for="DniRegister" class="text-danger"></span>
+                
+            </div>
+            <div data-mdb-input-init class="form-outline mb-4">
+               
+                <input type="password" asp-for="ClaveRegister" placeholder="Clave" />
+                <span asp-validation-for="ClaveRegister" class="text-danger"></span>
+                
+            </div>
+            <div data-mdb-input-init class="form-outline mb-4">
+               
+                <input placeholder="Teléfono" asp-for="TelefonoRegister" />
+                <span asp-validation-for="TelefonoRegister" class="text-danger"></span>
+                
+            </div>
+            
+            <div data-mdb-input-init class="form-outline mb-4">
+               
+                <input asp-for="MatriculaRegister" placeholder="Matrícula" />
+                <span asp-validation-for="MatriculaRegister" class="text-danger"></span>
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+
+        
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

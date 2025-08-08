@@ -1,0 +1,10 @@
+﻿@model DetallesViewModel
+
+@Model.sexo
+@if (Model.aficiones != null){
+    @foreach (var a in Model.aficiones)
+    {
+        @a
+    }
+}
+@Model.curso

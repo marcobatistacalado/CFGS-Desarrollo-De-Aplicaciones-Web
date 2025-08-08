@@ -1,0 +1,23 @@
+﻿@model Usuario;
+<h1>Iniciar Sesión</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error as string))
+{
+    <p style="color: red;">@ViewBag.Error</p>
+}
+
+<form asp-controller="Usuarios" asp-action="Login">
+    <div>
+        <label for="nick">Usuario:</label>
+        <input asp-for="Nick" id="nick" required />
+        <span asp-validation-for="Nick"></span>
+    </div>
+    <div>
+        <label for="contrasenna">Contraseña:</label>
+        <input asp-for="Contrasenna" type="password" id="contrasenna" required />
+        <span asp-validation-for="Contrasenna"></span>
+    </div>
+    <button type="submit">Iniciar Sesión</button>
+</form>
+
+<a asp-controller="Usuarios" asp-action="Registro">Regístrate aquí</a>

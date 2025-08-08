@@ -1,0 +1,28 @@
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" *ngFor="let c of objetos">
+      <ion-card class="detalle-card">
+        <img [src]="'assets/cuerpos/' + c.imagen"/>
+
+        <ion-card-header>
+          <ion-card-title>{{ c.titulo }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content >
+          <ion-text color="danger">
+            <p>{{c.nasaId}}</p>
+          </ion-text>
+          <ion-text color="danger">
+            <p>{{c.Centro}}</p>
+          </ion-text>
+          <ion-text color="danger">
+            <p>{{c.Fecha}} </p>
+          </ion-text><br>
+          <ion-text class="ion-text-justify">
+            <p>{{c.descripcion}}</p>
+          </ion-text>
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

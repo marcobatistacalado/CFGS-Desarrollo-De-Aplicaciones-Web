@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Ejemplo navegación entre páginas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <ion-button routerLink="/pagina2" routerDirection="back" expand="block" color="primary">
+        Navegación RouterLink
+    </ion-button>
+    <br>
+    <ion-button (click)="navegarRouter()" expand="block" color="danger">Navegación Router
+    </ion-button>
+    <br>
+    <ion-button (click)="navegarNavController()" expand="block" color="dark">
+        Navegación NavController
+    </ion-button>
+
+</ion-content>

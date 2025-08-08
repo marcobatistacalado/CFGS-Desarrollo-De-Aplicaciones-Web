@@ -1,0 +1,43 @@
+﻿@model List<ej5.Models.Alumno>
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Lista de Alumnos</h1><br />
+    <h2><a asp-action="Add">Añadir Alumno</a></h2>
+    <!-- Tabla de Alumnos -->
+    @if (Model.Any())
+    {
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int contador = 1; }
+                @foreach (var alumno in Model)
+                {
+                    <tr>
+                        <td>@alumno.Nombre</td>
+                        <td>@alumno.Apellidos</td>
+                        <td>@alumno.Telefono</td>
+                        <td>
+                            <a asp-action="Editar" asp-route-id="@contador">Editar</a> | 
+                            <a asp-action="Borrar" asp-route-id="@contador">Borrar</a> | 
+                            <a asp-action="Ver" asp-route-id="@contador">Ver</a>
+                        </td>
+                    </tr>
+                    contador++;
+                }
+            </tbody>
+
+
+        </table>
+    }
+    else
+    {
+        <p>No hay alumnos disponibles en este momento.</p>
+    }
+</div>

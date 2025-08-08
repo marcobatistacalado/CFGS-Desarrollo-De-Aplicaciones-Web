@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="title">Todos los Héroes</h1>
+
+  <!-- Listado de héroes con navegación -->
+  <div class="heroe-list">
+    <div class="heroe-card" *ngFor="let p of lista">
+      <a [routerLink]="['/info', p.nombre]"> <!--IMPORTAR RouteModule EN EL MODULO-->
+        <img class="heroe-poster" [src]="p.imagen" alt="{{p.nombre}}" />
+      </a>
+      <h2 class="heroe-title">{{ p.nombre }}</h2>
+    </div>
+  </div>
+
+  <h1 class="title">Información Mismo Componente de Héroes</h1>
+
+  <!-- Mostrar información al hacer clic -->
+  <div class="heroe-list">
+    <div class="heroe-card" *ngFor="let p of lista" (click)="verHeroe(p.nombre)"> <!--SE USA CUANDO NO CAMBIAMOS DE PAGINA PERO QUEREMOS MOSTRAR CAMBIOS-->
+      <img class="heroe-poster" [src]="p.imagen" alt="{{p.nombre}}" />
+      <h2 class="heroe-title">{{ p.nombre }}</h2>
+
+      <!-- Mostrar más información solo si este héroe está seleccionado -->
+      <div *ngIf="heroeSeleccionado == p.nombre" class="heroe-info">
+        <p><strong>Edad:</strong> {{ p.edad }}</p>
+        <p><strong>Biografía:</strong> {{ p.biografia }}</p>
+      </div>
+    </div>
+  </div>
+</div>

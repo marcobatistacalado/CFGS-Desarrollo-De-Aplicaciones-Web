@@ -1,0 +1,31 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <app-header></app-header>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text="back"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card style="width: 80%; margin-left: 10%;">
+    <img src="{{libro.imagen}}" style="height: 25%; width: 100%; margin-top: 5%;"/>
+    <ion-card-header>
+      <ion-card-title style="font-size: xx-large;">TITULO: {{libro.titulo}}</ion-card-title>
+      <ion-card-subtitle style="font-size: x-large;">
+        AUTOR: {{libro.autor}}</ion-card-subtitle>
+      <ion-card-subtitle style="font-size: x-large;">
+        AÑO DE PUBLICACION:
+        {{libro.anyopub}}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content style="font-size: large;">
+      {{libro.sinopsis}}
+    </ion-card-content>
+    <ion-card-content style="font-size: large;">
+      {{libro.editorial}}
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

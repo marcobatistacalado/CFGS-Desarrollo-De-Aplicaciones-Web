@@ -1,0 +1,38 @@
+<app-header [title]="title"></app-header>
+<ion-content [fullscreen]="true">
+  <form [formGroup]="autonomiaForm" (ngSubmit)="Registrar()">
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="Autonomia" formControlName="autonomia"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="autonomiaForm.controls.autonomia.errors?.['required'] && (autonomiaForm.touched || autonomiaForm.dirty)"> 
+        * La autonomia es obligatoria
+      </ion-label>
+      <ion-label color="danger" *ngIf="autonomiaForm.controls.autonomia.errors?.['minlength'] && (autonomiaForm.touched || autonomiaForm.dirty)">
+        * La autonomia debe tener al menos 4 caracteres.
+      </ion-label>
+    </ion-list>
+    <p class="ion-text-center">
+      <ion-button type="submit" [disabled]="!autonomiaForm.valid">Click-me</ion-button>
+    </p>
+  </form>
+
+  <!-- Mostrar tarjeta debajo del item clickeado -->
+  <ion-card *ngIf="provincias.length != 0">
+    <ion-card-content>
+      <p>Provincias y Temperatura media</p>
+      <h1>Detalles:{{nombreAutonomia}}</h1>
+      <ion-grid>
+        <ion-row *ngFor="let p of provincias">
+          <ion-col size="6">
+            <p>{{ p.name }}</p>
+          </ion-col>
+          <ion-col size="6" class="ion-text-end">
+            <p>{{p.temp}}</p> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

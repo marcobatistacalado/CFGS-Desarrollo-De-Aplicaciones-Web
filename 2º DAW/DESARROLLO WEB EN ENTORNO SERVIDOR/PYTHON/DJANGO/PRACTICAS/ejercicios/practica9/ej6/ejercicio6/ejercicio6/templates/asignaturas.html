@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignaturas de 2º DAW</title>
+</head>
+<body>
+    <h1>Asignaturas de 2º DAW</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Profesor</th>
+                <th>Horas Semanales</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for asignatura in asignaturas %}
+                <tr>
+                    <td>{{ asignatura.nombre }}</td>
+                    <td>{{ asignatura.profesor }}</td>
+                    <td>{{ asignatura.horas_semanales }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

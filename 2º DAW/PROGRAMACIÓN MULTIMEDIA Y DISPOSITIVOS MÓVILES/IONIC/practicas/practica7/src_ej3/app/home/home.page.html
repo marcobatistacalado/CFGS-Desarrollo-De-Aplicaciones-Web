@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<ion-content>
+  <ion-list>
+    <!-- Recorremos el array de lenguajes -->
+    <ion-item *ngFor="let lenguaje of arrayLenguajes">
+      <ion-label>
+        <h2>{{ lenguaje.nombre }}</h2>
+        <p>{{ lenguaje.descripcion }}</p>
+      </ion-label>
+      <!-- Checkbox para cada lenguaje -->
+      <ion-checkbox [(ngModel)]="lenguaje.seleccionado"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <!-- CONTADOR -->
+  <ion-item>
+    <ion-label>
+      <h2>Lenguajes seleccionados: {{ lenguajesSeleccionados }}</h2>
+    </ion-label>
+  </ion-item>
+
+  <!--ION-CARD CON LA DESCRIPCION SOLO SI ESTAN SELECCIONADOS-->
+  <ion-card *ngFor="let lenguaje of lenguajesSeleccionadosLista">
+    <ion-card-header>
+      <ion-card-title>{{ lenguaje.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="lenguaje.imagen" class="lenguaje-imagen" />
+      <p>{{ lenguaje.descripcion }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

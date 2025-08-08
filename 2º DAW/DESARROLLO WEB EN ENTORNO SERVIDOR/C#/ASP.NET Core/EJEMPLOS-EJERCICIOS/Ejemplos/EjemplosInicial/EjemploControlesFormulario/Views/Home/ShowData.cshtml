@@ -1,0 +1,8 @@
+﻿@model EjemploControlesFormulario.Models.DatosViewModel;
+<p>Sexo: @Model.sexo</p>
+<p>Aficiones: </p>
+@foreach (var a in Model.aficiones)
+{
+    @a
+}
+<p>Ciclo: @Model.ciclo</p>

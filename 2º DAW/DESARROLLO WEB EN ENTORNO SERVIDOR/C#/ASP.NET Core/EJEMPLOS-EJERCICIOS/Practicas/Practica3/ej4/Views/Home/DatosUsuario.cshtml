@@ -1,0 +1,25 @@
+﻿@model ej4.Models.Usuario
+
+<h2>Perfil del Usuario</h2>
+
+<div>
+    <p><strong>Nombre:</strong> @Model.Nombre</p>
+</div>
+
+<div>
+    <p><strong>Curso:</strong> @Model.Curso</p>
+</div>
+
+<div>
+    <p><strong>Correo:</strong> @Model.Correo</p>
+</div>
+@if (Model.Confirmacion == "Si")
+{
+    <div>
+        <p><strong>Asistencia Confirmada:</strong> @Model.Confirmacion </p>
+    </div>
+}else{
+    <div>
+        <p><strong>Asistencia Confirmada:</strong> No </p>
+    </div>
+}

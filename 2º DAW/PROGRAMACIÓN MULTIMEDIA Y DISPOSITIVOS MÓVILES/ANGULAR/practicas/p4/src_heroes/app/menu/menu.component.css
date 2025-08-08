@@ -1,0 +1,33 @@
+/* Contenedor principal del menú */
+.menu-container {
+  background-color: #333; /* Color de fondo oscuro para el menú */
+  padding: 10px; /* Espacio interno de 10px alrededor del menú */
+}
+
+/* Estilo para la lista de elementos del menú */
+.menu-list {
+  list-style: none; /* Elimina los puntos de la lista no ordenada */
+  display: flex; /* Utiliza flexbox para alinear los elementos en una fila */
+  gap: 20px; /* Espacio de 20px entre los elementos de la lista */
+  justify-content: left; /* Centra los elementos de la lista horizontalmente */
+}
+
+/* Estilo para los enlaces dentro de los elementos de menú */
+.menu-item a {
+  color: white; /* Color del texto del enlace */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  font-size: 1.2rem; /* Tamaño de fuente más grande para los enlaces */
+  padding: 8px 16px; /* Espacio interno alrededor del texto del enlace */
+  border-radius: 5px; /* Bordes redondeados para suavizar la apariencia del botón */
+}
+
+/* Estilo para los enlaces cuando se pasa el ratón sobre ellos */
+.menu-item a:hover {
+  background-color: #007bff; /* Cambia el fondo a un azul brillante al pasar el ratón */
+}
+
+/* Estilo para el enlace activo (la página actual) */
+.active-link {
+  font-weight: bold; /* Hace que el texto sea más grueso para resaltar el enlace activo */
+  border-bottom: 2px solid #fff; /* Añade una línea blanca en la parte inferior del enlace activo */
+}

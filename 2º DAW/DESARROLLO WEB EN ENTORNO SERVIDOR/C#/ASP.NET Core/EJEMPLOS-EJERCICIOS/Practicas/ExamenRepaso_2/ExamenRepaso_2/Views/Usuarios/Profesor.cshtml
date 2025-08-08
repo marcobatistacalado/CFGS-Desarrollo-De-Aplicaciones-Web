@@ -1,0 +1,29 @@
+﻿
+@model List<ExamenRepaso_2.Models.Alumno>
+
+@{
+    ViewData["Title"] = "Lista de Alumnos";
+}
+<h2>Lista de Alumnos Registrados</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>Email</th>
+            <th>Ciclo</th>
+            <th>Curso</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alumno in Model)
+        {
+            <tr>
+                <td>@alumno.NombreCompleto</td>
+                <td>@alumno.Email</td>
+                <td>@alumno.Ciclo</td>
+                <td>@alumno.Curso</td>
+            </tr>
+        }
+    </tbody>
+</table>

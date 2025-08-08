@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model ej4.Models.Evento
+
+<p>Hoy es: @DateTime.Now</p>
+<p>
+    Estamos organizando una charla con reconocidos profesionales del mundo del Desarrollo. Durante el evento, se abordarán temas actuales, tendencias tecnológicas y experiencias reales de la industria. Es el momento perfecto para aprender, resolver tus dudas y conectar con expertos.
+</p>
+<p>Fecha: @Model.Fecha</p>
+<p>Lugar: @Model.Lugar</p>
+<a asp-controller="Home" asp-action="PedirDatos">Enlace para apuntarse</a>
+<p>¡Te esperamos para compartir conocimiento y crecer juntos en este apasionante campo!</p>

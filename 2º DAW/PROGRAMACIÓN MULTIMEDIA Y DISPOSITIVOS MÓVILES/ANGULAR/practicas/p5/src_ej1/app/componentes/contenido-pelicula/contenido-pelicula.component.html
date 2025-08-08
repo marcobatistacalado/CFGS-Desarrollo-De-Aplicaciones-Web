@@ -1,0 +1,11 @@
+<div *ngIf="pelicula">
+  <h2>{{ pelicula.titulo }}</h2>
+  <img src="/assets/Imagenes/{{pelicula.imagen}}" alt="{{ pelicula.titulo }}" />
+  <div>
+      <p><strong>Puntuacion:</strong> {{ pelicula.puntuacion }}</p>
+      <p><strong>Sinopsis:</strong> {{ pelicula.sinopsis }}</p>
+
+  </div>
+</div>
+
+

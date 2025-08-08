@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-button slot="start" fill="clear" shape="round" (click)="volverAtras()">
+      <ion-icon slot="start" name="arrow-back-outline" color="light"></ion-icon>
+    </ion-button>
+    <ion-title>LISTA ACTUAL USUARIOS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="irAnadirUsuario()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div style="margin-top: 100px;">
+    <ion-list>
+      <ion-item *ngFor="let usuario of listaUsuarios">
+        <ion-avatar slot="start">
+          <img src="assets/avatar.svg" alt="Avatar" />
+        </ion-avatar>
+        <ion-label>{{ usuario.nombre }}</ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="mostrarDetalle(usuario.usuario)">
+            <ion-icon name="eye-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+
+    <!-- Tarjeta de detalles con imagen grande y "X" alineada a la derecha -->
+    <ion-card *ngIf="mostrar">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="12" class="ion-text-center">
+              <ion-avatar style="width: 120px; height: 120px;">
+                <img src="assets/avatar.svg" alt="Avatar Grande" />
+              </ion-avatar>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="10">
+              <p><strong>Nombre:</strong> {{ usuarioSeleccionado?.nombre }}</p>
+              <p><strong>Email:</strong> {{ usuarioSeleccionado?.email }}</p>
+            </ion-col>
+            <ion-col size="2" class="ion-text-end">
+              <ion-button fill="clear" color="danger" (click)="cerrarDetalle()">
+                <ion-icon name="close-circle" size="large"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

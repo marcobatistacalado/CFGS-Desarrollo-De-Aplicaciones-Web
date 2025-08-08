@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="title">Lista de Héroes</h1>
+  <ol class="hero-list">
+    <li class="hero-item" *ngFor="let p of lista">
+      <a [routerLink]="['/info', p.nombre]" routerLinkActive="router-link-active">
+        {{ p.nombre }}
+      </a>
+    </li>
+  </ol>
+</div>

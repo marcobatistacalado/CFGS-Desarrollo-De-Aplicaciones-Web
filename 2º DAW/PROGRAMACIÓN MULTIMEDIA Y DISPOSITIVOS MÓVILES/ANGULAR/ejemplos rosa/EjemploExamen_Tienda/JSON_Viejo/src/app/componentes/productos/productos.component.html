@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <h2>Lista de Productos</h2>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let producto of productos">
+            <div class="card mb-4">
+                <a routerLink="/detalle-producto/{{producto.id}}">
+                    <img src="/assets/tienda/{{producto.imagen}}" alt="{{ producto.nombre }}" class="card-img-top" />
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <p class="card-text"><strong>Descripcion:</strong> {{ producto.descripcion }}</p>
+                    <p class="card-text"><strong>Precio:</strong> ${{ producto.precio }}</p>
+                    <a routerLink="/detalle-producto/{{producto.id}}" class="btn btn-primary">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model ej3.Models.Persona
+
+<h1>Perfil del Usuario</h1>
+
+<div>
+    <p><strong>Nombre:</strong> @Model.Nombre</p>
+    <p><strong>Apellidos:</strong> @Model.Apellidos</p>
+    <p><strong>Edad:</strong> @Model.Edad años</p>
+    <p><strong>Sexo:</strong> @Model.Sexo</p>
+    <p><strong>Tema de Interés:</strong> @Model.TemaInteres</p>
+
+    <h3>Aficiones:</h3>
+    @if (Model.Aficiones != null && Model.Aficiones.Count > 0)
+    {
+        <ul>
+            @foreach (var aficion in Model.Aficiones)
+            {
+                <li>@aficion</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No seleccionaste ninguna afición.</p>
+    }
+</div>

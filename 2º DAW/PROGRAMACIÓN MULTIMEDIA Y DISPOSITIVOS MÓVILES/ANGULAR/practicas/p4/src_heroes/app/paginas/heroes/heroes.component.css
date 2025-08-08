@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .hero-list {
+    list-style-type: decimal; /* Numeración */
+    padding-left: 20px; /* Espaciado a la izquierda para la lista */
+    margin-bottom: 20px; /* Espacio entre las listas */
+  }
+
+  .hero-list a{
+    text-decoration: none;
+  }
+  
+  .hero-item {
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Espacio entre elementos de la lista */
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #007bff; /* Color del texto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s;
+  }
+  
+  .hero-item:hover {
+    transform: translateY(-3px); /* Efecto de elevación en hover */
+    background-color: #e9f5ff; /* Fondo más claro al hacer hover */
+  }
+  

@@ -1,0 +1,46 @@
+﻿@model ej1.Models.Portfolio
+
+<div class="text-center">
+    <h1 class="display-4">Soy @Model.Persona.Nombre (@Model.Persona.Edad años)</h1>
+    <h2>@Model.Persona.Perfil</h2>
+
+    <!-- Foto de perfil -->
+    <img src="@Model.Persona.Foto" alt="Foto de @Model.Persona.Nombre" class="img-thumbnail" style="width: 150px; height: 150px; border-radius: 50%; margin-top: 20px;" /><br /><br />
+
+    <div class="container" style="background-color:dimgray; width: 100%">
+        <br /><br />
+        <h2 style="color:white">Bienvenido a mi portfolio</h2>
+        <p style="color:white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod posuere orci sed placerat.
+            Phasellus cursus vitae metus a pulvinar. Nam et eros gravida, pretium tellus at, posuere risus.
+            Mauris justo ante, suscipit sit amet sem eget, sodales imperdiet risus. Proin posuere nisl a pretium congue.
+            Duis dignissim scelerisque ipsum ornare ornare. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+            per inceptos himenaeos. Mauris sodales erat non nisl volutpat cursus. Aliquam ultrices consequat nulla id blandit.
+        </p>
+        <br /><br />
+
+        <!-- Sección de proyectos -->
+        <div class="row">
+            @foreach (var proyecto in Model.Proyectos)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title">@proyecto.Titulo</h3>
+                            <p class="card-text">@proyecto.Descripcion</p>
+
+                            <!-- Tecnologías utilizadas -->
+                            <h5>Tecnologías:</h5>
+                            <ul>
+                                @foreach (var tech in proyecto.Stack)
+                                {
+                                    <li>@tech</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

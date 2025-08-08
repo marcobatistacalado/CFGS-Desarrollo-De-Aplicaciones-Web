@@ -1,0 +1,26 @@
+<!-- templates/welcome.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenguajes de Programación</title>
+</head>
+<body>
+    <h1>Información sobre lenguajes de programación</h1>
+
+    <!-- Lógica en plantilla para mostrar el mensaje -->
+    {% if lenguajes|length == 0 %}
+        <p>Espabila y ponte a estudiar ya</p>
+    {% elif lenguajes|length == 1 %}
+        <p>Estás empezando...</p>
+    {% else %}
+        <p>Sabes estos lenguajes:</p>
+        <ul>
+        {% for lenguaje in lenguajes %}
+            <li>{{ lenguaje.nombre }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

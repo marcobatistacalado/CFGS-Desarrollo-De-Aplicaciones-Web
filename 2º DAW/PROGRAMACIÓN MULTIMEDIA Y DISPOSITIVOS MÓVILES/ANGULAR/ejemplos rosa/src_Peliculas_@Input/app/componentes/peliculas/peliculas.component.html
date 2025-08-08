@@ -1,0 +1,18 @@
+<div class="container" ><br>
+    <h2>Lista de Películas</h2><br>
+    <ul>
+      <li *ngFor="let p of peliculas">
+        <!--<a routerLink="/contenido-pelicula/{{pelicula.id}}">
+          <img src="/Imagenes/{{pelicula.imagen}}" alt="{{ pelicula.titulo }}" />
+        </a>
+        <div>
+            <p><strong>Título:</strong> {{ pelicula.titulo }}</p>
+            <p><strong>Director:</strong> {{ pelicula.director }}</p>
+            <p><strong>Año:</strong> {{ pelicula.anio }}</p> 
+            <p><strong>Puntuación:</strong> {{pelicula.puntuacion}}</p>
+        </div>-->
+     <app-pelicula [pelicula]="p"></app-pelicula>
+      </li>
+    </ul>
+</div>
+  

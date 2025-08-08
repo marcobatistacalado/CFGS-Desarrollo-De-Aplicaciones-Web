@@ -1,0 +1,31 @@
+﻿@model Alumno
+
+<h1>Editar Alumno</h1>
+
+<form asp-controller="Profesor" asp-action="EditarAlumno" method="post">
+    <input type="hidden" asp-for="Email" />
+
+    <div>
+        <label for="curso">Curso:</label>
+        <select id="curso" name="nuevoCurso">
+            <option value="">--No cambiar--</option>
+            @if (Model.Curso == 1)
+            {
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+            }
+            else if (Model.Curso == 2)
+            {
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+            }
+        </select>
+    </div>
+    <div>
+        <label for="nuevoEmail">Nuevo Email:</label>
+        <input id="nuevoEmail" name="nuevoEmail" type="email" value="@Model.Email" />
+    </div>
+    <button type="submit">Guardar Cambios</button>
+</form>
+
+

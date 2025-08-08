@@ -1,0 +1,17 @@
+
+
+  <ion-grid style="width: 80%; margin-left: 10%;">
+    <ion-row>
+      <ion-col size="6" size-md="6" size-lg="3" size-sm="12"  *ngFor="let item of listalibros" ><ion-card>
+        <img src="{{item.imagen}}" style="height: 300px; width: 100%;" routerLink="../libro/{{item.id}}"  />
+
+        <ion-card-header>
+          <ion-card-title style="font-size: large;">{{item.titulo}}</ion-card-title>
+          <ion-card-subtitle style="font-size:medium;">{{item.autor}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card></ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+

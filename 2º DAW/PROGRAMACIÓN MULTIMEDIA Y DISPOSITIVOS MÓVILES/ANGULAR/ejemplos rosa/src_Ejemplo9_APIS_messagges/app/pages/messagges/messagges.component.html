@@ -1,0 +1,25 @@
+<div class="container mt-4">
+    <h2 class="text-primary">Messages</h2>
+  
+    <!-- Mensaje de información si no hay mensajes disponibles -->
+    <div *ngIf="messagges.length === 0" class="alert alert-info">
+      No messages to display.
+    </div>
+  
+    <!-- Lista de mensajes -->
+    <div *ngFor="let message of messagges" class="card mb-3">
+      <div class="card-body">
+        <!-- Título del mensaje (nombre del autor) -->
+        <h5 class="card-title">{{ message.name }}</h5>
+        <!-- Email del autor -->
+        <p class="card-subtitle mb-2 text-muted">Email: {{ message.email }}</p>
+        <!-- Cuerpo del mensaje -->
+        <p class="card-text">{{ message.body }}</p>
+      </div>
+      <!-- Footer de la tarjeta con el ID del post y del mensaje -->
+      <div class="card-footer text-muted">
+        Post ID: {{ message.postId }} | Message ID: {{ message.id }}
+      </div>
+    </div>
+  </div>
+  

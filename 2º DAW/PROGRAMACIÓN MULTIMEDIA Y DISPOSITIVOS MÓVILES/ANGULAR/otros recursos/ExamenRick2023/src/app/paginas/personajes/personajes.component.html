@@ -1,0 +1,46 @@
+<h4>MEDIA</h4>
+<div class="todo caja">
+    <div id="primero" class="caja" *ngFor="let p1 of personajeRick">
+        <img class="imagen" src="assets/examen2023/{{p1.image}}">
+        <h5 class="card-title">{{p1.name}}</h5>
+    </div>
+    <div id="cuerpo">
+        <table class="tabla">
+            <tbody>
+            <tr>
+                <td *ngFor="let p of personajes">
+                    <div id="imagenes" class="caja">
+                        <img src='assets/examen2023/{{p.image}}' class="img" alt="..." (click)="getSeleccionado(p.id)">
+                        <div>
+                            <br>
+
+                            <h5 class="card-title" >{{p.name}}</h5>
+
+
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+<br>
+
+<h4>SUMARIO</h4>
+
+<div class="todo caja" *ngIf="personajeSeleccionado!=undefined">
+    <div id="unosolo">
+        <h3 class="card-title">NAME:{{personajeSeleccionado.name}}</h3>
+        <h5>STATUS:{{personajeSeleccionado.status}}</h5>
+        <h5>GENDER:{{personajeSeleccionado.gender}}</h5>
+        <h5>SPECIES:{{personajeSeleccionado.species}}</h5>
+    </div>
+</div>
+  <br><br>
+
+  

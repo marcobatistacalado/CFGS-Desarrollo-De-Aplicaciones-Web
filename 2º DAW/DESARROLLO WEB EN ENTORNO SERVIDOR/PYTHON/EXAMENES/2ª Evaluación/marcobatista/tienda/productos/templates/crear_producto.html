@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{%block titulo %}<h2>Añadir Producto</h2> {%endblock%}
+
+
+
+
+{%block contenido %}
+    <form method="POST">
+        {% csrf_token %}
+            <div class="form-group">
+                <label>Nombre</label>            </div>
+                <div class="input-group">{{form.nombre}}</div>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <div class="input-group">{{form.descripcion}}</div>
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <div class="input-group">{{form.precio}}</div>
+            </div>
+             <div class="form-group">
+                <label>Categoria</label>
+                <div class="input-group">{{form.categoria}}</div>
+            </div>
+            <br>
+            <center>
+                <input type="submit" class="btn btn-success btn-lg" value="Aceptar">
+                <a href="{% url 'categorias' %}" class="btn btn-danger btn-lg">Cancelar</a>
+               
+            </center>
+    </form>
+
+{%endblock%}
+
+
+
+
+

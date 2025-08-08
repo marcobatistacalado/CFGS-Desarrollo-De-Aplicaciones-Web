@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div *ngIf="serie; else noData">
+      <div class="card shadow-lg">
+        <img *ngIf="serie.imagen" src="/assets/Imagenes/{{ serie.imagen }}" alt="{{ serie.titulo }}" class="card-img-top">
+        <div class="card-body">
+          <h2 class="card-title text-primary">{{ serie.titulo }}</h2>
+          <h5 class="card-subtitle text-muted mb-3">Dirigida por: {{ serie.director }}</h5>
+          <p><strong>Año:</strong> {{ serie.anio }}</p>
+          <p><strong>Plataforma:</strong> {{ serie.plataforma || 'N/A' }}</p>
+          <p><strong>Puntuación:</strong> {{ serie.puntuacion }}</p>
+          <p><strong>Sinopsis:</strong> {{ serie.sinopsis }}</p>
+          <p><strong>Actores:</strong> {{ serie.actores.join(', ') }}</p>
+          <a class="btn btn-primary mt-3" routerLink="/inicio">Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noData>
+      <div class="alert alert-warning mt-5 text-center">
+        <strong>No se encontraron detalles de esta serie.</strong>
+      </div>
+      <div class="text-center">
+        <a class="btn btn-primary mt-3" routerLink="/inicio">Volver al inicio</a>
+      </div>
+    </ng-template>
+  </div>
+  

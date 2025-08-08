@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="title">Cartelera de Películas</h1>
+  <div class="movie-list">
+    <div class="movie-card" *ngFor="let p of lista">
+      <img class="movie-poster" [src]="p.imagen" alt="{{p.titulo}}" />
+      <h2 class="movie-title">{{ p.titulo }}</h2>
+      <p class="movie-director">Director: {{ p.director }}</p>
+      <p class="movie-year">Año: {{ p.ano }}</p>
+    </div>
+  </div>
+</div>

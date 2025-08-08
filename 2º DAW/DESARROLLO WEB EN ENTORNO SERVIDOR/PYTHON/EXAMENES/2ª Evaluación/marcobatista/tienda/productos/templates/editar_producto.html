@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{%block titulo %}<h2>Editar Producto</h2> {%endblock%}
+<br><br>
+{%block contenido %}
+    <form method="POST"> 
+        {% csrf_token %}
+            <div class="form-group">
+                <label>Id Producto</label>
+                <input type="number" name="idProducto" value="{{p.idProducto}}"  readonly><br>
+                <div class="input-group"></div>
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre" value="{{p.nombre}}" readonly><br>
+                <div class="input-group"></div>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <input type="text" name="descripcion" value="{{p.descripcion}}" readonly><br>
+                <div class="input-group"></div>
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <input type="number" name="precio" value="{{p.precio}}"><br>
+                <div class="input-group"></div>
+            </div>
+             <div class="form-group">
+                <label>Categoria</label>
+                <input type="text" name="categoria" value="{{p.categoria}}" readonly><br>
+                <div class="input-group"></div>
+            </div>
+            <br>
+            <center>
+                <input type="submit" class="btn btn-success btn-lg" value="Aceptar">
+                <a href="{% url 'ver_productos' p.categoria %}" class="btn btn-danger btn-lg">Cancelar</a>
+               
+            </center>
+        </form>
+        
+
+        {%endblock%}

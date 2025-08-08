@@ -1,0 +1,15 @@
+<div *ngIf="heroe" class="container">
+  <h1 class="title">{{ heroe.nombre }}</h1>
+  <div class="hero-details">
+    <img class="hero-image" [src]="heroe.imagen" alt="{{ heroe.nombre }}" />
+    <div class="hero-info">
+      <h2>Edad: {{ heroe.edad }} años</h2>
+      <p>{{ heroe.biografia }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Muestra un mensaje si no se encuentra al héroe -->
+<div *ngIf="!heroe" class="container">
+  <h1 class="title">Héroe no encontrado</h1>
+</div>

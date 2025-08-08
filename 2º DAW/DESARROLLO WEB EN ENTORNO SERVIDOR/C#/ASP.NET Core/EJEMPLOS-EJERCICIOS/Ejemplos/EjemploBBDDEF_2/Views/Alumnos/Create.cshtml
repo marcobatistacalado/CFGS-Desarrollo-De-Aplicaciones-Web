@@ -1,0 +1,50 @@
+﻿
+@model EjemploBBDDEF.Models.Alumno
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Añadir Alumno</h2>
+
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="DNI" class="control-label"></label>
+                <input asp-for="DNI" class="form-control" />
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="CicloAlumno" class="control-label">Ciclo</label>
+                <input readonly asp-for="CicloAlumno" class="form-control" />
+                <span asp-validation-for="CicloAlumno" class="text-danger"></span>
+            </div><br />
+            <div class="form-group">
+                <label asp-for="CursoAlumno" class="control-label">Curso</label>
+                <input asp-for="CursoAlumno" class="form-control" />
+                <span asp-validation-for="CursoAlumno" class="text-danger"></span>
+            </div>
+            <br /><br />
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

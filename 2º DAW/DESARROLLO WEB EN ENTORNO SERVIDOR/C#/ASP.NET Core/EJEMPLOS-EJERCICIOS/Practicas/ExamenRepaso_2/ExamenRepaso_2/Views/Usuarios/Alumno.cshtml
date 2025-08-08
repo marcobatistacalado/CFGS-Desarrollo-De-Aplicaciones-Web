@@ -1,0 +1,25 @@
+﻿@model ExamenRepaso_2.Models.Alumno
+
+@{
+    ViewData["Title"] = "Datos del Alumno";
+}
+<h2>Datos del Alumno</h2>
+
+<p><strong>Nombre Completo:</strong> @Model.NombreCompleto</p>
+<p><strong>Email:</strong> @Model.Email</p>
+<p><strong>Ciclo:</strong> @Model.Ciclo</p>
+<p><strong>Curso:</strong> @Model.Curso</p>
+@if (Model.Idiomas != null && Model.Idiomas.Count > 0)
+{
+    <p><strong>Idiomas:</strong></p>
+    <ul>
+        @foreach (var idioma in Model.Idiomas)
+        {
+            <li>@idioma</li>
+        }
+    </ul>
+}
+else
+{
+    <p><strong>Idiomas:</strong> No se han registrado idiomas.</p>
+}

@@ -1,0 +1,51 @@
+﻿@model Practica6.Models.RegisterViewModel;
+
+
+<div class="container d-flex justify-content-center align-items-center">
+<div class="card p-4 shadow-sm m-2" style="max-width: 400px; width: 100%;">
+    <h3 class="text-center mb-4">Registro</h3>
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <label for="NombreRegister" class="form-label">Nombre</label>
+            <input type="text" class="form-control" asp-for="NombreRegister" required>
+            <span asp-validation-for="NombreRegister" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="EmailRegister" class="form-label">Email</label>
+            <input type="text" id="EmailRegister" class="form-control" asp-for="EmailRegister" required>
+            <span asp-validation-for="EmailRegister" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="DniRegister" class="form-label">Dni</label>
+            <input type="text" id="DniRegister" class="form-control" asp-for="DniRegister" required>
+            <span asp-validation-for="DniRegister" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="PasswordRegister" class="form-label">Contraseña</label>
+            <input type="password" id="PasswordRegister" class="form-control" asp-for="PasswordRegister" required>
+            <span asp-validation-for="PasswordRegister" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="RolRegister" class="form-label">Rol:</label>
+            <select id="RolRegister" class="form-control" asp-for="RolRegister" required>
+                <option value="0">Administrador</option>
+                <option value="1">Estudiante</option>
+            </select>
+            <span asp-validation-for="RolRegister" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+    </form>
+        @{
+            if (ViewData["Error"] is not null)
+            {
+                <div class="alert alert-danger" role="alert">
+
+                    <p>@ViewData["Error"]</p>
+                    <a asp-controller="Home" asp-action="Index" >Volver a Login</a>
+
+                </div>
+            }
+        }
+</div>
+</div>

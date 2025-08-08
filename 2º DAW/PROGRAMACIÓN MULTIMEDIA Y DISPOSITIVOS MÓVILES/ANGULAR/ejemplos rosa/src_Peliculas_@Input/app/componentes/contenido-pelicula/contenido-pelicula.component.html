@@ -1,0 +1,15 @@
+<div *ngIf="pelicula; else noPelicula">
+  <h2>{{ pelicula.titulo }}</h2>
+  <img src="assets/Imagenes/{{pelicula.imagen}}" alt="{{ pelicula.titulo }}" />
+  <div>
+      <p><strong>Puntuación:</strong> {{ pelicula.puntuacion }}</p>
+      <p><strong>Sinopsis:</strong> {{ pelicula.sinopsis }}</p>
+  </div>
+</div>
+
+<ng-template #noPelicula>
+  <div class="no-pelicula">
+    <h2>Pelicula no encontrada</h2>
+    <p>Lo sentimos, no se encontró la información de la película que estás buscando.</p>
+  </div>
+</ng-template>

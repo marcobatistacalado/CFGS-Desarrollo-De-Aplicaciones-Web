@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Proyecto Session con objetos</h1>
+    <br />
+
+    <h2>Datos de Sesión</h2><br />
+
+    @{
+    Persona p = Context.Session.GetObject<Persona>("Persona");
+}
+
+    @if (@p != null)
+    {
+        <p>Nombre: @p.Nombre
+        </p>
+        <p>Email: @p.Email</p>
+        <p>Edad: @p.Edad</p>
+    }
+</div>

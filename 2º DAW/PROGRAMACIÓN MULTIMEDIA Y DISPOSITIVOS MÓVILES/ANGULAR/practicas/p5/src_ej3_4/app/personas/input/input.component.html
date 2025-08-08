@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <!-- Título -->
+    <h2 class="text-center text-primary mb-4">Añadir Nombre</h2>
+  
+    <!-- Campo de entrada -->
+    <div class="mb-4">
+      <label for="nombreInput" class="form-label">Introduce un nombre:</label>
+      <input 
+        type="text" 
+        id="nombreInput" 
+        class="form-control" 
+        placeholder="Escribe el nombre aquí" 
+        [(ngModel)]="nuevoNombre" 
+      />
+    </div>
+  
+    <!-- Botones -->
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-success" (click)="addName()">Añadir</button>
+      <button class="btn btn-secondary" routerLink="/list">Volver</button>
+    </div>
+  </div>
+  

@@ -1,0 +1,27 @@
+
+    <div class="container">
+    
+
+        <header class="hero">
+            <h1>CINESA</h1>
+            <p>¡Bienvenido al CINESA! Disfruta de las mejores películas y series en nuestra sala.</p>
+        </header>
+
+        <section class="featured">
+           
+            <div class="movie-grid" >
+                <div class="movie-card" *ngFor="let item of todo" >
+                    <img src="/assets/Imagenes/{{item.imagen}}" alt="{{item.titulo}}">
+                    <h3>{{item.titulo}}</h3>
+                    <p>{{item.sinopsis}}.</p>
+                </div>
+            </div>
+                
+        </section>
+
+       
+    </div>
+
+
+    
+

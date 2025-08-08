@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title>Agregar Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="usuarioRegister" (ngSubmit)="AddUsuario()">
+    <ion-list>
+
+      <!-- Nickname -->
+      <ion-item>
+        <ion-label position="floating">Nickname:</ion-label>
+        <ion-input type="text" formControlName="usuario"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioRegister.controls.usuario.errors?.['required'] && usuarioRegister.controls.usuario.touched">
+        * El nickname es obligatorio
+      </ion-label>
+      <ion-label color="danger" *ngIf="usuarioRegister.controls.usuario.errors?.['minlength'] && usuarioRegister.controls.usuario.touched">
+        * El nickname debe tener al menos 4 caracteres.
+      </ion-label>
+
+      <!-- Password -->
+      <ion-item>
+        <ion-label position="floating">Contraseña:</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioRegister.controls.password.errors?.['required'] && usuarioRegister.controls.password.touched">
+        * La contraseña es obligatoria.
+      </ion-label>
+      <ion-label color="danger" *ngIf="usuarioRegister.controls.password.errors?.['minlength'] && usuarioRegister.controls.password.touched">
+        * La contraseña debe tener al menos 6 caracteres.
+      </ion-label>
+
+      <!-- Nombre -->
+      <ion-item>
+        <ion-label position="floating">Nombre:</ion-label>
+        <ion-input type="text"  formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioRegister.controls.nombre.errors?.['required'] && usuarioRegister.controls.nombre.touched">
+        * El nombre es obligatorio.
+      </ion-label>
+
+      <!-- Email -->
+      <ion-item>
+        <ion-label position="floating">Email:</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioRegister.controls.email.errors?.['required'] && usuarioRegister.controls.email.touched">
+        * El email es obligatorio.
+      </ion-label>
+      <ion-label color="danger" *ngIf="usuarioRegister.controls.email.errors?.['email'] && usuarioRegister.controls.email.touched">
+        * El email no es válido.
+      </ion-label>
+
+      <!-- Perfil -->
+      <ion-item>
+        <ion-label>Perfil:</ion-label>
+        <ion-select formControlName="perfil">
+          <ion-select-option value="admin">Administrador</ion-select-option>
+          <ion-select-option value="usuario">Usuario</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuarioRegister.controls.perfil.errors?.['required'] && usuarioRegister.controls.perfil.touched">
+        * Selecciona un perfil.
+      </ion-label>
+
+    </ion-list>
+
+    <!-- Botón de Registrar -->
+    <div class="ion-text-center">
+      <ion-button type="submit" [disabled]="!usuarioRegister.valid">Registrar</ion-button>
+    </div>
+
+  </form>
+</ion-content>

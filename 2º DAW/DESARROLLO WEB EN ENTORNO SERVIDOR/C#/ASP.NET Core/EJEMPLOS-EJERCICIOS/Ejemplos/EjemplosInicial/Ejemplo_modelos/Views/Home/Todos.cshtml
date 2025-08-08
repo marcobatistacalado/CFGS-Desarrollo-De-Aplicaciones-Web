@@ -1,0 +1,14 @@
+﻿@model Curso
+
+<h2>LISTADO DE ALUMNOS DE - @Model.Nombre</h2>
+<hr />
+<table class="table">
+    @foreach(var item in Model.miLista)
+    {
+        <tr>
+            <td>@item.Nombre</td>
+            <td>@item.DNI</td>
+            <td>@item.Nota</td>
+        </tr>
+    }
+</table>

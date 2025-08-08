@@ -1,0 +1,75 @@
+.container {
+    display: flex; /* Habilita flexbox para el contenedor */
+    flex-direction: column; /* Alinea los hijos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.container ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding por defecto */
+    width: 100%; /* O ajusta el ancho según sea necesario */
+    max-width: 800px; /* Ancho máximo del contenedor */
+}
+
+.container li {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centra verticalmente el contenido */
+    margin-bottom: 10px; /* Espaciado entre las películas */
+    width: 100%; /* Asegura que el elemento ocupe todo el ancho */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.container img {
+    width: 100px; /* Tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+}
+
+img {
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+strong {
+    color: #555;
+}
+
+.container h2 {
+    font-size: 40px; /* Tamaño igual al del h1 */
+    margin: 20px 0; /* Espaciado en la parte superior e inferior */
+    text-align: center; /* Centra el título */
+    color: #333; /* Color del texto */
+    font-family: 'Georgia', serif; /* Fuente elegante, igual que h1 */
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas para mayor impacto */
+    border-bottom: 4px solid #ccc; /* Línea más gruesa */
+    width: 100%; /* Asegura que la línea ocupe todo el ancho */
+    max-width: 800px; /* Ancho máximo del h2 para mantener el diseño */
+    margin: 20px auto; /* Centra el h2 y la línea */
+    padding-bottom: 10px; /* Espaciado interno en la parte inferior */
+}

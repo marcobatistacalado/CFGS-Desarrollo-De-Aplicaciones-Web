@@ -1,0 +1,25 @@
+-- 1️⃣ Insertar laboratorios
+INSERT INTO gestion_inc_laboratorio (nombre_lab, num_ordenadores, email_tecnico) VALUES 
+('LAB1', 25, 'tecnico1@colegio.com'),
+('LAB2', 30, 'tecnico2@colegio.com'),
+('LAB3', 20, 'tecnico3@colegio.com');
+
+-- 2️⃣ Insertar profesores (algunos son técnicos)
+INSERT INTO gestion_inc_profesor (nombre_completo, email, password, laboratorio_id) VALUES 
+('Juan Pérez', 'juan@colegio.com', 'password123', NULL),  -- Profesor normal
+('Ana Gómez', 'ana@colegio.com', 'clave456', NULL),  -- Profesor normal
+('Carlos López', 'tecnico1@colegio.com', 'tec123', 'LAB1'),  -- Técnico de LAB1
+('María Sánchez', 'tecnico2@colegio.com', 'tec456', 'LAB2'),  -- Técnico de LAB2
+('Pedro Ramírez', 'tecnico3@colegio.com', 'tec789', 'LAB3');  -- Técnico de LAB3
+
+-- 3️⃣ Insertar incidencias (reportadas por profesores)
+INSERT INTO gestion_inc_incidencia (fecha, laboratorio_id, numero_ordenador, descripcion, profesor_id, resuelta) VALUES 
+(datetime('now'), 'LAB1', 'PC01', 'El PC no enciende', 'juan@colegio.com', 0),
+(datetime('now'), 'LAB2', 'PC12', 'Pantalla con fallos de imagen', 'ana@colegio.com', 0),
+(datetime('now'), 'LAB3', 'PC05', 'No se detecta el teclado', 'juan@colegio.com', 0);
+
+-- 4️⃣ Insertar resoluciones (hechas por técnicos)
+INSERT INTO gestion_inc_resolucion (incidencia_id, profesor_id, fecha_resolucion, descripcion) VALUES 
+(1, 'tecnico1@colegio.com', datetime('now'), 'Se reemplazó la fuente de alimentación'),
+(2, 'tecnico2@colegio.com', datetime('now'), 'Se cambió el cable VGA'),
+(3, 'tecnico3@colegio.com', datetime('now'), 'Se configuró el driver del teclado');

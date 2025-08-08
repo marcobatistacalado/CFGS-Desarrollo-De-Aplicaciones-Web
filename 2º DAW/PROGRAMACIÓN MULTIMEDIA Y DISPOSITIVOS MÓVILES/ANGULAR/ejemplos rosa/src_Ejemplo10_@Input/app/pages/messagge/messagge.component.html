@@ -1,0 +1,12 @@
+<div class="card-body">
+    <!-- Título del mensaje (nombre del autor) -->
+    <h5 class="card-title">{{ messagge.name }}</h5>
+    <!-- Email del autor -->
+    <p class="card-subtitle mb-2 text-muted">Email: {{ messagge.email }}</p>
+    <!-- Cuerpo del mensaje -->
+    <p class="card-text">{{ messagge.body }}</p>
+  </div>
+  <!-- Footer de la tarjeta con el ID del post y del mensaje -->
+  <div class="card-footer text-muted">
+    Post ID: {{ messagge.postId }} | Message ID: {{ messagge.id }}
+  </div>

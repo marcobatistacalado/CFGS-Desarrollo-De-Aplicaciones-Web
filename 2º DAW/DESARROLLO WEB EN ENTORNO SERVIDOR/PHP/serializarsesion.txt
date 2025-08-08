@@ -1,0 +1,1 @@
+ $this->session->set_userdata('usuario', serialize($usu))

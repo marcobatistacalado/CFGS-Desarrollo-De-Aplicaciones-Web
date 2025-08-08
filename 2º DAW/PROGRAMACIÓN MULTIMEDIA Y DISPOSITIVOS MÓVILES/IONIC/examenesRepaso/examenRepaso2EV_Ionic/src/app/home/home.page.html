@@ -1,0 +1,46 @@
+<app-header [title]="title"></app-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let src of sources">
+        <ion-buttons slot="start">
+          <ion-icon name="earth-outline" slot="icon-only"></ion-icon>
+        </ion-buttons>
+        <ion-label>{{ src.name }}</ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="mostrarDetalle(src.name)">
+            <ion-icon name="eye-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        
+        <!-- Mostrar tarjeta justo debajo del item clickeado -->
+        <ion-card *ngIf="src.select" class="detalle-card">
+          <ion-card-content>
+            <p>Autonomía Seleccionada</p>
+            <h1>Detalles: {{ src.name }}</h1>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="10">
+                  <p>{{ src.description }}</p>
+                </ion-col>
+                <ion-col size="2" class="ion-text-end">
+                  <ion-button fill="clear" color="danger" (click)="cerrarDetalle(src.name)">
+                    <ion-icon name="close-circle" size="large"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="irTemperaturasPage()">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

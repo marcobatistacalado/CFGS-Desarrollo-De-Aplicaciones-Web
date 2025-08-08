@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box; /* Asegura que el padding y el borde no afectan el ancho de los elementos */
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif; /* Fuente general */
+    background-color: #f0f0f0; /* Fondo claro */
+    margin: 0; /* Elimina márgenes por defecto */
+  }
+  
+  .container {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .title {
+    text-align: center; /* Centra el título */
+    font-size: 2.5rem; /* Tamaño de fuente grande */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    color: #333; /* Color del texto */
+  }
+  
+  .movie-list {
+    display: flex; /* Utiliza flexbox para organizar las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en múltiples líneas */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+  }
+  
+  .movie-card {
+    background-color: white; /* Fondo blanco para cada tarjeta */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+    overflow: hidden; /* Asegura que los elementos no se salgan de la tarjeta */
+    width: 220px; /* Ancho fijo de la tarjeta */
+    transition: transform 0.3s; /* Transición suave al hacer hover */
+  }
+  
+  .movie-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+  }
+  
+  .movie-poster {
+    width: 100%; /* Ancho completo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+  }
+  
+  .movie-title {
+    font-size: 1.5rem; /* Tamaño de fuente del título */
+    margin: 10px; /* Espacio alrededor del título */
+    color: #007bff; /* Color del título */
+  }
+  
+  .movie-director,
+  .movie-year {
+    margin: 5px 10px; /* Espacio alrededor de los textos */
+    font-size: 1rem; /* Tamaño de fuente para director y año */
+    color: #555; /* Color gris para director y año */
+  }
+  

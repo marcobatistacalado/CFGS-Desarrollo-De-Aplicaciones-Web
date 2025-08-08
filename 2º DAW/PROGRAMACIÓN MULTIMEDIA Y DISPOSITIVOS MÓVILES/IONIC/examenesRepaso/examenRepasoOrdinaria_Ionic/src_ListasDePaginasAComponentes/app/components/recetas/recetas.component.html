@@ -1,0 +1,27 @@
+<ion-grid fixed>
+  <ion-row *ngIf="noRecetas">
+    <ion-col size="12">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle style="text-align: center;">No hay recetas para esta categoría</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="!noRecetas">
+    <ion-col size="12" *ngFor="let r of recetas">
+      <ion-card class="detalle-card">
+        <img [src]="'assets/imgRecetas/' + r.strMealThumb" />
+
+        <ion-card-header>
+          <ion-card-subtitle style="text-align: center;">{{ r.strMeal }}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          {{ r.strInstructions }}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

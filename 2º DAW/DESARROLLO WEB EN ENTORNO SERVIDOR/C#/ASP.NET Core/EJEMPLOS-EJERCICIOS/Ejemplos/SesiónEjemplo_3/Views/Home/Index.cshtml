@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div >
+    <h1 class="display-4">Ejemplo Sesión</h1>
+    <br /><br />
+    <form asp-controller="Home" asp-action="SetNombreSesion" method="post">
+        <div class="mb-3">
+           
+            <input type="text"  name="nombre" class="form-control" id="nombre" placeholder="Tu nombre" />
+        </div>
+        <br />
+        <button type="submit">Enviar</button>
+    </form>
+
+</div>

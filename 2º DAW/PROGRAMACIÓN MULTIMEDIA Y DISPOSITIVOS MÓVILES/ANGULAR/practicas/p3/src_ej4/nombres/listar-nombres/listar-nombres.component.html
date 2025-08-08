@@ -1,0 +1,15 @@
+<div class="container">
+    <h2 class="title">Lista de Nombres</h2>
+    
+    <!-- Campo de texto con ngModel para binding de la variable 'nombre' -->
+    <input type="text" class="input-field" [(ngModel)]="nombre" placeholder="Introduce un nombre" />
+    
+    <!-- Botón que llama al método 'agregarNombre' cuando se hace clic -->
+    <button class="add-button" (click)="agregarNombre()">Agregar Nombre</button>
+    
+    <!-- Lista de nombres agregados -->
+    <ul class="name-list">
+      <li *ngFor="let nombre of arrayNombres" class="name-item">{{ nombre }}</li>
+    </ul>
+  </div>
+  

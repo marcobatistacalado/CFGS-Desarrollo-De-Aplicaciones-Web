@@ -1,0 +1,39 @@
+<ion-header collapse="condense">
+  <ion-toolbar color="dark">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="usuario" (ngSubmit)="Login()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Nickname:</ion-label>
+        <ion-input type="text" placeholder="Tu nickname" formControlName="nickname"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuario.controls.nickname.errors?.['required'] && (usuario.touched || usuario.dirty)">
+        * El nickname es obligatorio
+      </ion-label>
+      <ion-label color="danger" *ngIf="usuario.controls.nickname.errors?.['minlength'] && (usuario.touched || usuario.dirty)">
+        * El nickname debe tener al menos 4 caracteres.
+      </ion-label>
+
+      <ion-item>
+        <ion-label>Password:</ion-label>
+        <ion-input type="password" placeholder="Tu password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-label color="danger" *ngIf="usuario.controls.password.errors?.['password'] && (usuario.touched || usuario.dirty)">
+        * La password no es válida.
+      </ion-label>
+    </ion-list>
+
+    <p class="ion-text-center">
+      <ion-button type="submit" [disabled]="!usuario.valid">Iniciar sesión</ion-button>
+    </p>
+
+    <!-- Mostrar mensaje de error o éxito -->
+    <p class="ion-text-center" *ngIf="mensaje">
+      {{ mensaje }}
+    </p>
+  </form>
+</ion-content>

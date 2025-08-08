@@ -1,0 +1,51 @@
+﻿@model Alumno; //ES OBLIGATORIO METER EL MODELO PARA PODER USAR LOS asp-for
+@{
+    ViewData["Title"] = "Registro de Alumno";
+}
+
+<h2>Registro de Alumno</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error as string))
+{
+    <p style="color: red;">@ViewBag.Error</p>
+}
+
+<form asp-controller="Usuarios" asp-action="Registro" method="post">
+    <div>
+        <label for="nick">Usuario:</label>
+        <input asp-for="Nick" id="nick" required /> <!--PUEDO USAR name en vez de asp-for...-->
+    </div>
+    <div>
+        <label for="contrasenna">Contraseña:</label>
+        <input asp-for="Contrasenna" type="password" id="contrasenna" required />
+    </div>
+    <div>
+        <label for="nombre">Nombre Completo:</label>
+        <input asp-for="NombreCompleto" id="nombre" required />
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input asp-for="Email" type="email" id="email" required />
+    </div>
+    <div>
+        <label for="ciclo">Ciclo:</label>
+        <select asp-for="Ciclo" id="ciclo">
+            <option value="DAW">DAW</option>
+            <option value="ASIR">ASIR</option>
+            <option value="FINANZAS">FINANZAS</option>
+            <option value="MARKETING">MARKETING</option>
+        </select>
+    </div>
+    <div>
+        <label for="curso">Curso:</label>
+        <select asp-for="Curso" id="curso">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+    </div>
+    <div>
+        <label for="idiomas">Idiomas (separados por coma):</label>
+        <input asp-for="Idiomas" id="idiomas" />
+    </div>
+    <button type="submit">Registrarse</button>
+</form>

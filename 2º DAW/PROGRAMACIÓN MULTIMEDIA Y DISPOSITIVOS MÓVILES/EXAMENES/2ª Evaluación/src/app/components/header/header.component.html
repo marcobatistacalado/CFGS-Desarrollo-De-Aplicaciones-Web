@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar style="background-color: '#153463';">
+    <!--ROSA ME HA DEJADO NO USAR EL IONBACK (no me funciona)
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>-->
+    <ion-buttons slot="start" (click)="volverAtras()">
+      <ion-icon name='arrow-back-outline'></ion-icon>
+    </ion-buttons>
+    
+    <ion-title id="tittle" class="ion-text-center"> {{title}}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-icon name="planet"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

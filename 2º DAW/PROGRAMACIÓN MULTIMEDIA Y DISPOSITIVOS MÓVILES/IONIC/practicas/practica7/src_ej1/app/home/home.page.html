@@ -1,0 +1,22 @@
+<app-header></app-header>
+<ion-content class="ion-padding">
+  <h2>¡Intenta adivinar el número secreto entre 1 y 10!</h2>
+
+  <ion-item>
+    <ion-input
+      type="number"
+      [(ngModel)]="inputNumber"
+      placeholder="Introduce un número"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="checkNumber()" color="dark">CLICK ME</ion-button>
+
+    <ng-container *ngIf="inputNumber === null">
+      <p>El número mayor es...</p>
+    </ng-container>
+
+    <p >{{ message }}</p>
+
+</ion-content>
+<app-footer></app-footer>

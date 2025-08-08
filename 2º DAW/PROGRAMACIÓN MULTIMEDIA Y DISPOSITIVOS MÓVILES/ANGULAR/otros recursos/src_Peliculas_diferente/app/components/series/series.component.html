@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <h2 class="text-center text-primary mb-4">Lista de Series</h2>
+    <div class="row">
+      <div *ngFor="let serie of series" class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <img
+            src="/assets/Imagenes/{{ serie.imagen }}"
+            class="card-img-top"
+            alt="{{ serie.titulo }}"
+            style="height: 250px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-dark">{{ serie.titulo }}</h5>
+            <p class="card-text">
+              <strong>Director:</strong> {{ serie.director }} <br />
+              <strong>Año:</strong> {{ serie.anio }}
+            </p>
+            <a
+              routerLink="/serie-detalles/{{ serie.id }}"
+              class="btn btn-primary btn-block"
+            >
+              Ver detalles
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model ej2.Models.Persona
+
+<form asp-controller="Home" asp-action="MostrarResultados">
+    <label>Nombre:</label>
+    <input type="text" asp-for="Nombre" />
+    <input type="checkbox" name="Aficciones" value="Futbol" /> Futbol
+    <input type="checkbox" name="Aficciones" value="Basket" /> Basket
+    <input type="checkbox" name="Aficciones" value="Bailar" /> Bailar
+    <input type="checkbox" name="Aficciones" value="Cantar" /> Cantar
+    <button>Enviar</button>
+
+</form>

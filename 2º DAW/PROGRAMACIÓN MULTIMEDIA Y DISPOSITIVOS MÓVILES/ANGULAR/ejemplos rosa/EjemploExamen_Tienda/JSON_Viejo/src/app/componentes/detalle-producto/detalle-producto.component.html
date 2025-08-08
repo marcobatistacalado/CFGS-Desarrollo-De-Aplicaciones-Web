@@ -1,0 +1,38 @@
+<div *ngIf="producto" class="container mt-4">
+    <div class="row">
+        <!-- Imagen del producto -->
+        <div class="col-md-6">
+            <img src="/assets/tienda/{{producto.imagen}}" alt="{{ producto.nombre }}" class="img-fluid" />
+        </div>
+
+        <!-- Detalles del producto -->
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">{{ producto.nombre }}</h2>
+                    <p class="card-text"><strong>Precio:</strong> ${{ producto.precio }}</p>
+                    <p class="card-text"><strong>Puntuación:</strong> {{ producto.puntuacion }} / 5</p>
+                    <button class="btn btn-primary">Comprar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Comentarios -->
+    <div *ngIf="comentarios.length > 0" class="mt-5">
+        <h3>Comentarios</h3>
+        <div *ngFor="let comentario of comentarios" class="card mb-3">
+            <div class="card-body">
+                <p><strong>{{ comentario.nombre }}</strong> dijo:</p>
+                <p class="card-text">{{ comentario.comentario }}</p>
+                <!-- Aquí puedes agregar una fecha si se tiene -->
+                <p class="card-text"><small class="text-muted">Comentario de {{ comentario.email }}</small></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Si no hay comentarios, mostrar mensaje -->
+    <div *ngIf="comentarios.length === 0" class="mt-4">
+        <p>No hay comentarios para este producto aún.</p>
+    </div>
+</div>

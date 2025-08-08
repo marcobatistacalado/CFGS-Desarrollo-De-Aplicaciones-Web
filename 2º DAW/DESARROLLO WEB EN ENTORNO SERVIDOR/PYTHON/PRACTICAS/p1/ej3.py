@@ -1,0 +1,6 @@
+n1 = float(input("Introduce n1:"))
+n2= float(input("Introduce n2:"))
+print("Suma "+str(n1+n2))
+print("Resta "+str(n1-n2))
+print("Producto "+str(n1*n2))
+print("Division "+str(n1/n2))

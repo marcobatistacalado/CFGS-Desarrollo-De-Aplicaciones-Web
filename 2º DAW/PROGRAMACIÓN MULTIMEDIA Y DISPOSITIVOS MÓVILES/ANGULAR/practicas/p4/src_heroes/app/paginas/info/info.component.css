@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box; /* Asegura que el padding y el borde no afectan el ancho de los elementos */
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif; /* Fuente general */
+    background-color: #f0f0f0; /* Fondo claro */
+    margin: 0; /* Elimina márgenes por defecto */
+  }
+  
+  .container {
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .title {
+    text-align: center; /* Centra el título */
+    font-size: 2.5rem; /* Tamaño de fuente grande */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    color: #333; /* Color del texto */
+  }
+  
+  .hero-details {
+    display: flex; /* Utiliza flexbox para organizar la tarjeta */
+    justify-content: center; /* Centra el contenido */
+    gap: 20px; /* Espacio entre la imagen y la información */
+    background-color: white; /* Fondo blanco para la tarjeta */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
+  }
+  
+  .hero-image {
+    width: 300px; /* Ancho de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Esquinas redondeadas para la imagen */
+  }
+  
+  .hero-info {
+    display: flex;
+    flex-direction: column; /* Organiza la información en columna */
+    justify-content: center; /* Centra verticalmente la información */
+  }
+  
+  .hero-info h2 {
+    font-size: 2rem; /* Tamaño de fuente para la edad */
+    margin-bottom: 10px; /* Espacio debajo del texto */
+    color: #007bff; /* Color del texto */
+  }
+  
+  .hero-info p {
+    font-size: 1.2rem; /* Tamaño de fuente de la biografía */
+    color: #555; /* Color gris para la biografía */
+    line-height: 1.6; /* Espaciado entre líneas */
+  }
+  

@@ -1,0 +1,36 @@
+﻿@model EjemploCifrado.Models.LoginViewModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card p-4 shadow-sm" style="max-width: 400px; width: 100%;">
+        <h3 class="text-center mb-4">Login</h3>
+        <form  method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @{
+                if (ViewData["Error"] is not null)
+                {
+                    <div class="alert alert-danger" role="alert">
+
+                    <p>@ViewData["Error"]</p>
+            
+                </div>
+                }
+            }
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" id="Email" class="form-control" asp-for="Email"  required>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" id="password" class="form-control" asp-for="Password" required>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+        </form>
+        <p class="text-center mt-3">No estás registrado? <a asp-action="Register" class="text-decoration-none">Registrar</a></p>
+    </div>
+</div>

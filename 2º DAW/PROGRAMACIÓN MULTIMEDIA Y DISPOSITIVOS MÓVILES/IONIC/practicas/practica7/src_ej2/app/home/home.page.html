@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <h2>¡Intenta adivinar el número secreto entre 1 y 10!</h2>
+
+  <p>Intentos: {{ intentos }}</p> <!-- Mostramos el contador de intentos -->
+
+  <ion-item>
+    <ion-input
+      type="number"
+      [(ngModel)]="inputNumber"
+      placeholder="Introduce un número"
+    ></ion-input>
+  </ion-item>
+
+  <!-- Mostrar botón diferente según si ha acertado o no -->
+  <ion-button *ngIf="!acertado" expand="block" (click)="checkNumber()" color="dark">
+    CLICK ME
+  </ion-button>
+
+  <ion-button *ngIf="acertado" expand="block" (click)="reiniciarJuego()" color="success">
+    RESET
+  </ion-button>
+
+  <p>{{ message }}</p>
+
+  <!--HACERLO CON ION-CARD
+  <p *ngIf="!ganar" >{{ message }}</p>
+
+    <ion-card *ngIf="ganar">
+      <ion-card-header>
+        <ion-card-title>Has acertado</ion-card-title>
+        <ion-card-subtitle>Enhorabuena!</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{ message }}
+      </ion-card-content>
+    </ion-card>-->
+
+</ion-content>
+
+<app-footer></app-footer>

@@ -1,0 +1,20 @@
+﻿@model Ejemplo
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<p>Nombre: @Model.Nombre</p>
+
+<p>SExo: @Model.Sexo</p>
+
+<p>Mis aficiones<br />
+    <ul>
+    @foreach (var item in @Model.MisAficiones)
+    {
+       <li> @item.Nombre</li>
+    }
+   </ul>
+</p>

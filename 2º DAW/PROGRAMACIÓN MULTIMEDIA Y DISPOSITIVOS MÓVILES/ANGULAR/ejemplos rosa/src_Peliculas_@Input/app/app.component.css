@@ -1,0 +1,19 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8; /* Color de fondo suave */
+    color: #333; /* Color del texto */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+}
+
+.container {
+    flex: 1; /* Permite que el contenedor principal ocupe el espacio restante */
+    display: flex;
+    flex-direction: column; /* Organiza el contenido en columnas */
+}
+
+
+

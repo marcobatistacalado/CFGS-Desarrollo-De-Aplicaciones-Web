@@ -1,0 +1,14 @@
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" *ngFor="let c of categorias">
+        <ion-card class="detalle-card">
+          <img [src]="'assets/imgCategorias/' + c.strCategoryThumb" (click)="irInfoCategoria(c.idCategory)"/>
+          <ion-card-header>
+            <ion-card-subtitle style="text-align: center;">{{ c.strCategory }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+

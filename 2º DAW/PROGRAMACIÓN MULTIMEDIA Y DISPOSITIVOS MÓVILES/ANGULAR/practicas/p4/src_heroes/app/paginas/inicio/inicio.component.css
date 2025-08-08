@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Estilos para la lista de héroes */
+.heroe-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.heroe-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 220px;
+  padding: 10px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.heroe-card:hover {
+  transform: translateY(-5px);
+  background-color: #f0f8ff; /* Fondo más claro en hover */
+}
+
+.heroe-poster {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.heroe-title {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #007bff;
+  text-align: center;
+}
+
+/* Estilo para la información adicional */
+.heroe-info {
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.heroe-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.heroe-info strong {
+  color: #007bff;
+}

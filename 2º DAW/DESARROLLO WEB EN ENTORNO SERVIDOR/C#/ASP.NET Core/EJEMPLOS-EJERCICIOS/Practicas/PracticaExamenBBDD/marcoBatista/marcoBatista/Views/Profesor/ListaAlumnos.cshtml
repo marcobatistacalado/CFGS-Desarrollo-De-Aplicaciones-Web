@@ -1,0 +1,43 @@
+﻿@model IEnumerable<marcoBatista.Models.Alumno>
+
+@{
+    ViewData["Title"] = "Lista de Alumnos";
+}
+
+<h1>Lista de Alumnos</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Curso</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var alumno in Model)
+            {
+                <tr>
+                    <td>@alumno.Email</td>
+                    <td>@alumno.Curso</td>
+                    <td>
+                        <!-- Acción para ver detalles del alumno -->
+                        <a href="@Url.Action("Alumno", "Alumno", new { email = alumno.Email })" class="btn btn-info">Ver</a>
+
+                        <!-- Acción para editar el alumno -->
+                        <a href="@Url.Action("EditarAlumno", "Profesor", new { email = alumno.Email })" class="btn btn-warning">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay alumnos registrados.</p>
+}
+
+<!-- Botón para agregar un nuevo alumno -->
+<a href="@Url.Action("AgregarAlumno", "Profesor")" class="btn btn-primary">Agregar Alumno</a>

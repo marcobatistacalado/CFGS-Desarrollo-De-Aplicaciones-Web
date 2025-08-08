@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="usuario" (ngSubmit)="Registrar()">
+    <ion-list>
+        <ion-list-header>
+            <ion-label>Formulario</ion-label>
+        </ion-list-header>
+        <ion-item>
+            <ion-label>Nombre:</ion-label>
+            <ion-input type="text" placeholder="Tu nombre" formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-label color="danger" *ngIf="usuario.controls.nombre.errors?.['required'] && (usuario.controls.nombre.touched || usuario.controls.nombre.dirty)">* El nombre es obligatorio </ion-label>
+        <ion-item>
+            <ion-label>Password:</ion-label>
+            <ion-input type="Password" placeholder="Tu password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-label color="danger" *ngIf="usuario.controls.password.errors?.['required'] && (usuario.controls.password.touched || usuario.controls.password.dirty)">* La password es obligatoria </ion-label>
+        <ion-item>
+          <ion-label>Confirmar Password:</ion-label>
+          <ion-input type="Password" placeholder="Tu password" formControlName="confpassword"></ion-input>
+          <ion-label color="danger" *ngIf="usuario.controls.confpassword.errors?.['required'] && (usuario.controls.confpassword.touched || usuario.controls.confpassword.dirty)">* La password es obligatoria </ion-label>
+      </ion-item>
+    </ion-list>
+    <p class="ion-text-center">
+        <ion-button type="submit" [disabled]="!usuario.valid">Registrar</ion-button>
+    </p>
+    <p class="ion-padding">{{ usuario.controls.nombre.value }}
+        <br>{{ usuario.controls.password.value }}
+    </p>
+
+
+</form>
+</ion-content>

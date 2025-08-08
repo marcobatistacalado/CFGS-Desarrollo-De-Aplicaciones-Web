@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary">Lista de Mensajes</h2>
+    
+    <ul class="list-group">
+      <li *ngFor="let mensaje of mensajes" class="list-group-item mb-3 p-3 border-0 shadow-sm">
+        <div class="card">
+          <div class="card-body">
+            <p>{{ mensaje.id }}</p>
+            <h5 class="card-title">Nombre: {{ mensaje.nombre }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Asunto: {{ mensaje.asunto }}</h6>
+            <a style="color: rgb(38, 166, 240); text-decoration: underline;" (click)="verMensaje()">Detalles</a>
+            <p *ngIf="mensajeSeleccionado">{{ mensaje.texto }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

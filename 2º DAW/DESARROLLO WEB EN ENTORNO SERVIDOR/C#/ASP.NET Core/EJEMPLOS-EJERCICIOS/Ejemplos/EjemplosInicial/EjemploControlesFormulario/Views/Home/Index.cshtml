@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="getDatos"> <!--asp-controller= si no lo ponemos entiende que la peticion es desde el mismo controlador que ha mandado a esta vista->
+    <input type="radio" name="sexo" value="M" />Mujer
+    <input type="radio" name="sexo" value="H" />Hombre
+    <input type="radio" name="sexo" value="O" />Otros
+    <hr />
+    <br />
+    <input type="checkbox" name="aficiones" value="lectura" />Leer
+    <input type="checkbox" name="aficiones" value="viajes" />Viajar
+    <input type="checkbox" name="aficiones" value="deporte" />Hacer Deporte
+    <hr />
+    <br />
+    <select name="ciclo">
+        <option value="DAW">Desarrollo de Aplicaciones Web</option>
+        <option value="ASIR">Sistemas Informáticos</option>
+
+    </select>
+    <hr>
+    <button type="submit">Enviaar</button>
+
+</form>

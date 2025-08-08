@@ -1,0 +1,55 @@
+﻿@model AlumnosCicloView
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var ciclo = Model.ciclo;
+}
+
+<h1 class="display-4">LISTADO DE ALUMNOS</h1>
+<h3 > @ciclo </h3>
+<br /><br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               ID
+            </th>
+            <th>
+                DNI
+            </th>
+            <th>
+               NOMBRE
+            </th>
+            
+            <th>
+               CURSO
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.lista) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdAlumno)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DNI)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.CursoAlumno)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DNI">Edit</a> | 
+                <a asp-action="Delete" asp-route-id="@item.DNI">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

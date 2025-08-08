@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "SessionEjemplo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Session Con Objetos</h1>
+<br /><br />
+<a asp-controller="Home" asp-action="SessionEjemplo" asp-route-accion="almacenar">Almacenar</a> |
+
+<br />
+<br />
+
+<h3>@ViewData["MENSAJE"]</h3>
+@{
+    Persona p = Context.Session.GetObject<Persona>("Persona");
+}
+
+    @if (@p!=null)
+    {
+  
+    <h2 style="color:blue"> Usuario: @p.Nombre</h2>
+    <h2 style="color:fuchsia">Email: @p.Email</h2>
+    <h2 style="color:forestgreen">Edad: @p.Edad</h2>
+    }

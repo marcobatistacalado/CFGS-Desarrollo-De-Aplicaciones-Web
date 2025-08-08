@@ -1,0 +1,61 @@
+﻿@model ExamenRepasoExtraOrdinaria2024.Models.LoginViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+
+<h2>Park OnLine</h2>
+<table class="table">
+    <tr>
+        <td style="padding-top:80px"><h2>Reserva tu aparcamiento y disfruta de Madrid</h2></td>
+        <td></td>
+        <td></td>
+        <td>
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+
+                    <h2>Login</h2>
+                
+
+                <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        @{
+                            if (ViewData["Error"] is not null)
+                            {
+                                <div class="alert alert-danger" role="alert">
+
+                                    <p>@ViewData["Error"]</p>
+
+                                </div>
+                            }
+                        }
+                        <input type="text" class="fadeIn second" placeholder="Usuario" asp-for="Dni" />
+                        <span asp-validation-for="Dni" class="text-danger"></span>
+                        <input type="password" class="fadeIn third" placeholder="Password" asp-for="PasswordLogin" />
+                        <span asp-validation-for="PasswordLogin" class="text-danger"></span>
+                        <br /><br />
+                        <input type="submit" class="fadeIn fourth btn-primary" value="Log In">
+                    </form>
+
+
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            @TempData["Error"]
+                        </div>
+                    }
+
+
+                </div>
+                <br />
+                <div id="noregistro">
+                    @Html.ActionLink("Inicia sin registro", "", "")&nbsp;&nbsp;|&nbsp;&nbsp;@Html.ActionLink("Regístrate", "Registro", "Home")
+                </div>
+            </div>
+        </td>
+    </tr>
+
+</table>
+

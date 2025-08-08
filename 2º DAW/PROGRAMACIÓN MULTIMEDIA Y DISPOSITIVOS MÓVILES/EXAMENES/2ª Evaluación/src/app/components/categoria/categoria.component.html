@@ -1,0 +1,25 @@
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" *ngIf="categoria">
+      <ion-card class="detalle-card">
+        <img [src]="'assets/categorias/' + categoria.imagen"/>
+
+        <ion-card-header>
+          <ion-card-title>{{ categoria.categoria }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content >
+          <ion-text class="ion-text-justify">
+            <p>{{categoria.descripcion}}</p>
+          </ion-text>
+            <ion-buttons>
+              <ion-button (click)="verImagenes(categoria.identificador)">Ver Imágenes</ion-button>
+            </ion-buttons>
+          
+        </ion-card-content>
+        
+       
+        
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

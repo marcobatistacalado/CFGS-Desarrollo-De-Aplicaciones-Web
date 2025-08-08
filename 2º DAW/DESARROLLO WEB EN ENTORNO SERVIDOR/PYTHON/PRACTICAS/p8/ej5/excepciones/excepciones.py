@@ -1,0 +1,3 @@
+
+class SolicitudNoExisteError(Exception):
+    pass

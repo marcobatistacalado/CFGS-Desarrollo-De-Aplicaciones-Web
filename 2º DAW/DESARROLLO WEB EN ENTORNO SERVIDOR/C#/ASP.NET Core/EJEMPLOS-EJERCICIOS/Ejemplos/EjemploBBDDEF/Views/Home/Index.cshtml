@@ -1,0 +1,32 @@
+﻿@model IList<Ciclo>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Ejemplo Entity Framework</h1>
+    <br /><br />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ESPECIALIDAD</th>
+                <th>SIGLAS</th>
+                <th>NOMBRE</th>
+                <th>NÚMERO CURSOS</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Ciclo c in Model)
+            {
+                <tr>
+                    <td>@c.IdCiclo</td>
+                    <td>@c.Especialidad</td>
+                    <td>@c.Siglas</td>
+                    <td>@c.Nombre</td>
+                    <td>@c.Numero_Cursos</td>
+                </tr>
+            }
+        </tbody>
+    </table>

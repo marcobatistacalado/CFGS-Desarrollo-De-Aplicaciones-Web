@@ -1,0 +1,45 @@
+﻿@model Alumno
+
+<h1>Añadir Alumno</h1>
+
+<form asp-controller="Profesor" asp-action="AgregarAlumno" method="post">
+    <div>
+        <label for="nick">Usuario:</label>
+        <input asp-for="Nick" id="nick" required />
+        <span asp-validation-for="Nick"></span>
+    </div>
+    <div>
+        <label for="contrasenna">Contraseña:</label>
+        <input asp-for="Contrasenna" type="password" id="contrasenna" required />
+        <span asp-validation-for="Contrasenna"></span>
+    </div>
+    <div>
+        <label for="nombre">Nombre Completo:</label>
+        <input asp-for="NombreCompleto" id="nombre" required />
+        <span asp-validation-for="NombreCompleto"></span>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input asp-for="Email" type="email" id="email" required />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label for="ciclo">Ciclo:</label>
+        <select asp-for="Ciclo" id="ciclo">
+            <option value="DAW">DAW</option>
+            <option value="ASIR">ASIR</option>
+            <option value="FINANZAS">FINANZAS</option>
+            <option value="MARKETING">MARKETING</option>
+        </select>
+        <span asp-validation-for="Ciclo"></span>
+    </div>
+    <div>
+        <label for="curso">Curso:</label>
+        <select asp-for="Curso" id="curso">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <span asp-validation-for="Curso"></span>
+    </div>
+    <button type="submit">Añadir Alumno</button>
+</form>

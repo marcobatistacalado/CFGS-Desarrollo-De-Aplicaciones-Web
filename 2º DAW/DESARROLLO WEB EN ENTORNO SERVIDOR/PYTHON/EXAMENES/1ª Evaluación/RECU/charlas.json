@@ -1,0 +1,76 @@
+[{
+    "numero_sala": 1,
+    "aforo": 100,
+    "recaudacion": 5000,
+    "charlas": [{
+            "tema": "Tecnologías del Futuro",
+            "ponente": "Dr. Juan Pérez",
+            "hora": "10:00",
+            "entradasvendidas": 20,
+            "precio": 50
+        },
+        {
+            "tema": "Ciberseguridad en la Era Digital",
+            "ponente": "Ing. Ana García",
+            "hora": "12:00",
+            "entradasvendidas": 50,
+            "precio": 70
+        },
+        {
+            "tema": "Innovación en el aula",
+            "ponente": "Beatriz Ramírez López",
+            "hora": "08:00",
+            "entradasvendidas": 10,
+            "precio": 15
+        }
+    ]
+},
+{
+    "numero_sala": 2,
+    "aforo": 200,
+    "recaudacion": 10000,
+    "charlas": [{
+            "tema": "Machine Learning en la Industria",
+            "ponente": "Dr. Luis Martínez",
+            "hora": "11:00",
+            "entradasvendidas": 100,
+            "precio": 50
+        },
+        {
+            "tema": "Blockchain y Criptomonedas",
+            "ponente": "Lic. Sofía Torres",
+            "hora": "14:00",
+            "entradasvendidas": 80,
+            "precio": 75
+        },
+        {
+            "tema": "El internet de los datos",
+            "ponente": "Juan Gómez Santos",
+            "hora": "09:30",
+            "entradasvendidas": 30,
+            "precio": 25
+        }
+    ]
+},
+{
+    "numero_sala": 3,
+    "aforo": 150,
+    "recaudacion": 7500,
+    "charlas": [{
+            "tema": "Realidad Virtual y Aumentada",
+            "ponente": "Ing. Pedro Domínguez",
+            "hora": "09:30",
+            "entradasvendidas": 20,
+            "precio": 50
+        },
+        {
+            "tema": "Diseño de Videojuegos",
+            "ponente": "Lic. María Fernández",
+            "hora": "13:00",
+            "entradasvendidas": 90,
+            "precio": 50
+        }
+    ]
+}
+]
+

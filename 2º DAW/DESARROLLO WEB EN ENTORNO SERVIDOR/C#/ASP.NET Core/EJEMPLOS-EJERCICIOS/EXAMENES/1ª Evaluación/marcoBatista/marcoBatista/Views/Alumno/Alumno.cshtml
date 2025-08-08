@@ -1,0 +1,9 @@
+﻿@model Alumno
+<h1>Datos del Alumno</h1>
+
+<p>Nombre Completo: @Model.NombreCompleto</p>
+<p>Email:@Model.Email</p>
+<p>Ciclo: @Model.Ciclo</p>
+<p>Curso: @Model.Curso</p>
+
+<a asp-action="Editar" asp-route-id="@Model.Email">Editar</a>

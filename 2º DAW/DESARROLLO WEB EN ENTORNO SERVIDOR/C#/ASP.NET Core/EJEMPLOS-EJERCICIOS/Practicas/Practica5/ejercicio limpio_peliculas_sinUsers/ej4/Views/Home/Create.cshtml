@@ -1,0 +1,82 @@
+﻿@model ej4.Models.PeliculaInfoView
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Pelicula</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Pelicula Fields -->
+            <div class="form-group">
+                <label asp-for="Pelicula.Titulo" class="control-label"></label>
+                <input asp-for="Pelicula.Titulo" class="form-control" />
+                <span asp-validation-for="Pelicula.Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pelicula.FechaEstreno" class="control-label"></label>
+                <input asp-for="Pelicula.FechaEstreno" class="form-control" />
+                <span asp-validation-for="Pelicula.FechaEstreno" class="text-danger"></span>
+            </div>
+            <!-- Genero: Usamos DropDownListFor para crear el <select> -->
+            <div class="form-group">
+                <label asp-for="Pelicula.Genero" class="control-label"></label>
+                <select asp-for="Pelicula.Genero" class="form-control"> <!--MONTAR LUEGO EL OBJETO-->
+                    <option value="">Selecciona un género</option>
+                    @foreach (var genero in Model.Generos)
+                    {
+                        <option value="@genero.NGenero">@genero.NGenero</option>
+                    }
+                </select>
+                <span asp-validation-for="Pelicula.Genero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pelicula.Precio" class="control-label"></label>
+                <input asp-for="Pelicula.Precio" class="form-control" />
+                <span asp-validation-for="Pelicula.Precio" class="text-danger"></span>
+            </div>
+
+            <!-- InfoPelicula Fields -->
+            <div class="form-group">
+                <label asp-for="Info.Director" class="control-label"></label>
+                <input asp-for="Info.Director" class="form-control" />
+                <span asp-validation-for="Info.Director" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Info.Sinopsis" class="control-label"></label>
+                <input asp-for="Info.Sinopsis" class="form-control" />
+                <span asp-validation-for="Info.Sinopsis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Info.ActorPrincipal" class="control-label"></label>
+                <input asp-for="Info.ActorPrincipal" class="form-control" />
+                <span asp-validation-for="Info.ActorPrincipal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Info.ActrizPrincipal" class="control-label"></label>
+                <input asp-for="Info.ActrizPrincipal" class="form-control" />
+                <span asp-validation-for="Info.ActrizPrincipal" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

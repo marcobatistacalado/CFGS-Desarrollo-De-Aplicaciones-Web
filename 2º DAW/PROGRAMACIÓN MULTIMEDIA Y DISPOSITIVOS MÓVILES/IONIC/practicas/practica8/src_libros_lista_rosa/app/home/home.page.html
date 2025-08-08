@@ -1,0 +1,11 @@
+<app-header [listalibros] = "listalibros"></app-header>
+<ion-content [fullscreen]="true">
+  <app-orden (Factor)="ordenar($event)"></app-orden>
+<app-libros [listalibros] = "listalibros"></app-libros>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin-right: 5%;">
+    <ion-fab-button (click)="scrollToTop()">
+      <ion-icon name="arrow-up"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

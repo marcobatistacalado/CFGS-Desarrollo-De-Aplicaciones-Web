@@ -1,0 +1,21 @@
+﻿@model ej4.Models.Usuario
+
+<form asp-controller="Home" asp-action="DatosUsuario" >
+    <div>
+        <label for="Curso">Nombre:</label>
+        <input type="text" asp-for="Nombre" id="Nombre" />
+    </div>
+    <div>
+        <label for="Curso">Curso:</label>
+        <input type="text" asp-for="Curso" id="Curso" />
+    </div>
+    <div>
+        <label for="Correo">Correo:</label>
+        <input type="text" asp-for="Correo" id="Edad" />
+    </div>
+    <div>
+        <label for="Confirmacion">Asistencia:</label>
+        <input type="checkbox" name="Confirmacion" value="Si" /> Confirmar asistencia
+    </div>
+    <button>Enviar</button>
+</form>

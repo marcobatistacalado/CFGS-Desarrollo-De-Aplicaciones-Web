@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <h2 class="text-center text-primary mb-4">Lista de Películas</h2>
+    <div class="row">
+      <div *ngFor="let pelicula of peliculas" class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <img
+            src="/assets/Imagenes/{{ pelicula.imagen }}"
+            class="card-img-top"
+            alt="{{ pelicula.titulo }}"
+            style="height: 250px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-dark">{{ pelicula.titulo }}</h5>
+            <p class="card-text">
+              <strong>Director:</strong> {{ pelicula.director }} <br />
+              <strong>Año:</strong> {{ pelicula.anio }}
+            </p>
+            <a
+              routerLink="/pelicula-detalles/{{ pelicula.id }}"
+              class="btn btn-primary btn-block"
+            >
+              Ver detalles
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

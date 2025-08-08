@@ -1,0 +1,4 @@
+Este es un archivo que utilizaremos
+para mostrar algunos ejemplos del uso de ficheros
+en python.
+El texto no dice nada.

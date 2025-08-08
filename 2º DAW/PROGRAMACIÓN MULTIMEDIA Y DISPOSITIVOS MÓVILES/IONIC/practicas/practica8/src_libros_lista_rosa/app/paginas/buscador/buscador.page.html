@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-item slot="start" color="dark">
+      <ion-select [(ngModel)]="selec"  placeholder="Selecciona">
+        <ion-select-option value="autor">Autor</ion-select-option>
+        <ion-select-option value="titulo">Titulo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-searchbar color="dark" slot="end" placeholder="Busqueda" class="ion-text-left" (ionInput)="seleccion($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="textdanger != ' ' ">
+    <ion-text color="warning">
+      <h3><ion-icon name="warning">
+      </ion-icon>
+     {{textdanger}}</h3>
+    </ion-text>
+  </div>
+  <app-libros [listalibros]="todo"></app-libros>
+
+</ion-content>

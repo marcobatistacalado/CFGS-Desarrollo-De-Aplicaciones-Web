@@ -1,0 +1,24 @@
+ion-content {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center;    /* Centrar verticalmente */
+  height: 100%;           /* Asegurar que ocupa toda la pantalla */
+}
+
+.i-padding {
+  padding: 16px;
+  width: 90%; /* Ajustar el ancho para que no sea demasiado grande */
+  max-width: 400px; /* Limitar el ancho máximo */
+}
+
+
+.titulo {
+  font-size: larger;
+  font-weight: bold;
+}
+.subtitulo {
+  font-style: italic;
+}
+hr {
+  background-color: #3880ff;
+}

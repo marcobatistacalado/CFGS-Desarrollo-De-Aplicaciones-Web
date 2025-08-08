@@ -1,0 +1,17 @@
+<div class="container"><br>
+    <h2>Lista de Series</h2><br>
+    <ul>
+      <li *ngFor="let serie of series">
+        <a routerLink="/contenido-serie/{{serie.id}}">
+          <img src="assets/Imagenes/{{serie.imagen}}" alt="{{ serie.titulo }}" />
+        </a>
+        
+        <div>
+            <p><strong>Título:</strong> {{ serie.titulo }}</p>
+            <p><strong>Plataforma:</strong> {{ serie.plataforma }}</p>
+            <p><strong>Temporadas:</strong> {{ serie.temporadas }}</p> 
+
+        </div>
+      </li>
+    </ul>
+</div>

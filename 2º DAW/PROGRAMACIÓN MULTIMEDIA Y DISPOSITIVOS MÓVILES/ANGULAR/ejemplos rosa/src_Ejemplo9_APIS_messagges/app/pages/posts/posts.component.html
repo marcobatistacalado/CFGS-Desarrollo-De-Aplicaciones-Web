@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <h2 class="text-primary">Posts</h2>
+  
+    <!-- Mensaje de información si no hay posts disponibles -->
+    <div *ngIf="posts.length === 0" class="alert alert-info">
+      No posts available.
+    </div>
+  
+    <!-- Lista de posts -->
+    <div *ngFor="let post of posts" class="card mb-3">
+      <div class="card-body">
+        <!-- Título del post -->
+        <h5 class="card-title">{{ post.title }}</h5>
+        <!-- Cuerpo del post -->
+        <p class="card-text">{{ post.body }}</p>
+      </div>
+      <!-- Footer de la tarjeta con el ID del usuario y del post -->
+      <div class="card-footer text-muted">
+        User ID: {{ post.userId }} | Post ID: {{ post.id }}
+      </div>
+    </div>
+  </div>
+  

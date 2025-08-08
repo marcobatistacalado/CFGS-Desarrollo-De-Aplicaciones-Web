@@ -1,0 +1,85 @@
+{
+    
+    "copyright":"planet earth",
+    "version": 3.0,
+    "property":"NASA",
+    "objects": [
+        {
+            "categoria":"cl",
+            "titulo": "The Sword of Orion",
+            "nasaId": "PIA08653",
+            "descripcion":"This image from NASA Spitzer Space Telescope shows the Orion nebula, our closest massive star-making factory, 1,450 light-years from Earth. The nebula is close enough to appear to the naked eye as a fuzzy star in the sword of the constellation.",
+            "Fecha": "2006-08-15",
+            "Centro":"JPL",
+            "imagen":"orion.jpg"
+        },
+        {
+            "categoria":"pl",
+            "titulo": "Saturn Auroras",
+            "nasaId": "PIA06436",
+            "descripcion":"This image from NASA Spitzer Space Telescope shows the auroras saturn, a light emitted when hydrogen gas interacted with high-power electrons generated in its magnetic field, all within Saturn's north pole. Early data showed that these auroras are intense and changing thanks to the planet's powerful magnetosphere and its rapid rotation, which is why Saturn's days last only 11 hours.",
+            "Fecha": "2005-08-04",
+            "Centro":"JPL",
+            "imagen":"saturno.jpg"
+        },
+        {
+            "categoria":"pl",
+            "titulo": "Venus Cloud Tops Viewed by Hubble",
+            "nasaId": "PIA01544",
+            "descripcion":"Venus Cloud Tops Viewed by Hubble. This is a NASA Hubble Space Telescope ultraviolet-light image of the planet Venus, taken on January 24 1995, when Venus was at a distance of 70.6 million miles 113.6 million kilometers from Earth.",
+            "Fecha": "1999-05-18",
+            "Centro":"JPL",
+            "imagen":"venus.jpg"
+        },
+        {
+            "categoria":"gl",
+            "titulo": "Andromeda galaxy from Palomar Observatory",
+            "nasaId": "ARC-1983-AC83-0565-2",
+            "descripcion":"The immense Andromeda galaxy, also known as Messier 31, is captured in full in this image from NASA Wide-field Infrared Survey Explorer. Andromeda is the closest large galaxy to our Milky Way galaxy, and is located 2.5 million light-years from our sun.",
+            "Fecha": "2010-02-15",
+            "Centro":"JPL",
+            "imagen":"andromeda.jpg"
+        },
+        {
+            "categoria":"pl",
+            "titulo": "Mars",
+            "nasaId": "PIA04591",
+            "descripcion":"Mars is a cold and desert world. The average temperature on Mars is -65 degrees Celsius (-85 degrees Fahrenheit), well below freezing. Mars is half the size of Earth. It is sometimes called the red planet. It is red due to the rusty iron in its soil.",
+            "Fecha": "2011-06-18",
+            "Centro":"JPL",
+            "imagen":"mars.jpg"
+        },
+        {
+            "categoria":"cl",
+            "titulo": "Stormy seas in Sagittarius",
+            "nasaId": "GSFC_20171208_Archive_e000671",
+            "descripcion":"Some of the most breathtaking views in the Universe are created by nebulae — hot, glowing clouds of gas. This new NASA/ESA Hubble Space Telescope image shows the centre of the Lagoon Nebula, an object with a deceptively tranquil name. The region is filled with intense winds from hot stars, churning funnels of gas, and energetic star formation, all embedded within an intricate haze of gas and pitch-dark dust.",
+            "Fecha": "2017-12-15",
+            "Centro":"JPL",
+            "imagen":"sagitario.jpg"
+        },
+        {
+            "categoria":"gl",
+            "titulo": "Galaxy is Pretty in Pink",
+            "nasaId": "PIA09579",
+            "descripcion":"The perfectly picturesque spiral galaxy known as Messier 81, or M81, looks sharp in this new composite from NASA Spitzer and Hubble space telescopes and NASA Galaxy Evolution Explorer.",
+            "Fecha": "2012-10-15",
+            "Centro":"JPL",
+            "imagen":"espiral.jpg"
+        },
+        {
+            "categoria":"cl",
+            "titulo": "Into the Depths of the Auriga",
+            "nasaId": "PIA14728",
+            "descripcion":"Swirling dust clouds and bright newborn stars dominate the view in this image of the Lagoon nebula from NASA Spitzer Space Telescope. The nebula lies in the general direction of the center of our galaxy in the constellation Auriga.",
+            "Fecha": "2011-09-15",
+            "Centro":"JPL",
+            "imagen":"auriga.jpg"
+        }
+        
+    ]
+
+
+
+}
+

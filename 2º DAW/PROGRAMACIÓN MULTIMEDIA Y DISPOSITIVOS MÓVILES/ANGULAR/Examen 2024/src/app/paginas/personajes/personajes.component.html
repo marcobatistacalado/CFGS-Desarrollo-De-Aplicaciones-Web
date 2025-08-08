@@ -1,0 +1,68 @@
+<h4>MEDIA</h4>
+<div class="todo caja">
+    <div id="primero" class="caja" *ngIf="personajeLuke" >
+        <img class="imagen" src="/assets/imgexamen2024/{{personajeLuke.img}}">
+        <h5 class="card-title" >{{personajeLuke.name}}</h5>
+    </div>
+    <p (click)="getPersonajeConcreto('4')">fffff</p>
+    <div id="cuerpo">
+        <table class="tabla">
+            <tbody> <!--hE TENIDO QUE AÑADIR ESTO POR LA VERSION EL DOM NO CARGABA DE FORMA ADECUADA-->
+            <tr>
+          
+                <td *ngFor="let p of personajes">
+                
+                    <div id="imagenes" class="caja">
+                        <img src="/assets/imgexamen2024/{{p.img}}" class="img" alt="..." (click)="getPersonajeConcreto(p.uid)" >
+                        <div>
+                            <br>
+
+                            <h5 class="card-title" (click)="getPersonajeConcreto(p.uid)">{{p.name}}</h5>
+
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+<br>
+
+<h4>SUMARIO</h4>
+
+<div class="todo caja" *ngIf="personajeConcreto">
+   
+            <div id="unosolo" >
+            
+            <h3 class="card-title">NAME: {{personajeConcreto.result.properties.name}} </h3>
+            <table id="tSumario">
+            <tr>
+            <td>
+            <h5>DESCRIPTION: {{personajeConcreto.result.description}}</h5>
+            <h5>GENDER: {{personajeConcreto.result.properties.gender}}</h5>
+            <h5>BIRTH YEAR: {{personajeConcreto.result.properties.birth_year}}</h5>
+            </td>
+            <td>
+          
+            <h5>EYE COLOR: {{personajeConcreto.result.properties.eye_color}}</h5>
+            <h5>HAIR COLOR: {{personajeConcreto.result.properties.hair_color}}</h5>
+            <h5>SKIN COLOR: {{personajeConcreto.result.properties.skin_color}}</h5>
+            </td>
+            <td>
+             <h5>HEIGHT: {{personajeConcreto.result.properties.height}}</h5>
+            <h5>MASS: {{personajeConcreto.result.properties.mass}}</h5>
+            <h5>HOMEWORLD: {{personajeConcreto.result.properties.homeworld}}</h5>
+            </td>
+            </tr>
+            </table>
+
+            </div>
+           
+</div>
+<br><br>
+ 
